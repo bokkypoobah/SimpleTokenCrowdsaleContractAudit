@@ -1,0 +1,3 @@
+tokenAddress=0x821ca8becdbfb00ca55e722908796a375bc2d538
+trusteeAddress=0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b
+saleAddress=0x1029670471248c1046263e47c431a061a7fa34ab

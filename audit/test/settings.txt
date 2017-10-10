@@ -3,10 +3,12 @@ PASSWORD=testtest
 
 SOURCEDIR=../../contracts
 
-CROWDSALESOL=TokenSale.sol
-CROWDSALEJS=TokenSale.js
 TOKENSOL=SimpleToken.sol
 TOKENJS=SimpleToken.js
+TRUSTEESOL=Trustee.sol
+TRUSTEEJS=Trustee.js
+CROWDSALESOL=TokenSale.sol
+CROWDSALEJS=TokenSale.js
 
 DEPLOYMENTDATA=deploymentData.txt
 
