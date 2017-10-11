@@ -47,7 +47,7 @@ This audit has been conducted on Simple Tokens's source code in commits
 * [Due Diligence](#due-diligence)
 * [Risks](#risks)
 * [Testing](#testing)
-  * [Test 1](#test-1)
+  * [Test 1 Max Funding](#test-1-max-funding)
   * [Test 2](#test-2)
 * [Code Review](#code-review)
 
@@ -121,16 +121,17 @@ matches the audited source code, and that the deployment parameters are correctl
 
 ## Testing
 
-### Test 1
-
-**TODO**
+### Test 1 Max Funding
 
 The following functions were tested using the script [test/01_test1.sh](test/01_test1.sh) with the summary results saved
 in [test/test1results.txt](test/test1results.txt) and the detailed output saved in [test/test1output.txt](test/test1output.txt):
 
-* [ ] Deploy the crowdsale/token contract(s)
-* [ ] Contribute to the crowdsale contract
-* [ ] Finalise the successful crowdsale
+* [x] Deploy the token, trustee and sale contracts
+* [x] Stitch the contracts together, move tokens to contracts
+* [x] Whitelist participant accounts
+* [x] Contribute to the crowdsale contract
+* [x] Finalise the successful crowdsale
+* [x] Transfer tokens
 
 <br />
 

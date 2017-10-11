@@ -11,13 +11,13 @@ addAccount(eth.accounts[0], "Account #0 - Miner");
 addAccount(eth.accounts[1], "Account #1 - Contract Owner");
 addAccount(eth.accounts[2], "Account #2 - Wallet");
 addAccount(eth.accounts[3], "Account #3 - Sale Operations");
-addAccount(eth.accounts[4], "Account #4");
-addAccount(eth.accounts[5], "Account #5");
+addAccount(eth.accounts[4], "Account #4 - Whitelisted Phase 1");
+addAccount(eth.accounts[5], "Account #5 - Whitelisted Phase 2");
 addAccount(eth.accounts[6], "Account #6");
 addAccount(eth.accounts[7], "Account #7");
 addAccount(eth.accounts[8], "Account #8");
 addAccount(eth.accounts[9], "Account #9");
-addAccount(eth.accounts[10], "Account #10");
+addAccount(eth.accounts[10], "Account #10 - Presale");
 addAccount(eth.accounts[11], "Account #11 - Future Tokens");
 
 
@@ -31,7 +31,7 @@ var account6 = eth.accounts[6];
 var account7 = eth.accounts[7];
 var account8 = eth.accounts[8];
 var account9 = eth.accounts[9];
-var account10 = eth.accounts[10];
+var presale = eth.accounts[10];
 var futureTokens = eth.accounts[11];
 
 var baseBlock = eth.blockNumber;
@@ -240,6 +240,13 @@ function printTokenContractDetails() {
     });
     operationsAddressChangedEvents.stopWatching();
 
+    var finalizedChangedEvents = contract.Finalized({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
+    i = 0;
+    finalizedChangedEvents.watch(function (error, result) {
+      console.log("RESULT: Finalized " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    });
+    finalizedChangedEvents.stopWatching();
+
     var approvalEvents = contract.Approval({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
     i = 0;
     approvalEvents.watch(function (error, result) {
@@ -301,6 +308,34 @@ function printTrusteeContractDetails() {
       console.log("RESULT: OperationsAddressChanged " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
     });
     operationsAddressChangedEvents.stopWatching();
+
+    var allocationGrantedEvents = contract.AllocationGranted({}, { fromBlock: trusteeFromBlock, toBlock: latestBlock });
+    i = 0;
+    allocationGrantedEvents.watch(function (error, result) {
+      console.log("RESULT: AllocationGranted " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    });
+    allocationGrantedEvents.stopWatching();
+
+    var allocationRevokedEvents = contract.AllocationRevoked({}, { fromBlock: trusteeFromBlock, toBlock: latestBlock });
+    i = 0;
+    allocationRevokedEvents.watch(function (error, result) {
+      console.log("RESULT: AllocationRevoked " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    });
+    allocationRevokedEvents.stopWatching();
+
+    var allocationProcessedEvents = contract.AllocationProcessed({}, { fromBlock: trusteeFromBlock, toBlock: latestBlock });
+    i = 0;
+    allocationProcessedEvents.watch(function (error, result) {
+      console.log("RESULT: AllocationProcessed " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    });
+    allocationProcessedEvents.stopWatching();
+
+    var tokensReclaimedEvents = contract.TokensReclaimed({}, { fromBlock: trusteeFromBlock, toBlock: latestBlock });
+    i = 0;
+    tokensReclaimedEvents.watch(function (error, result) {
+      console.log("RESULT: TokensReclaimed " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    });
+    tokensReclaimedEvents.stopWatching();
 
     trusteeFromBlock = parseInt(latestBlock) + 1;
   }

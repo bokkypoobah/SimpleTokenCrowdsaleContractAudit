@@ -1,16 +1,16 @@
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       12.000000000000000000           0.000000000000000000 Account #0 - Miner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.000000000000000000           0.000000000000000000 Account #0 - Miner
  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433        0.000000000000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Wallet
  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Sale Operations
- 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
- 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Whitelisted Phase 1
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Whitelisted Phase 2
  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
+10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Presale
 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11 - Future Tokens
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
                                                                                     0.000000000000000000 Total Token Balances
@@ -20,26 +20,26 @@
 Deploy Token Contract
 Deploy Trustee Contract
 Deploy Sale Contract
-tokenAddress=0x821ca8becdbfb00ca55e722908796a375bc2d538 status=0x1 gas=6000000 gasUsed=1246048 costETH=0.022428864 costUSD=8.53171557696 @ ETH/USD=380.39 gasPrice=18000000000 block=115 txIx=0 txId=0x07bf36348934c0a66fb3251392ef28d636825bfee2b4cf78c84c44821ef884c0
-trusteeAddress=0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b status=0x1 gas=6000000 gasUsed=929588 costETH=0.016732584 costUSD=6.36490762776 @ ETH/USD=380.39 gasPrice=18000000000 block=117 txIx=0 txId=0xc708f139bc923d3dd38503be0f86a69d4f9f10938e62fc45761d4b1f418d208e
-saleAddress=0x1029670471248c1046263e47c431a061a7fa34ab status=0x1 gas=6000000 gasUsed=2294101 costETH=0.041293818 costUSD=15.70775542902 @ ETH/USD=380.39 gasPrice=18000000000 block=119 txIx=0 txId=0x7eacb705af1e38ec5dab1e96296ed43f9a57a948294e4eda67224cd83f1dd431
+tokenAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688 status=0x1 gas=6000000 gasUsed=1246048 costETH=0.022428864 costUSD=8.53171557696 @ ETH/USD=380.39 gasPrice=18000000000 block=2 txIx=0 txId=0xc59f1f807e885671378f370f8841500979390052170b929ce7adbeca13fd82ba
+trusteeAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d status=0x1 gas=6000000 gasUsed=929588 costETH=0.016732584 costUSD=6.36490762776 @ ETH/USD=380.39 gasPrice=18000000000 block=4 txIx=0 txId=0xb9be1dd7e533205556b9012fe90c3bcd4f072f4b684a39c895837c73ddda9724
+saleAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff status=0x1 gas=6000000 gasUsed=2294165 costETH=0.04129497 costUSD=15.7081936383 @ ETH/USD=380.39 gasPrice=18000000000 block=6 txIx=0 txId=0x5231c1d36c47d142b5dccc5065307448a73449df9b4239d3940c122873db2920
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       30.080455266000000000           0.000000000000000000 Account #0 - Miner
- 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.080455266000000000   800000000.000000000000000000 Account #1 - Contract Owner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       20.080899218000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.080456418000000000   800000000.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Wallet
  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Sale Operations
- 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
- 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Whitelisted Phase 1
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Whitelisted Phase 2
  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
- 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.000442800000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
+10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Presale
 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11 - Future Tokens
-12 0x821ca8becdbfb00ca55e722908796a375bc2d538        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
-13 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 Trustee
-14 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 Sale
+12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 Trustee
+14 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 Sale
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
                                                                             800000000.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -47,7 +47,7 @@ saleAddress=0x1029670471248c1046263e47c431a061a7fa34ab status=0x1 gas=6000000 ga
 PASS Deploy Token Contract
 PASS Deploy Trustee Contract
 PASS Deploy Sale Contract
-tokenContractAddress=0x821ca8becdbfb00ca55e722908796a375bc2d538
+tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
 token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 token.operationsAddress=0x0000000000000000000000000000000000000000
 token.symbol=ST
@@ -57,19 +57,19 @@ token.totalSupply=800000000
 token.DECIMALSFACTOR=1000000000000000000
 token.TOKENS_MAX=800000000
 token.finalized=false
-trusteeContractAddress=0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b
+trusteeContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
 trustee.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 trustee.operationsAddress=0x0000000000000000000000000000000000000000
-trustee.tokenContract=0x821ca8becdbfb00ca55e722908796a375bc2d538
+trustee.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
 trustee.totalLocked=0
-saleContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
+saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 sale.operationsAddress=0x0000000000000000000000000000000000000000
-sale.PHASE1_START_TIME=1507694510 Wed, 11 Oct 2017 04:01:50 UTC
-sale.PHASE2_START_TIME=1507694600 Wed, 11 Oct 2017 04:03:20 UTC
-sale.END_TIME=1507694660 Wed, 11 Oct 2017 04:04:20 UTC
+sale.PHASE1_START_TIME=1507704727 Wed, 11 Oct 2017 06:52:07 UTC
+sale.PHASE2_START_TIME=1507704757 Wed, 11 Oct 2017 06:52:37 UTC
+sale.END_TIME=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
 sale.CONTRIBUTION_MIN=0.1
-sale.CONTRIBUTION_MAX=10000
+sale.CONTRIBUTION_MAX=100000
 sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
 sale.TOKENS_SALE=240000000
 sale.TOKENS_FOUNDERS=80000000
@@ -79,13 +79,13 @@ sale.TOKENS_ACCELERATOR_MAX=257558034
 sale.TOKENS_FUTURE=120000000
 sale.TOKENS_PER_KETHER=1800000
 sale.finalized=false
-sale.endTime=1507694660 Wed, 11 Oct 2017 04:04:20 UTC
+sale.endTime=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
 sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
 sale.tokensPerKEther=1800000
 sale.phase1AccountTokensMax=18000
 sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
-sale.tokenContract=0x821ca8becdbfb00ca55e722908796a375bc2d538
-sale.trusteeContract=0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b
+sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
 sale.totalTokensSold=0
 sale.totalPresaleBase=0
 sale.totalPresaleBonus=0
@@ -94,30 +94,30 @@ tokensForSale=2.4e+26
 tokensForTrustee=4.4e+26
 tokensForFuture=1.2e+26
 Stitch Contracts Together
-stitchContracts1Tx status=0x1 gas=100000 gasUsed=44575 costETH=0.00080235 costUSD=0.3052059165 @ ETH/USD=380.39 gasPrice=18000000000 block=123 txIx=0 txId=0xc0fe5a4083875b5c4f846b9a534b732cc275cbd647819e6169a9d711bde6b49d
-stitchContracts2Tx status=0x1 gas=100000 gasUsed=44463 costETH=0.000800334 costUSD=0.30443905026 @ ETH/USD=380.39 gasPrice=18000000000 block=123 txIx=1 txId=0x578f0e37577bd27fa144baefcf5c4a989e11f0749d29d691550c242a08ea53e9
-stitchContracts3Tx status=0x1 gas=100000 gasUsed=44749 costETH=0.000805482 costUSD=0.30639729798 @ ETH/USD=380.39 gasPrice=18000000000 block=123 txIx=2 txId=0xe377457a1182c8a0d0235692594781443f7894e785c922adf4431d07e6f4e024
-stitchContracts4Tx status=0x1 gas=100000 gasUsed=52193 costETH=0.000939474 costUSD=0.35736651486 @ ETH/USD=380.39 gasPrice=18000000000 block=123 txIx=3 txId=0x3704f06e4ba5ff607986939cac444db3526db00a874fce98cf814950855db7c8
-stitchContracts5Tx status=0x1 gas=100000 gasUsed=52257 costETH=0.000940626 costUSD=0.35780472414 @ ETH/USD=380.39 gasPrice=18000000000 block=123 txIx=4 txId=0xb6ef158536b2487466b67c97b05d69fc1a9e217237391af2d6bcff6eaabb0efc
-stitchContracts6Tx status=0x1 gas=100000 gasUsed=37193 costETH=0.000669474 costUSD=0.25466121486 @ ETH/USD=380.39 gasPrice=18000000000 block=123 txIx=5 txId=0x46225b1322f6c34360046bd038a2fb328776f566614ac30ff9a0215afe6cb1bc
-stitchContracts7Tx status=0x1 gas=100000 gasUsed=25201 costETH=0.000453618 costUSD=0.17255175102 @ ETH/USD=380.39 gasPrice=18000000000 block=125 txIx=0 txId=0x1ee22998f81947fd947873e964baf564d95e113562ce24f84ddb3fb14a0c8a4c
+stitchContracts1Tx status=0x1 gas=100000 gasUsed=44575 costETH=0.00080235 costUSD=0.3052059165 @ ETH/USD=380.39 gasPrice=18000000000 block=11 txIx=0 txId=0x2144c8d2cd7310dcdc9437a0303b162327adc05600964f958ce4e484210aba0d
+stitchContracts2Tx status=0x1 gas=100000 gasUsed=44463 costETH=0.000800334 costUSD=0.30443905026 @ ETH/USD=380.39 gasPrice=18000000000 block=11 txIx=1 txId=0xb77de117055611f2d840db29f3eb3a3c9a0a0fb525f3d8b533a052a1324346f2
+stitchContracts3Tx status=0x1 gas=100000 gasUsed=44749 costETH=0.000805482 costUSD=0.30639729798 @ ETH/USD=380.39 gasPrice=18000000000 block=11 txIx=2 txId=0xd494651f01a706ef7b3eccfd1ef97f6a3c7b13f1aa2795515a40a56992108485
+stitchContracts4Tx status=0x1 gas=100000 gasUsed=52193 costETH=0.000939474 costUSD=0.35736651486 @ ETH/USD=380.39 gasPrice=18000000000 block=11 txIx=3 txId=0x8ce55b87a4f87467bceca1a91ca37323ab2676b84bd2f91fe37efb9372bd749c
+stitchContracts5Tx status=0x1 gas=100000 gasUsed=52257 costETH=0.000940626 costUSD=0.35780472414 @ ETH/USD=380.39 gasPrice=18000000000 block=11 txIx=4 txId=0x3a51bdfe2bc53782ff4fe5a5c2f9dd7114051e72a851657b02276c39342fa609
+stitchContracts6Tx status=0x1 gas=100000 gasUsed=37193 costETH=0.000669474 costUSD=0.25466121486 @ ETH/USD=380.39 gasPrice=18000000000 block=11 txIx=5 txId=0xecd395f831c6790c9076b0bbf7efd84c1c4ea716d1d037af04561fb4a4b3de04
+stitchContracts7Tx status=0x1 gas=100000 gasUsed=25201 costETH=0.000453618 costUSD=0.17255175102 @ ETH/USD=380.39 gasPrice=18000000000 block=13 txIx=0 txId=0xc5a4b4d886a98afbb20beeafc948e79a71842f9e7d005002360688861d451551
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       48.085866624000000000           0.000000000000000000 Account #0 - Miner
- 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.085866624000000000           0.000000000000000000 Account #1 - Contract Owner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       41.086310576000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.085867776000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Wallet
  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Sale Operations
- 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
- 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Whitelisted Phase 1
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Whitelisted Phase 2
  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
- 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.000442800000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
+10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Presale
 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000   120000000.000000000000000000 Account #11 - Future Tokens
-12 0x821ca8becdbfb00ca55e722908796a375bc2d538        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
-13 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000   440000000.000000000000000000 Trustee
-14 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000   240000000.000000000000000000 Sale
+12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440000000.000000000000000000 Trustee
+14 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000   240000000.000000000000000000 Sale
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
                                                                             800000000.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -129,9 +129,9 @@ PASS Stitch Contracts Together - token.transfer(sale, 240000000)
 PASS Stitch Contracts Together - token.transfer(trustee, 440000000)
 PASS Stitch Contracts Together - token.transfer(futureTokens, 120000000)
 PASS Stitch Contracts Together - sale.initialize()
-tokenContractAddress=0x821ca8becdbfb00ca55e722908796a375bc2d538
+tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
 token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-token.operationsAddress=0x1029670471248c1046263e47c431a061a7fa34ab
+token.operationsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 token.symbol=ST
 token.name=Simple Token
 token.decimals=18
@@ -139,24 +139,24 @@ token.totalSupply=800000000
 token.DECIMALSFACTOR=1000000000000000000
 token.TOKENS_MAX=800000000
 token.finalized=false
-OperationsAddressChanged 0 #123 {"_newAddress":"0x1029670471248c1046263e47c431a061a7fa34ab"}
-Transfer 0 #123: _from=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _to=0x1029670471248c1046263e47c431a061a7fa34ab _value=240000000
-Transfer 1 #123: _from=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _to=0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b _value=440000000
-Transfer 2 #123: _from=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _to=0xabba43e7594e3b76afb157989e93c6621497fd4b _value=120000000
-trusteeContractAddress=0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b
+OperationsAddressChanged 0 #11 {"_newAddress":"0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff"}
+Transfer 0 #11: _from=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _to=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _value=240000000
+Transfer 1 #11: _from=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _to=0x0e946b999033257976aa5cbe0e3530618ca1582d _value=440000000
+Transfer 2 #11: _from=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _to=0xabba43e7594e3b76afb157989e93c6621497fd4b _value=120000000
+trusteeContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
 trustee.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-trustee.operationsAddress=0x1029670471248c1046263e47c431a061a7fa34ab
-trustee.tokenContract=0x821ca8becdbfb00ca55e722908796a375bc2d538
+trustee.operationsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+trustee.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
 trustee.totalLocked=0
-OperationsAddressChanged 0 #123 {"_newAddress":"0x1029670471248c1046263e47c431a061a7fa34ab"}
-saleContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
+OperationsAddressChanged 0 #11 {"_newAddress":"0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff"}
+saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 sale.operationsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
-sale.PHASE1_START_TIME=1507694510 Wed, 11 Oct 2017 04:01:50 UTC
-sale.PHASE2_START_TIME=1507694600 Wed, 11 Oct 2017 04:03:20 UTC
-sale.END_TIME=1507694660 Wed, 11 Oct 2017 04:04:20 UTC
+sale.PHASE1_START_TIME=1507704727 Wed, 11 Oct 2017 06:52:07 UTC
+sale.PHASE2_START_TIME=1507704757 Wed, 11 Oct 2017 06:52:37 UTC
+sale.END_TIME=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
 sale.CONTRIBUTION_MIN=0.1
-sale.CONTRIBUTION_MAX=10000
+sale.CONTRIBUTION_MAX=100000
 sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
 sale.TOKENS_SALE=240000000
 sale.TOKENS_FOUNDERS=80000000
@@ -166,15 +166,422 @@ sale.TOKENS_ACCELERATOR_MAX=257558034
 sale.TOKENS_FUTURE=120000000
 sale.TOKENS_PER_KETHER=1800000
 sale.finalized=false
-sale.endTime=1507694660 Wed, 11 Oct 2017 04:04:20 UTC
+sale.endTime=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
 sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
 sale.tokensPerKEther=1800000
 sale.phase1AccountTokensMax=18000
 sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
-sale.tokenContract=0x821ca8becdbfb00ca55e722908796a375bc2d538
-sale.trusteeContract=0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b
+sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
 sale.totalTokensSold=0
 sale.totalPresaleBase=0
 sale.totalPresaleBonus=0
-Initialized 0 #125 {}
+Initialized 0 #13 {}
+
+Whitelist
+whitelist1Tx status=0x1 gas=100000 gasUsed=45738 costETH=0.000823284 costUSD=0.31316900076 @ ETH/USD=380.39 gasPrice=18000000000 block=19 txIx=0 txId=0x15df301eb21f7b32188950b4530e075ef095f4824493d4b51b5bd9e8dfdcc917
+whitelist2Tx status=0x1 gas=100000 gasUsed=45738 costETH=0.000823284 costUSD=0.31316900076 @ ETH/USD=380.39 gasPrice=18000000000 block=19 txIx=1 txId=0x640b981eb98ee3bd1e309aa6b9fe53fe0c5100d894dafe53005e80411fd674a1
+ # Account                                             EtherBalanceChange                          Token Name
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       59.087957144000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087514344000000000           0.000000000000000000 Account #1 - Contract Owner
+ 2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Wallet
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Sale Operations
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Whitelisted Phase 1
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Whitelisted Phase 2
+ 6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.000442800000000000           0.000000000000000000 Account #7
+ 8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+ 9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
+10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Presale
+11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000   120000000.000000000000000000 Account #11 - Future Tokens
+12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440000000.000000000000000000 Trustee
+14 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000   240000000.000000000000000000 Sale
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                            800000000.000000000000000000 Total Token Balances
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+PASS Whitelist - ac4 phase 1
+PASS Whitelist - ac5 phase 2
+saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+sale.operationsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
+sale.PHASE1_START_TIME=1507704727 Wed, 11 Oct 2017 06:52:07 UTC
+sale.PHASE2_START_TIME=1507704757 Wed, 11 Oct 2017 06:52:37 UTC
+sale.END_TIME=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
+sale.CONTRIBUTION_MIN=0.1
+sale.CONTRIBUTION_MAX=100000
+sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+sale.TOKENS_SALE=240000000
+sale.TOKENS_FOUNDERS=80000000
+sale.TOKENS_ADVISORS=80000000
+sale.TOKENS_EARLY_INVESTORS=22441966
+sale.TOKENS_ACCELERATOR_MAX=257558034
+sale.TOKENS_FUTURE=120000000
+sale.TOKENS_PER_KETHER=1800000
+sale.finalized=false
+sale.endTime=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
+sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
+sale.tokensPerKEther=1800000
+sale.phase1AccountTokensMax=18000
+sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
+sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+sale.totalTokensSold=0
+sale.totalPresaleBase=0
+sale.totalPresaleBonus=0
+WhitelistUpdated 0 #19 {"_account":"0xa44a08d3f6933c69212114bb66e2df1813651844","_phase":"1"}
+WhitelistUpdated 1 #19 {"_account":"0xa55a151eb00fded1634d27d1127b4be4627079ea","_phase":"2"}
+
+Waiting until Phase 1 startTime at 1507704727 Wed, 11 Oct 2017 17:52:07 AEDT currentDate=Wed, 11 Oct 2017 17:51:25 AEDT
+Waited until Phase 1 startTime at 1507704727 Wed, 11 Oct 2017 17:52:07 AEDT currentDate=Wed, 11 Oct 2017 17:52:07 AEDT
+Send Contribution Phase 1
+sendContribution1_1Tx status=0x1 gas=400000 gasUsed=82736 costETH=0.001489248 costUSD=0.56649504672 @ ETH/USD=380.39 gasPrice=18000000000 block=37 txIx=0 txId=0xa52074a00946d025a0f1e0b1ef01c78b10415497fabd4f7a7ef3a0263a013288
+sendContribution1_2Tx status=0x0 gas=400000 gasUsed=22669 costETH=0.000408042 costUSD=0.15521509638 @ ETH/USD=380.39 gasPrice=18000000000 block=37 txIx=1 txId=0xc33d21eb66cbd5d88ea673c57849bafe75663ea825732ed18ac930b90c38dd96
+ # Account                                             EtherBalanceChange                          Token Name
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      113.089854434000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087514344000000000           0.000000000000000000 Account #1 - Contract Owner
+ 2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        1.000000000000000000           0.000000000000000000 Account #2 - Wallet
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Sale Operations
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844       -1.001489248000000000        1800.000000000000000000 Account #4 - Whitelisted Phase 1
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -0.000408042000000000           0.000000000000000000 Account #5 - Whitelisted Phase 2
+ 6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.000442800000000000           0.000000000000000000 Account #7
+ 8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+ 9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
+10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Presale
+11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000   120000000.000000000000000000 Account #11 - Future Tokens
+12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440000000.000000000000000000 Trustee
+14 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000   239998200.000000000000000000 Sale
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                            800000000.000000000000000000 Total Token Balances
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+PASS Send Contribution Phase 1 - ac4 1 ETH
+PASS Send Contribution Phase 1 - ac5 1 ETH - Expecting Failure
+tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+token.operationsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+token.symbol=ST
+token.name=Simple Token
+token.decimals=18
+token.totalSupply=800000000
+token.DECIMALSFACTOR=1000000000000000000
+token.TOKENS_MAX=800000000
+token.finalized=false
+Transfer 0 #37: _from=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _to=0xa44a08d3f6933c69212114bb66e2df1813651844 _value=1800
+saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+sale.operationsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
+sale.PHASE1_START_TIME=1507704727 Wed, 11 Oct 2017 06:52:07 UTC
+sale.PHASE2_START_TIME=1507704757 Wed, 11 Oct 2017 06:52:37 UTC
+sale.END_TIME=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
+sale.CONTRIBUTION_MIN=0.1
+sale.CONTRIBUTION_MAX=100000
+sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+sale.TOKENS_SALE=240000000
+sale.TOKENS_FOUNDERS=80000000
+sale.TOKENS_ADVISORS=80000000
+sale.TOKENS_EARLY_INVESTORS=22441966
+sale.TOKENS_ACCELERATOR_MAX=257558034
+sale.TOKENS_FUTURE=120000000
+sale.TOKENS_PER_KETHER=1800000
+sale.finalized=false
+sale.endTime=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
+sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
+sale.tokensPerKEther=1800000
+sale.phase1AccountTokensMax=18000
+sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
+sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+sale.totalTokensSold=1800
+sale.totalPresaleBase=0
+sale.totalPresaleBonus=0
+TokensPurchased 0 #37 {"_beneficiary":"0xa44a08d3f6933c69212114bb66e2df1813651844","_cost":"1000000000000000000","_tokens":"1.8e+21"}
+
+Waiting until Phase 2 startTime at 1507704757 Wed, 11 Oct 2017 17:52:37 AEDT currentDate=Wed, 11 Oct 2017 17:52:20 AEDT
+Waited until Phase 2 startTime at 1507704757 Wed, 11 Oct 2017 17:52:37 AEDT currentDate=Wed, 11 Oct 2017 17:52:37 AEDT
+Send Contribution Phase 2
+sendContribution2_1Tx status=0x1 gas=400000 gasUsed=51583 costETH=0.000928494 costUSD=0.35318983266 @ ETH/USD=380.39 gasPrice=18000000000 block=44 txIx=1 txId=0xe60568d20817f53189de12618dbfdec6ee7491ff6cf104d90530d84a176ad2b8
+sendContribution2_2Tx status=0x1 gas=400000 gasUsed=66583 costETH=0.001198494 costUSD=0.45589513266 @ ETH/USD=380.39 gasPrice=18000000000 block=44 txIx=0 txId=0xbc0102ce643b287db0abb328b2d9683de512f9816bfefb8eae4dd60684f6c779
+ # Account                                             EtherBalanceChange                          Token Name
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      134.091981422000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087514344000000000           0.000000000000000000 Account #1 - Contract Owner
+ 2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976       21.000000000000000000           0.000000000000000000 Account #2 - Wallet
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Sale Operations
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844      -11.002417742000000000       19800.000000000000000000 Account #4 - Whitelisted Phase 1
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea      -10.001606536000000000       18000.000000000000000000 Account #5 - Whitelisted Phase 2
+ 6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.000442800000000000           0.000000000000000000 Account #7
+ 8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+ 9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
+10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Presale
+11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000   120000000.000000000000000000 Account #11 - Future Tokens
+12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440000000.000000000000000000 Trustee
+14 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000   239962200.000000000000000000 Sale
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                            800000000.000000000000000000 Total Token Balances
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+PASS Send Contribution Phase 2 - ac4 10 ETH
+PASS Send Contribution Phase 2 - ac5 10 ETH
+tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+token.operationsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+token.symbol=ST
+token.name=Simple Token
+token.decimals=18
+token.totalSupply=800000000
+token.DECIMALSFACTOR=1000000000000000000
+token.TOKENS_MAX=800000000
+token.finalized=false
+Transfer 0 #44: _from=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _to=0xa55a151eb00fded1634d27d1127b4be4627079ea _value=18000
+Transfer 1 #44: _from=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _to=0xa44a08d3f6933c69212114bb66e2df1813651844 _value=18000
+saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+sale.operationsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
+sale.PHASE1_START_TIME=1507704727 Wed, 11 Oct 2017 06:52:07 UTC
+sale.PHASE2_START_TIME=1507704757 Wed, 11 Oct 2017 06:52:37 UTC
+sale.END_TIME=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
+sale.CONTRIBUTION_MIN=0.1
+sale.CONTRIBUTION_MAX=100000
+sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+sale.TOKENS_SALE=240000000
+sale.TOKENS_FOUNDERS=80000000
+sale.TOKENS_ADVISORS=80000000
+sale.TOKENS_EARLY_INVESTORS=22441966
+sale.TOKENS_ACCELERATOR_MAX=257558034
+sale.TOKENS_FUTURE=120000000
+sale.TOKENS_PER_KETHER=1800000
+sale.finalized=false
+sale.endTime=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
+sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
+sale.tokensPerKEther=1800000
+sale.phase1AccountTokensMax=18000
+sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
+sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+sale.totalTokensSold=37800
+sale.totalPresaleBase=0
+sale.totalPresaleBonus=0
+TokensPurchased 0 #44 {"_beneficiary":"0xa55a151eb00fded1634d27d1127b4be4627079ea","_cost":"10000000000000000000","_tokens":"1.8e+22"}
+TokensPurchased 1 #44 {"_beneficiary":"0xa44a08d3f6933c69212114bb66e2df1813651844","_cost":"10000000000000000000","_tokens":"1.8e+22"}
+
+Max Out Contribution Phase 2
+sendContribution3_1Tx status=0x1 gas=400000 gasUsed=51583 costETH=0.000928494 costUSD=0.35318983266 @ ETH/USD=380.39 gasPrice=18000000000 block=46 txIx=0 txId=0x004ffe111ca89de793f6e9d0dcd1929a685bec426b287c8a698568e4a5c64421
+sendContribution3_2Tx status=0x1 gas=400000 gasUsed=43858 costETH=0.000789444 costUSD=0.30029660316 @ ETH/USD=380.39 gasPrice=18000000000 block=46 txIx=1 txId=0xf67b7eb501ae3c91c1abf1bd93d1311e32f138f9ed5f10353d1d070e42f36b61
+ # Account                                             EtherBalanceChange                          Token Name
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      140.093699360000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087514344000000000           0.000000000000000000 Account #1 - Contract Owner
+ 2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976   133333.333333333333333333           0.000000000000000000 Account #2 - Wallet
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Sale Operations
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844  -100011.003346236000000000   180019800.000000000000000000 Account #4 - Whitelisted Phase 1
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea   -33322.335729313333333333    59980200.000000000000000000 Account #5 - Whitelisted Phase 2
+ 6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.000442800000000000           0.000000000000000000 Account #7
+ 8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+ 9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
+10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Presale
+11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000   120000000.000000000000000000 Account #11 - Future Tokens
+12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440000000.000000000000000000 Trustee
+14 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 Sale
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                            800000000.000000000000000000 Total Token Balances
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+PASS Max Out Contribution Phase 2 - ac4 100,000 ETH - Expecting 1 partial
+PASS Max Out Contribution Phase 2 - ac5 100,000 ETH - Expecting 1 partial
+tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+token.operationsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+token.symbol=ST
+token.name=Simple Token
+token.decimals=18
+token.totalSupply=800000000
+token.DECIMALSFACTOR=1000000000000000000
+token.TOKENS_MAX=800000000
+token.finalized=false
+Transfer 0 #46: _from=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _to=0xa44a08d3f6933c69212114bb66e2df1813651844 _value=180000000
+Transfer 1 #46: _from=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _to=0xa55a151eb00fded1634d27d1127b4be4627079ea _value=59962200
+saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+sale.operationsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
+sale.PHASE1_START_TIME=1507704727 Wed, 11 Oct 2017 06:52:07 UTC
+sale.PHASE2_START_TIME=1507704757 Wed, 11 Oct 2017 06:52:37 UTC
+sale.END_TIME=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
+sale.CONTRIBUTION_MIN=0.1
+sale.CONTRIBUTION_MAX=100000
+sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+sale.TOKENS_SALE=240000000
+sale.TOKENS_FOUNDERS=80000000
+sale.TOKENS_ADVISORS=80000000
+sale.TOKENS_EARLY_INVESTORS=22441966
+sale.TOKENS_ACCELERATOR_MAX=257558034
+sale.TOKENS_FUTURE=120000000
+sale.TOKENS_PER_KETHER=1800000
+sale.finalized=false
+sale.endTime=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
+sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
+sale.tokensPerKEther=1800000
+sale.phase1AccountTokensMax=18000
+sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
+sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+sale.totalTokensSold=240000000
+sale.totalPresaleBase=0
+sale.totalPresaleBonus=0
+TokensPurchased 0 #46 {"_beneficiary":"0xa44a08d3f6933c69212114bb66e2df1813651844","_cost":"1e+23","_tokens":"1.8e+26"}
+TokensPurchased 1 #46 {"_beneficiary":"0xa55a151eb00fded1634d27d1127b4be4627079ea","_cost":"3.3312333333333333333333e+22","_tokens":"5.99622e+25"}
+
+Finalise
+finalise1Tx status=0x1 gas=100000 gasUsed=27911 costETH=0.000502398 costUSD=0.19110717522 @ ETH/USD=380.39 gasPrice=18000000000 block=48 txIx=0 txId=0xb4acd6e9b36adb4ca9b53e902370c207805b3336507a13b4d56a4952306da54f
+finalise2Tx status=0x1 gas=100000 gasUsed=27737 costETH=0.000499266 costUSD=0.18991579374 @ ETH/USD=380.39 gasPrice=18000000000 block=48 txIx=1 txId=0x29be67444d2c3965fce01c50563a7231ea1ef9d29bb9c1cb9281caef109ce4c2
+ # Account                                             EtherBalanceChange                          Token Name
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      146.094701024000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.088516008000000000           0.000000000000000000 Account #1 - Contract Owner
+ 2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976   133333.333333333333333333           0.000000000000000000 Account #2 - Wallet
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Sale Operations
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844  -100011.003346236000000000   180019800.000000000000000000 Account #4 - Whitelisted Phase 1
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea   -33322.335729313333333333    59980200.000000000000000000 Account #5 - Whitelisted Phase 2
+ 6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.000442800000000000           0.000000000000000000 Account #7
+ 8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+ 9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
+10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Presale
+11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000   120000000.000000000000000000 Account #11 - Future Tokens
+12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440000000.000000000000000000 Trustee
+14 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 Sale
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                            800000000.000000000000000000 Total Token Balances
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+PASS Finalise - sale
+PASS Finalise - token
+tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+token.operationsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+token.symbol=ST
+token.name=Simple Token
+token.decimals=18
+token.totalSupply=800000000
+token.DECIMALSFACTOR=1000000000000000000
+token.TOKENS_MAX=800000000
+token.finalized=true
+Finalized 0 #48 {}
+trusteeContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+trustee.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+trustee.operationsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+trustee.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+trustee.totalLocked=0
+saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+sale.operationsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
+sale.PHASE1_START_TIME=1507704727 Wed, 11 Oct 2017 06:52:07 UTC
+sale.PHASE2_START_TIME=1507704757 Wed, 11 Oct 2017 06:52:37 UTC
+sale.END_TIME=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
+sale.CONTRIBUTION_MIN=0.1
+sale.CONTRIBUTION_MAX=100000
+sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+sale.TOKENS_SALE=240000000
+sale.TOKENS_FOUNDERS=80000000
+sale.TOKENS_ADVISORS=80000000
+sale.TOKENS_EARLY_INVESTORS=22441966
+sale.TOKENS_ACCELERATOR_MAX=257558034
+sale.TOKENS_FUTURE=120000000
+sale.TOKENS_PER_KETHER=1800000
+sale.finalized=true
+sale.endTime=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
+sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
+sale.tokensPerKEther=1800000
+sale.phase1AccountTokensMax=18000
+sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
+sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+sale.totalTokensSold=240000000
+sale.totalPresaleBase=0
+sale.totalPresaleBonus=0
+Finalized 0 #48 {}
+
+Move Tokens
+moveToken1_1Tx status=0x1 gas=100000 gasUsed=51872 costETH=0.000933696 costUSD=0.35516862144 @ ETH/USD=380.39 gasPrice=18000000000 block=51 txIx=0 txId=0x724d3473f29ddb3321baff6e5f18ffb373c3dc1121b9b25be62e7b429d1c6898
+moveToken1_2Tx status=0x1 gas=100000 gasUsed=45750 costETH=0.0008235 costUSD=0.313251165 @ ETH/USD=380.39 gasPrice=18000000000 block=51 txIx=1 txId=0xb0498020ce94dbba2ccc4dd2a00a34e2c16c3d48beeac60031cdccfaec871800
+moveToken1_3Tx status=0x1 gas=100000 gasUsed=43800 costETH=0.0007884 costUSD=0.299899476 @ ETH/USD=380.39 gasPrice=18000000000 block=53 txIx=0 txId=0x5fd0466d45c17c3153679979503a50b94abd2cd582ac418938f5001c39a862d0
+ # Account                                             EtherBalanceChange                          Token Name
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      161.097246620000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.088516008000000000           0.000000000000000000 Account #1 - Contract Owner
+ 2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976   133333.333333333333333333           0.000000000000000000 Account #2 - Wallet
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Sale Operations
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844  -100011.004279932000000000   180019799.900000000000000000 Account #4 - Whitelisted Phase 1
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea   -33322.336552813333333333    59980197.000000000000000000 Account #5 - Whitelisted Phase 2
+ 6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.100000000000000000 Account #6
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.001231200000000000           0.000000000000000000 Account #7
+ 8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           3.000000000000000000 Account #8
+ 9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
+10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Presale
+11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000   120000000.000000000000000000 Account #11 - Future Tokens
+12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440000000.000000000000000000 Trustee
+14 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 Sale
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                            800000000.000000000000000000 Total Token Balances
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+PASS Move Tokens - transfer 0.1 ST ac4 -> ac6
+PASS Move Tokens - approve 3 ST ac5 -> ac7
+PASS Move Tokens - transferFrom 3 ST ac5 -> ac8 by ac7
+tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+token.operationsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+token.symbol=ST
+token.name=Simple Token
+token.decimals=18
+token.totalSupply=800000000
+token.DECIMALSFACTOR=1000000000000000000
+token.TOKENS_MAX=800000000
+token.finalized=true
+Approval 0 #51 _owner=0xa55a151eb00fded1634d27d1127b4be4627079ea _spender=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec _value=3
+Transfer 0 #51: _from=0xa44a08d3f6933c69212114bb66e2df1813651844 _to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 _value=0.1
+Transfer 1 #53: _from=0xa55a151eb00fded1634d27d1127b4be4627079ea _to=0xa88a05d2b88283ce84c8325760b72a64591279a2 _value=3
+trusteeContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+trustee.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+trustee.operationsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+trustee.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+trustee.totalLocked=0
+saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+sale.operationsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
+sale.PHASE1_START_TIME=1507704727 Wed, 11 Oct 2017 06:52:07 UTC
+sale.PHASE2_START_TIME=1507704757 Wed, 11 Oct 2017 06:52:37 UTC
+sale.END_TIME=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
+sale.CONTRIBUTION_MIN=0.1
+sale.CONTRIBUTION_MAX=100000
+sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+sale.TOKENS_SALE=240000000
+sale.TOKENS_FOUNDERS=80000000
+sale.TOKENS_ADVISORS=80000000
+sale.TOKENS_EARLY_INVESTORS=22441966
+sale.TOKENS_ACCELERATOR_MAX=257558034
+sale.TOKENS_FUTURE=120000000
+sale.TOKENS_PER_KETHER=1800000
+sale.finalized=true
+sale.endTime=1507704817 Wed, 11 Oct 2017 06:53:37 UTC
+sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
+sale.tokensPerKEther=1800000
+sale.phase1AccountTokensMax=18000
+sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
+sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+sale.totalTokensSold=240000000
+sale.totalPresaleBase=0
+sale.totalPresaleBonus=0
 

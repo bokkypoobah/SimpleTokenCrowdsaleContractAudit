@@ -15,11 +15,11 @@ import "./SimpleTokenConfig.sol";
 
 contract TokenSaleConfig is SimpleTokenConfig {
 
-    uint256 public constant PHASE1_START_TIME         = 1507694510; // Wed 11 Oct 2017 04:01:50 UTC
-    uint256 public constant PHASE2_START_TIME         = 1507694600; // Wed 11 Oct 2017 04:03:20 UTC
-    uint256 public constant END_TIME                  = 1507694660; // Wed 11 Oct 2017 04:04:20 UTC
+    uint256 public constant PHASE1_START_TIME         = 1507704727; // Wed 11 Oct 2017 06:52:07 UTC
+    uint256 public constant PHASE2_START_TIME         = 1507704757; // Wed 11 Oct 2017 06:52:37 UTC
+    uint256 public constant END_TIME                  = 1507704817; // Wed 11 Oct 2017 06:53:37 UTC
     uint256 public constant CONTRIBUTION_MIN          = 0.1 ether;
-    uint256 public constant CONTRIBUTION_MAX          = 10000.0 ether;
+    uint256 public constant CONTRIBUTION_MAX          = 100000.0 ether;
 
     // This is the maximum number of tokens each individual account is allowed to
     // buy during Phase 1 of the token sale (whitelisted phase)

@@ -34,8 +34,8 @@ if [ "$MODE" == "dev" ]; then
   # Start time now
   STARTTIME=`echo "$CURRENTTIME" | bc`
 else
-  # Start time 1m 10s in the future
-  STARTTIME=`echo "$CURRENTTIME+90" | bc`
+  # Start time 2m 30s in the future
+  STARTTIME=`echo "$CURRENTTIME+150" | bc`
 fi
 STARTTIME_S=`date -r $STARTTIME -u`
 PHASE2TIME=`echo "$CURRENTTIME+60*3" | bc`
@@ -71,12 +71,7 @@ printf "ENDTIME         = '$ENDTIME' '$ENDTIME_S'\n" | tee -a $TEST1OUTPUT
 `perl -pi -e "s/PHASE1_START_TIME         \= 1510660800;.*$/PHASE1_START_TIME         \= $STARTTIME; \/\/ $STARTTIME_S/" TokenSaleConfig.sol`
 `perl -pi -e "s/PHASE2_START_TIME         \= 1510747200;.*$/PHASE2_START_TIME         \= $PHASE2TIME; \/\/ $PHASE2TIME_S/" TokenSaleConfig.sol`
 `perl -pi -e "s/END_TIME                  \= 1511265599;.*$/END_TIME                  \= $ENDTIME; \/\/ $ENDTIME_S/" TokenSaleConfig.sol`
-
-# `perl -pi -e "s/bool transferable/bool public transferable/" $TOKENSOL`
-# `perl -pi -e "s/MULTISIG_WALLET_ADDRESS \= 0xc79ab28c5c03f1e7fbef056167364e6782f9ff4f;/MULTISIG_WALLET_ADDRESS \= 0xa22AB8A9D641CE77e06D98b7D7065d324D3d6976;/" GimliCrowdsale.sol`
-# `perl -pi -e "s/END_DATE = 1508500800;.*$/END_DATE \= $ENDTIME; \/\/ $ENDTIME_S/" GimliCrowdsale.sol`
-# `perl -pi -e "s/VESTING_1_DATE = 1537272000;.*$/VESTING_1_DATE \= $VESTING1TIME; \/\/ $VESTING1TIME_S/" GimliCrowdsale.sol`
-# `perl -pi -e "s/VESTING_2_DATE = 1568808000;.*$/VESTING_2_DATE \= $VESTING2TIME; \/\/ $VESTING2TIME_S/" GimliCrowdsale.sol`
+`perl -pi -e "s/CONTRIBUTION_MAX          \= 10000.0 ether;.*$/CONTRIBUTION_MAX          \= 100000.0 ether;/" TokenSaleConfig.sol`
 
 DIFFS1=`diff -r $SOURCEDIR . | grep -v "Only in"`
 echo "--- Differences diff -r $SOURCEDIR . ---" | tee -a $TEST1OUTPUT
@@ -254,84 +249,146 @@ printSaleContractDetails();
 console.log("RESULT: ");
 
 
+// -----------------------------------------------------------------------------
+var whitelistMessage = "Whitelist"; // "And Add Presale";
+// -----------------------------------------------------------------------------
+console.log("RESULT: " + whitelistMessage);
+var whitelist1Tx = sale.updateWhitelist(account4, 1, {from: contractOwnerAccount, gas: 100000});
+var whitelist2Tx = sale.updateWhitelist(account5, 2, {from: contractOwnerAccount, gas: 100000});
+// var presale1Tx = sale.addPresale(presale, "100000000000000000000", "1000000000000000000", {from: contractOwnerAccount, gas: 100000});
+while (txpool.status.pending > 0) {
+}
+printTxData("whitelist1Tx", whitelist1Tx);
+printTxData("whitelist2Tx", whitelist2Tx);
+// printTxData("presale1Tx", presale1Tx);
+printBalances();
+failIfTxStatusError(whitelist1Tx, whitelistMessage + " - ac4 phase 1");
+failIfTxStatusError(whitelist2Tx, whitelistMessage + " - ac5 phase 2");
+// failIfTxStatusError(presale1Tx, whitelistMessage + " - ac10 added presale 100 + 1 bonus");
+printSaleContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+// Wait for Phase 1 start
+// -----------------------------------------------------------------------------
+var startTime = sale.PHASE1_START_TIME();
+var startTimeDate = new Date(startTime * 1000);
+console.log("RESULT: Waiting until Phase 1 startTime at " + startTime + " " + startTimeDate + " currentDate=" + new Date());
+while ((new Date()).getTime() <= startTimeDate.getTime()) {
+}
+console.log("RESULT: Waited until Phase 1 startTime at " + startTime + " " + startTimeDate + " currentDate=" + new Date());
+
+
+// -----------------------------------------------------------------------------
+var sendContribution1Message = "Send Contribution Phase 1";
+// -----------------------------------------------------------------------------
+console.log("RESULT: " + sendContribution1Message);
+var sendContribution1_1Tx = eth.sendTransaction({from: account4, to: saleAddress, gas: 400000, value: web3.toWei("1", "ether")});
+var sendContribution1_2Tx = eth.sendTransaction({from: account5, to: saleAddress, gas: 400000, value: web3.toWei("1", "ether")});
+while (txpool.status.pending > 0) {
+}
+printTxData("sendContribution1_1Tx", sendContribution1_1Tx);
+printTxData("sendContribution1_2Tx", sendContribution1_2Tx);
+printBalances();
+failIfTxStatusError(sendContribution1_1Tx, sendContribution1Message + " - ac4 1 ETH");
+passIfTxStatusError(sendContribution1_2Tx, sendContribution1Message + " - ac5 1 ETH - Expecting Failure");
+printTokenContractDetails();
+printSaleContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+// Wait for Phase 2 start
+// -----------------------------------------------------------------------------
+var startTime = sale.PHASE2_START_TIME();
+var startTimeDate = new Date(startTime * 1000);
+console.log("RESULT: Waiting until Phase 2 startTime at " + startTime + " " + startTimeDate + " currentDate=" + new Date());
+while ((new Date()).getTime() <= startTimeDate.getTime()) {
+}
+console.log("RESULT: Waited until Phase 2 startTime at " + startTime + " " + startTimeDate + " currentDate=" + new Date());
+
+
+// -----------------------------------------------------------------------------
+var sendContribution2Message = "Send Contribution Phase 2";
+// -----------------------------------------------------------------------------
+console.log("RESULT: " + sendContribution2Message);
+var sendContribution2_1Tx = eth.sendTransaction({from: account4, to: saleAddress, gas: 400000, value: web3.toWei("10", "ether")});
+var sendContribution2_2Tx = eth.sendTransaction({from: account5, to: saleAddress, gas: 400000, value: web3.toWei("10", "ether")});
+while (txpool.status.pending > 0) {
+}
+printTxData("sendContribution2_1Tx", sendContribution2_1Tx);
+printTxData("sendContribution2_2Tx", sendContribution2_2Tx);
+printBalances();
+failIfTxStatusError(sendContribution2_1Tx, sendContribution2Message + " - ac4 10 ETH");
+failIfTxStatusError(sendContribution2_2Tx, sendContribution2Message + " - ac5 10 ETH");
+printTokenContractDetails();
+printSaleContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var sendContribution3Message = "Max Out Contribution Phase 2";
+// -----------------------------------------------------------------------------
+console.log("RESULT: " + sendContribution3Message);
+var sendContribution3_1Tx = eth.sendTransaction({from: account4, to: saleAddress, gas: 400000, value: web3.toWei("100000", "ether")});
+var sendContribution3_2Tx = eth.sendTransaction({from: account5, to: saleAddress, gas: 400000, value: web3.toWei("100000", "ether")});
+while (txpool.status.pending > 0) {
+}
+printTxData("sendContribution3_1Tx", sendContribution3_1Tx);
+printTxData("sendContribution3_2Tx", sendContribution3_2Tx);
+printBalances();
+failIfTxStatusError(sendContribution3_1Tx, sendContribution3Message + " - ac4 100,000 ETH - Expecting 1 partial");
+failIfTxStatusError(sendContribution3_2Tx, sendContribution3Message + " - ac5 100,000 ETH - Expecting 1 partial");
+printTokenContractDetails();
+printSaleContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var finaliseMessage = "Finalise";
+// -----------------------------------------------------------------------------
+console.log("RESULT: " + finaliseMessage);
+var finalise1Tx = sale.finalize({from: contractOwnerAccount, gas: 100000});
+var finalise2Tx = token.finalize({from: contractOwnerAccount, gas: 100000});
+while (txpool.status.pending > 0) {
+}
+printTxData("finalise1Tx", finalise1Tx);
+printTxData("finalise2Tx", finalise2Tx);
+printBalances();
+failIfTxStatusError(finalise1Tx, finaliseMessage + " - sale");
+failIfTxStatusError(finalise2Tx, finaliseMessage + " - token");
+printTokenContractDetails();
+printTrusteeContractDetails();
+printSaleContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var moveToken1Message = "Move Tokens";
+// -----------------------------------------------------------------------------
+console.log("RESULT: " + moveToken1Message);
+var moveToken1_1Tx = token.transfer(account6, "100000000000000000", {from: account4, gas: 100000});
+var moveToken1_2Tx = token.approve(account7,  "3000000000000000000", {from: account5, gas: 100000});
+while (txpool.status.pending > 0) {
+}
+var moveToken1_3Tx = token.transferFrom(account5, account8, "3000000000000000000", {from: account7, gas: 100000});
+while (txpool.status.pending > 0) {
+}
+printTxData("moveToken1_1Tx", moveToken1_1Tx);
+printTxData("moveToken1_2Tx", moveToken1_2Tx);
+printTxData("moveToken1_3Tx", moveToken1_3Tx);
+printBalances();
+failIfTxStatusError(moveToken1_1Tx, moveToken1Message + " - transfer 0.1 ST ac4 -> ac6");
+failIfTxStatusError(moveToken1_2Tx, moveToken1Message + " - approve 3 ST ac5 -> ac7");
+failIfTxStatusError(moveToken1_3Tx, moveToken1Message + " - transferFrom 3 ST ac5 -> ac8 by ac7");
+printTokenContractDetails();
+printTrusteeContractDetails();
+printSaleContractDetails();
+console.log("RESULT: ");
+
 
 exit;
-
-// -----------------------------------------------------------------------------
-var tokenMessage = "Deploy Crowdsale/Token Contract";
-console.log("RESULT: old='" + tokenBin + "'");
-var newTokenBin = tokenBin.replace(/__BATTToken\.sol\:SafeMath________________/g, libAddress.substring(2, 42));
-console.log("RESULT: new='" + newTokenBin + "'");
-var symbol = "TST";
-var name = "Test";
-var decimals = 18;
-var initialSupply = "10000000000000000000000000";
-// -----------------------------------------------------------------------------
-console.log("RESULT: " + tokenMessage);
-var tokenContract = web3.eth.contract(tokenAbi);
-// console.log(JSON.stringify(tokenContract));
-var tokenTx = null;
-var tokenAddress = null;
-
-var token = tokenContract.new(symbol, name, decimals, initialSupply,
-    {from: contractOwnerAccount, data: newTokenBin, gas: 6000000},
-  function(e, contract) {
-    if (!e) {
-      if (!contract.address) {
-        tokenTx = contract.transactionHash;
-      } else {
-        tokenAddress = contract.address;
-        addAccount(tokenAddress, "Token '" + token.symbol() + "' '" + token.name() + "'");
-        addTokenContractAddressAndAbi(tokenAddress, tokenAbi);
-        console.log("DATA: tokenAddress=" + tokenAddress);
-      }
-    }
-  }
-);
-
-while (txpool.status.pending > 0) {
-}
-
-printTxData("tokenAddress=" + tokenAddress, tokenTx);
-printBalances();
-failIfTxStatusError(tokenTx, tokenMessage);
-printTokenContractDetails();
-console.log("RESULT: ");
-
-
-// -----------------------------------------------------------------------------
-var mintTokensMessage = "Mint Tokens";
-// -----------------------------------------------------------------------------
-console.log("RESULT: " + mintTokensMessage);
-var mintTokens1Tx = token.mint(account3, "1000000000000000000000000", {from: contractOwnerAccount, gas: 100000});
-var mintTokens2Tx = token.mint(account4, "1000000000000000000000000", {from: contractOwnerAccount, gas: 100000});
-while (txpool.status.pending > 0) {
-}
-printTxData("mintTokens1Tx", mintTokens1Tx);
-printTxData("mintTokens2Tx", mintTokens2Tx);
-printBalances();
-failIfTxStatusError(mintTokens1Tx, mintTokensMessage + " - mint 1,000,000 tokens 0x0 -> ac3");
-failIfTxStatusError(mintTokens2Tx, mintTokensMessage + " - mint 1,000,000 tokens 0x0 -> ac4");
-printTokenContractDetails();
-console.log("RESULT: ");
-
-
-// -----------------------------------------------------------------------------
-var startTransfersMessage = "Start Transfers";
-// -----------------------------------------------------------------------------
-console.log("RESULT: " + startTransfersMessage);
-var startTransfers1Tx = token.disableMinting({from: contractOwnerAccount, gas: 100000});
-var startTransfers2Tx = token.enableTransfers({from: contractOwnerAccount, gas: 100000});
-while (txpool.status.pending > 0) {
-}
-printTxData("startTransfers1Tx", startTransfers1Tx);
-printTxData("startTransfers2Tx", startTransfers2Tx);
-printBalances();
-failIfTxStatusError(startTransfers1Tx, startTransfersMessage + " - Disable Minting");
-failIfTxStatusError(startTransfers2Tx, startTransfersMessage + " - Enable Transfers");
-printTokenContractDetails();
-console.log("RESULT: ");
-
 
 // -----------------------------------------------------------------------------
 var transferTokenMessage = "Transfer Tokens";
