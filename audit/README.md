@@ -59,6 +59,63 @@ This audit has been conducted on Simple Tokens's source code in commits
 
 * **LOW IMPORTANCE** In *Ownable*, use the [`acceptOwnership(...)`](https://github.com/openanx/OpenANXToken/blob/master/contracts/Owned.sol#L51-L55)
   pattern to improve the safety of ownership transfer process
+  
+* **LOW IMPORTANCE** In *ERC20Interface*, the comment [https://github.com/ethereum/EIPs/issues/20](https://github.com/ethereum/EIPs/issues/20) should
+  be updated to the final standard at [https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md)
+
+* **LOW IMPORTANCE** In the *ERC20Token* constructor, as stated in the recently finalised [ERC20 Token Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md):
+
+  > A token contract which creates new tokens SHOULD trigger a Transfer event with the _from address set to 0x0 when tokens are created.
+
+  Add `Transfer(0x0, owner, _totalSupply);` to the bottom of the constructor. This will show the minting of the initial tokens in token explorers. 
+
+* **LOW IMPORTANCE** In `ERC20Token.transfer(...)` and ``ERC20Token.transferFrom(...)`, as stated in the recently finalised
+  [ERC20 Token Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md):
+
+  > The function SHOULD throw if the _from account balance does not have enough tokens to spend
+
+  and
+
+  > Transfers of 0 values MUST be treated as normal transfers and fire the Transfer event.
+
+  Also
+
+  > The function SHOULD throw if the _from account balance does not have enough tokens to spend.
+
+  Applicable to `transferFrom(...)` only
+
+  > The function SHOULD throw unless the _from account has deliberately authorized the sender of the message via some mechanism.
+
+  The way to amend the code to adhere to the ERC20 standard is to remove the `if (...) { ... }` statements in both `transfer(...)` and
+  `transferFrom(...)`
+
+* **LOW IMPORTANCE** In `ERC20Token.approve(...)`, as stated in the recently finalised 
+  [ERC20 Token Standard - approve](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md#approve):
+
+  > THOUGH The contract itself shouldn't enforce it, ...
+
+  Consider removing the `if (...) { ... }` statement
+
+* **VERY LOW IMPORTANCE** Reformat your code so it is consistent when combined into one file. E.g. the following code has 4, 5 and 3 tab spacings:
+
+      # From ERC20Interface
+          uint256 public totalSupply;
+
+          function balanceOf(address _owner) constant returns (uint256 balance);
+
+      # From ERC20Token
+           function allowance(address _owner, address _spender) constant returns (uint256 remaining) {
+               return allowed[_owner][_spender];
+           }
+
+      # From SimpleToken
+         function SimpleToken()
+            ERC20Token(TOKEN_SYMBOL, TOKEN_NAME, TOKEN_DECIMALS, TOKENS_MAX)
+            OpsManaged()
+         {
+            finalized = false;
+
+  Also the number of blank lines between functions, statements, blocks, ... are a little bit variable
 
 <br />
 
@@ -157,20 +214,20 @@ Details of the testing environment can be found in [test](test).
 
 ## Code Review
 
-* [ ] [code-review/ERC20Interface.md](code-review/ERC20Interface.md)
-  * [ ] contract ERC20Interface
-* [ ] [code-review/ERC20Token.md](code-review/ERC20Token.md)
-  * [ ] contract ERC20Token is ERC20Interface, Ownable
-    * [ ] using SafeMath for uint256
-* [ ] [code-review/OpsManaged.md](code-review/OpsManaged.md)
-  * [ ] contract OpsManaged is Ownable
+* [x] [code-review/ERC20Interface.md](code-review/ERC20Interface.md)
+  * [x] contract ERC20Interface
+* [x] [code-review/ERC20Token.md](code-review/ERC20Token.md)
+  * [x] contract ERC20Token is ERC20Interface, Ownable
+    * [x] using SafeMath for uint256
+* [x] [code-review/OpsManaged.md](code-review/OpsManaged.md)
+  * [x] contract OpsManaged is Ownable
 * [ ] [code-review/Trustee.md](code-review/Trustee.md)
   * [ ] contract Trustee is OpsManaged
     * [ ] using SafeMath for uint256
-* [ ] [code-review/SimpleTokenConfig.md](code-review/SimpleTokenConfig.md)
-  * [ ] contract SimpleTokenConfig
-* [ ] [code-review/TokenSaleConfig.md](code-review/TokenSaleConfig.md)
-  * [ ] contract TokenSaleConfig is SimpleTokenConfig
+* [x] [code-review/SimpleTokenConfig.md](code-review/SimpleTokenConfig.md)
+  * [x] contract SimpleTokenConfig
+* [x] [code-review/TokenSaleConfig.md](code-review/TokenSaleConfig.md)
+  * [x] contract TokenSaleConfig is SimpleTokenConfig
 * [ ] [code-review/SimpleToken.md](code-review/SimpleToken.md)
   * [ ] contract SimpleToken is ERC20Token, OpsManaged, SimpleTokenConfig
 * [ ] [code-review/TokenSale.md](code-review/TokenSale.md)

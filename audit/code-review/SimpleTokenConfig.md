@@ -7,6 +7,7 @@ Source file [../../contracts/SimpleTokenConfig.sol](../../contracts/SimpleTokenC
 <hr />
 
 ```javascript
+// BK Ok
 pragma solidity ^0.4.15;
 
 // ----------------------------------------------------------------------------
@@ -19,12 +20,15 @@ pragma solidity ^0.4.15;
 // ----------------------------------------------------------------------------
 
 
+// BK Ok
 contract SimpleTokenConfig {
 
+    // BK Next 3 Ok
     string  public constant TOKEN_SYMBOL   = "ST";
     string  public constant TOKEN_NAME     = "Simple Token";
     uint8   public constant TOKEN_DECIMALS = 18;
 
+    // BK Next 2 Ok
     uint256 public constant DECIMALSFACTOR = 10**uint256(TOKEN_DECIMALS);
     uint256 public constant TOKENS_MAX     = 800000000 * DECIMALSFACTOR;
 }
