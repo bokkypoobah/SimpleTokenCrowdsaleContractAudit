@@ -9,7 +9,8 @@ Status: Work in progress
 Bok Consulting Pty Ltd was commissioned to perform an audit on theSimple Tokens's crowdsale and token Ethereum smart contract.
 
 This audit has been conducted on Simple Tokens's source code in commits
-[ed1c05d](https://github.com/SimpleTokenFoundation/SimpleTokenSale/commit/ed1c05df4ec51d8be2bbee601032aec536f9c4b1).
+[ed1c05d](https://github.com/SimpleTokenFoundation/SimpleTokenSale/commit/ed1c05df4ec51d8be2bbee601032aec536f9c4b1) and
+[08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e).
 
 **TODO**: Confirm that no potential vulnerabilities have been identified in the crowdsale and token contract.
 
@@ -59,16 +60,20 @@ This audit has been conducted on Simple Tokens's source code in commits
 
 * **LOW IMPORTANCE** In *Ownable*, use the [`acceptOwnership(...)`](https://github.com/openanx/OpenANXToken/blob/master/contracts/Owned.sol#L51-L55)
   pattern to improve the safety of ownership transfer process
-  
+
+  * Added in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e) with *Ownable* renamed
+    to *Owned*
 * **LOW IMPORTANCE** In *ERC20Interface*, the comment [https://github.com/ethereum/EIPs/issues/20](https://github.com/ethereum/EIPs/issues/20) should
   be updated to the final standard at [https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md)
 
+  * Updated in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
 * **LOW IMPORTANCE** In the *ERC20Token* constructor, as stated in the recently finalised [ERC20 Token Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md):
 
   > A token contract which creates new tokens SHOULD trigger a Transfer event with the _from address set to 0x0 when tokens are created.
 
   Add `Transfer(0x0, owner, _totalSupply);` to the bottom of the constructor. This will show the minting of the initial tokens in token explorers. 
 
+  * Added in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
 * **LOW IMPORTANCE** In `ERC20Token.transfer(...)` and ``ERC20Token.transferFrom(...)`, as stated in the recently finalised
   [ERC20 Token Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md):
 
@@ -89,6 +94,7 @@ This audit has been conducted on Simple Tokens's source code in commits
   The way to amend the code to adhere to the ERC20 standard is to remove the `if (...) { ... }` statements in both `transfer(...)` and
   `transferFrom(...)`
 
+  * Updated in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
 * **LOW IMPORTANCE** In `ERC20Token.approve(...)`, as stated in the recently finalised 
   [ERC20 Token Standard - approve](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md#approve):
 
@@ -96,6 +102,7 @@ This audit has been conducted on Simple Tokens's source code in commits
 
   Consider removing the `if (...) { ... }` statement
 
+  * Removed in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
 * **VERY LOW IMPORTANCE** Reformat your code so it is consistent when combined into one file. E.g. the following code has 4, 5 and 3 tab spacings:
 
       # From ERC20Interface
@@ -117,6 +124,7 @@ This audit has been conducted on Simple Tokens's source code in commits
 
   Also the number of blank lines between functions, statements, blocks, ... are a little bit variable
 
+  * Reformatted in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
 <br />
 
 <hr />
