@@ -48,11 +48,61 @@ module.exports.deployTrustee = async (artifacts, accounts) => {
    }
 }
 
+module.exports.deployLockBox = async (artifacts, accounts) => {
+   var FutureTokenSaleLockBoxMock = artifacts.require("./FutureTokenSaleLockBoxMock.sol")
+
+   const token   = await SimpleToken.new()
+   const trustee = await Trustee.new(token.address, { from: accounts[0], gas: 3500000 })
+   const sale    = await TokenSale.new(token.address, trustee.address, accounts[0], { from: accounts[0], gas: 4500000 })
+   const lockBox = await FutureTokenSaleLockBoxMock.new(token.address, sale.address, Moment().unix(), { from: accounts[0], gas: 3500000 })
+
+   const TOKENS_FUTURE = await sale.TOKENS_FUTURE.call()
+
+   await token.transfer(lockBox.address, TOKENS_FUTURE, { from: accounts[0] })
+
+   return {
+      token   : token,
+      lockBox   : lockBox
+   }
+}
+
+
+module.exports.deployProcessableAllocations = async (artifacts, accounts) => {
+
+   var TokenSaleConfig            = artifacts.require("./TokenSaleConfig.sol")
+   var ProcessableAllocations     = artifacts.require("./ProcessableAllocations.sol")
+
+   const token   = await SimpleToken.new()
+   const tokenSaleConfig   = await TokenSaleConfig.new()
+   const trustee = await Trustee.new(token.address, { from: accounts[0], gas: 3500000 })
+   const processableAllocations = await ProcessableAllocations.new(trustee.address, { from: accounts[0], gas: 3500000 })
+
+   const TOKENS_FOUNDERS = await tokenSaleConfig.TOKENS_FOUNDERS.call()
+
+   // Only the Admin key(s) can call certain functions
+   await token.setAdminAddress(accounts[1], { from: accounts[0] })
+   await trustee.setAdminAddress(accounts[1], { from: accounts[0] })
+
+   // Trustee contract must hold tokens to process allocations
+   await token.transfer(trustee.address, TOKENS_FOUNDERS, { from: accounts[0] })
+
+   // Token must be finalized for Trustee to process allocations
+   await token.finalize({ from: accounts[1] })
+
+   return {
+      trustee                  : trustee,
+      processableAllocations   : processableAllocations
+   }
+}
+
 
 module.exports.changeTime = async (sale, newTime) => {
    await sale.changeTime(newTime)
 };
 
+module.exports.changeTimeLockBox = async (lockBox, newTime) => {
+   await lockBox.changeTime(newTime)
+};
 
 module.exports.expectNoEvents = (result) => {
    assert.equal(result.receipt.logs.length, 0, "expected empty array of logs")
@@ -116,6 +166,73 @@ module.exports.checkTransferEvent = (event, _from, _to, _value) => {
    assert.equal(event.args._from, _from)
    assert.equal(event.args._to, _to)
    assert.equal(event.args._value.toNumber(), _value.toNumber())
+}
+
+
+module.exports.checkTokensTransferredEventGroup = (result, _to, _value) => {
+   assert.equal(result.logs.length, 1)
+
+   const event = result.logs[0]
+
+   if (Number.isInteger(_value)) {
+      _value = new BigNumber(_value)
+   }
+
+   assert.equal(event.event, "TokensTransferred")
+   assert.equal(event.args._to, _to)
+   assert.equal(event.args._value.toNumber(), _value.toNumber())
+}
+
+
+module.exports.checkUnlockDateExtendedEventGroup = (result, _newDate) => {
+   assert.equal(result.logs.length, 1)
+
+   const event = result.logs[0]
+
+   if (Number.isInteger(_newDate)) {
+      _newDate = new BigNumber(_newDate)
+   }
+
+   assert.equal(event.event, "UnlockDateExtended")
+   assert.equal(event.args._newDate.toNumber(), _newDate.toNumber())
+}
+
+
+module.exports.checkProcessableAllocationAddedEventGroup = (result, _grantee, _amount) => {
+   assert.equal(result.logs.length, 1)
+
+   const event = result.logs[0]
+
+   if (Number.isInteger(_amount)) {
+      _amount = new BigNumber(_amount)
+   }
+
+   assert.equal(event.event, "ProcessableAllocationAdded")
+   assert.equal(event.args._grantee, _grantee)
+   assert.equal(event.args._amount.toNumber(), _amount.toNumber())
+}
+
+
+module.exports.checkLockedEventGroup = (result) => {
+   assert.equal(result.logs.length, 2)
+
+   const ownershipEvent = result.logs[0]
+   const lockedEvent = result.logs[1]
+
+   assert.equal(ownershipEvent.event, "OwnershipTransferInitiated")
+   assert.equal(lockedEvent.event, "Locked")
+}
+
+
+module.exports.checkProcessableAllocationProcessedEvent = (event, _grantee, _amount, _processingStatus) => {
+   if (Number.isInteger(_amount)) {
+      _amount = new BigNumber(_amount)
+   }
+
+   assert.equal(event.event, "ProcessableAllocationProcessed")
+   assert.equal(event.args._grantee, _grantee)
+   assert.equal(event.args._amount.toNumber(), _amount.toNumber())
+   assert.equal(event.args._processingStatus, _processingStatus)
 }
 
 
