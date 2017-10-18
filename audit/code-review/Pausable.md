@@ -7,6 +7,7 @@ Source file [../../contracts/Pausable.sol](../../contracts/Pausable.sol).
 <hr />
 
 ```javascript
+// BK Ok
 pragma solidity ^0.4.17;
 
 // ----------------------------------------------------------------------------
@@ -24,39 +25,55 @@ pragma solidity ^0.4.17;
 // ----------------------------------------------------------------------------
 
 
+// BK Ok
 import "./OpsManaged.sol";
 
 
+// BK Ok
 contract Pausable is OpsManaged {
 
+  // BK Next 2 Ok - Events
   event Pause();
   event Unpause();
 
+  // BK Ok
   bool public paused = false;
 
 
+  // BK Ok
   modifier whenNotPaused() {
+    // BK Ok
     require(!paused);
+    // BK Ok
     _;
   }
 
 
+  // BK Ok
   modifier whenPaused() {
+    // BK Ok
     require(paused);
+    // BK Ok
     _;
   }
 
 
+  // BK Ok - Only the admin can execute
   function pause() public onlyAdmin whenNotPaused {
+    // BK Ok
     paused = true;
 
+    // BK Ok - Log event
     Pause();
   }
 
 
+  // BK Ok - Only the admin can execute
   function unpause() public onlyAdmin whenPaused {
+    // BK Ok
     paused = false;
 
+    // BK Ok - Log event
     Unpause();
   }
 }

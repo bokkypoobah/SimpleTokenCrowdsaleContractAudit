@@ -147,6 +147,13 @@ two new contracts FutureTokenSaleLockBox.sol and ProcessableAllocations.sol were
 
 ### Second Review Recommendations
 
+* **OPTIONAL** To save on gas cost on errors with the new Byzantium changes, add `require(balances[msg.sender] >= _value);` to the beginning
+  of `ERC20Token.transfer(...)`. `require(...)` does not consume all the gas like the `assert(...)` in the SafeMath library
+
+* **OPTIONAL** To save on gas cost on errors with the Byzantium changes, add `require(balances[_from] >= _value);` and
+  `require(allowed[_from][msg.sender] >= _value);` to the beginning of `ERC20Token.transferFrom(...)`. `require(...)` does not consume all
+  the gas like the `assert(...)` in the SafeMath library
+
 <br />
 
 <hr />
@@ -271,49 +278,36 @@ Details of the testing environment can be found in [test](test).
 * [ ] [code-review-old/TokenSale.md](code-review-old/TokenSale.md)
   * [ ] contract TokenSale is OpsManaged, Pausable, TokenSaleConfig
     * [ ] using SafeMath for uint256
-* [ ] [code-review-old/FutureTokenSaleLockBox.md](code-review-old/FutureTokenSaleLockBox.md)
-  * [ ] contract TokenSaleInterface 
-  * [ ] contract TokenInterface 
-  * [ ] contract FutureTokenSaleLockBox is Owned 
-* [ ] [code-review-old/ProcessableAllocations.md](code-review-old/ProcessableAllocations.md)
-  * [ ] contract TrusteeInterface 
-  * [ ] contract ProcessableAllocations is Owned 
 
 <br />
 
 ### Second Code Review
 
-* [ ] [code-review/ERC20Interface.md](code-review/ERC20Interface.md)
-  * [ ] contract ERC20Interface 
-* [ ] [code-review/ERC20Token.md](code-review/ERC20Token.md)
-  * [ ] contract ERC20Token is ERC20Interface, Owned 
-* [ ] [code-review/FutureTokenSaleLockBox.md](code-review/FutureTokenSaleLockBox.md)
-  * [ ] contract TokenSaleInterface 
-  * [ ] contract TokenInterface 
-  * [ ] contract FutureTokenSaleLockBox is Owned 
-* [ ] [code-review/FutureTokenSaleLockBoxMock.md](code-review/FutureTokenSaleLockBoxMock.md)
-  * [ ] contract FutureTokenSaleLockBoxMock is FutureTokenSaleLockBox 
+* [x] [code-review/Owned.md](code-review/Owned.md)
+  * [x] contract Owned 
+* [x] [code-review/SafeMath.md](code-review/SafeMath.md)
+  * [x] library SafeMath
+* [x] [code-review/ERC20Interface.md](code-review/ERC20Interface.md)
+  * [x] contract ERC20Interface 
+* [x] [code-review/ERC20Token.md](code-review/ERC20Token.md)
+  * [x] contract ERC20Token is ERC20Interface, Owned
+    * [x] using SafeMath for uint256 
 * [ ] [code-review/OpsManaged.md](code-review/OpsManaged.md)
   * [ ] contract OpsManaged is Owned 
-* [ ] [code-review/Owned.md](code-review/Owned.md)
-  * [ ] contract Owned 
-* [ ] [code-review/Pausable.md](code-review/Pausable.md)
-  * [ ] contract Pausable is OpsManaged 
-* [ ] [code-review/ProcessableAllocations.md](code-review/ProcessableAllocations.md)
-  * [ ] contract TrusteeInterface 
-  * [ ] contract ProcessableAllocations is Owned 
-* [ ] [code-review/SafeMath.md](code-review/SafeMath.md)
+* [x] [code-review/Pausable.md](code-review/Pausable.md)
+  * [x] contract Pausable is OpsManaged 
+* [x] [code-review/SimpleTokenConfig.md](code-review/SimpleTokenConfig.md)
+  * [x] contract SimpleTokenConfig 
+* [x] [code-review/TokenSaleConfig.md](code-review/TokenSaleConfig.md)
+  * [x] contract TokenSaleConfig is SimpleTokenConfig 
 * [ ] [code-review/SimpleToken.md](code-review/SimpleToken.md)
   * [ ] contract SimpleToken is ERC20Token, OpsManaged, SimpleTokenConfig 
-* [ ] [code-review/SimpleTokenConfig.md](code-review/SimpleTokenConfig.md)
-  * [ ] contract SimpleTokenConfig 
 * [ ] [code-review/TokenSale.md](code-review/TokenSale.md)
-* [ ] [code-review/TokenSaleConfig.md](code-review/TokenSaleConfig.md)
-  * [ ] contract TokenSaleConfig is SimpleTokenConfig 
-* [ ] [code-review/TokenSaleMock.md](code-review/TokenSaleMock.md)
-  * [ ] contract TokenSaleMock is TokenSale 
+  * [ ] contract TokenSale is OpsManaged, Pausable, TokenSaleConfig
+    * [x] using SafeMath for uint256
 * [ ] [code-review/Trustee.md](code-review/Trustee.md)
   * [ ] contract Trustee is OpsManaged
+    * [x] using SafeMath for uint256
 
 <br />
 
@@ -321,7 +315,6 @@ Details of the testing environment can be found in [test](test).
 
 * [ ] [code-review/TokenSaleMock.md](code-review/TokenSaleMock.md)
   * [ ] contract TokenSaleMock is TokenSale
-
 * [ ] [code-review/FutureTokenSaleLockBoxMock.md](code-review/FutureTokenSaleLockBoxMock.md)
   * [ ]    @dev This extension to the FutureTokenSaleLockBox contract allows us to change the current time to enable testing time-related functions
   * [ ] contract FutureTokenSaleLockBoxMock is FutureTokenSaleLockBox

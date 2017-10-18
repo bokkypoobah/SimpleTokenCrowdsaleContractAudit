@@ -7,6 +7,7 @@ Source file [../../contracts/SafeMath.sol](../../contracts/SafeMath.sol).
 <hr />
 
 ```javascript
+// BK Ok
 pragma solidity ^0.4.17;
 
 // ----------------------------------------------------------------------------
@@ -24,38 +25,53 @@ pragma solidity ^0.4.17;
 // ----------------------------------------------------------------------------
 
 
+// BK Ok
 library SafeMath {
 
+    // BK Ok
     function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        // BK Ok
         uint256 c = a * b;
 
+        // BK Ok
         assert(a == 0 || c / a == b);
 
+        // BK Ok
         return c;
     }
 
 
+    // BK Ok
     function div(uint256 a, uint256 b) internal pure returns (uint256) {
         // Solidity automatically throws when dividing by 0
+        // BK Ok
         uint256 c = a / b;
 
         // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+        // BK Ok
         return c;
     }
 
 
+    // BK Ok
     function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+        // BK Ok
         assert(b <= a);
 
+        // BK Ok
         return a - b;
     }
 
 
+    // BK Ok
     function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        // BK Ok
         uint256 c = a + b;
 
+        // BK Ok
         assert(c >= a);
 
+        // BK Ok
         return c;
     }
 }

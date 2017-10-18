@@ -215,17 +215,23 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
     }
 
 
+    // BK Ok
     modifier onlyDuringSale() {
         require(hasSaleEnded() == false && currentTime() >= PHASE1_START_TIME);
+        // BK Ok
         _;
     }
 
 
+    // BK Ok - View only
     function hasSaleEnded() private view returns (bool) {
+        // BK Ok
         if (totalTokensSold >= TOKENS_SALE || currentTime() >= endTime || finalized) {
+            // BK Ok
             return true;
         }
 
+        // BK Ok
         return false;
     }
 
@@ -282,7 +288,9 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
     }
 
 
+    // BK Ok
     function () external payable whenNotPaused onlyDuringSale {
+        // BK Ok
         buyTokens();
     }
 
@@ -405,9 +413,11 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
     // Unpause may extend the end time of the public sale.
     // Note that we do not extend the start time of each phase.
     // Currently does not extend phase 1 end time, only final end time.
+    // BK Ok - Only admin can execute when not paused
     function unpause() public onlyAdmin whenPaused {
 
         // If owner unpauses before sale starts, no impact on end time.
+        // BK Ok
         uint256 current = currentTime();
 
         // If owner unpauses after sale starts, calculate how to extend end.
@@ -429,6 +439,7 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
 
         pausedTime = 0;
 
+        // BK Ok
         return super.unpause();
     }
 
