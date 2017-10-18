@@ -66,6 +66,21 @@ two new contracts FutureTokenSaleLockBox.sol and ProcessableAllocations.sol were
   * [Test 1 Max Funding](#test-1-max-funding)
   * [Test 2](#test-2)
 * [Code Review](#code-review)
+  * [First Code Review](#first-code-review)
+  * [Second Code Review](#second-code-review)
+  * [Not Reviewed](#not-reviewed)
+  * [Permissions](#permissions)
+    * [onlyOwner](#onlyowner)
+    * [onlyOwnerOrAdmin](#onlyowneroradmin)
+    * [onlyAdmin](#onlyadmin)
+    * [onlyAdminOrOps](#onlyadminorops)
+    * [onlyOps](#onlyops)
+    * [onlyOwnerOrRevoke](#onlyownerorrevoke)
+    * [onlyRevoke](#onlyrevoke)
+    * [isOwner](#isowner)
+    * [isAdmin](#isadmin)
+    * [isOwnerOrOps](#isownerorops)
+    * [isOps](#isops)
 
 <br />
 
@@ -253,6 +268,8 @@ Details of the testing environment can be found in [test](test).
 
 ### First Code Review
 
+Only some file reviewed fully.
+
 * [x] [code-review-old/Owned.md](code-review-old/Owned.md)
   * [x] contract Owned
 * [x] [code-review-old/Pausable.md](code-review-old/Pausable.md)
@@ -292,21 +309,21 @@ Details of the testing environment can be found in [test](test).
 * [x] [code-review/ERC20Token.md](code-review/ERC20Token.md)
   * [x] contract ERC20Token is ERC20Interface, Owned
     * [x] using SafeMath for uint256 
-* [ ] [code-review/OpsManaged.md](code-review/OpsManaged.md)
-  * [ ] contract OpsManaged is Owned 
+* [x] [code-review/OpsManaged.md](code-review/OpsManaged.md)
+  * [x] contract OpsManaged is Owned 
 * [x] [code-review/Pausable.md](code-review/Pausable.md)
   * [x] contract Pausable is OpsManaged 
 * [x] [code-review/SimpleTokenConfig.md](code-review/SimpleTokenConfig.md)
   * [x] contract SimpleTokenConfig 
 * [x] [code-review/TokenSaleConfig.md](code-review/TokenSaleConfig.md)
   * [x] contract TokenSaleConfig is SimpleTokenConfig 
-* [ ] [code-review/SimpleToken.md](code-review/SimpleToken.md)
-  * [ ] contract SimpleToken is ERC20Token, OpsManaged, SimpleTokenConfig 
-* [ ] [code-review/TokenSale.md](code-review/TokenSale.md)
-  * [ ] contract TokenSale is OpsManaged, Pausable, TokenSaleConfig
+* [x] [code-review/SimpleToken.md](code-review/SimpleToken.md)
+  * [x] contract SimpleToken is ERC20Token, OpsManaged, SimpleTokenConfig 
+* [x] [code-review/TokenSale.md](code-review/TokenSale.md)
+  * [x] contract TokenSale is OpsManaged, Pausable, TokenSaleConfig
     * [x] using SafeMath for uint256
-* [ ] [code-review/Trustee.md](code-review/Trustee.md)
-  * [ ] contract Trustee is OpsManaged
+* [x] [code-review/Trustee.md](code-review/Trustee.md)
+  * [x] contract Trustee is OpsManaged
     * [x] using SafeMath for uint256
 
 <br />
@@ -316,9 +333,153 @@ Details of the testing environment can be found in [test](test).
 * [ ] [code-review/TokenSaleMock.md](code-review/TokenSaleMock.md)
   * [ ] contract TokenSaleMock is TokenSale
 * [ ] [code-review/FutureTokenSaleLockBoxMock.md](code-review/FutureTokenSaleLockBoxMock.md)
-  * [ ]    @dev This extension to the FutureTokenSaleLockBox contract allows us to change the current time to enable testing time-related functions
   * [ ] contract FutureTokenSaleLockBoxMock is FutureTokenSaleLockBox
- 
+
+<br />
+
+### Permissions
+
+#### onlyOwner
+
+```
+$ egrep -e "onlyOwner[^a-zA-Z]" *.sol
+FutureTokenSaleLockBox.sol:    function extendUnlockDate(uint256 _newDate) public onlyOwner returns (bool) {
+FutureTokenSaleLockBox.sol:    function transfer(address _to, uint256 _value) public onlyOwner onlyAfterUnlockDate returns (bool) {
+FutureTokenSaleLockBoxMock.sol:    function changeTime(uint256 _newTime) public onlyOwner returns (bool) {
+Owned.sol:    modifier onlyOwner() {
+Owned.sol:    function initiateOwnershipTransfer(address _proposedOwner) public onlyOwner returns (bool) {
+ProcessableAllocations.sol: function addProcessableAllocation(address _grantee, uint256 _amount) public onlyOwner onlyIfUnlocked returns (bool) {
+ProcessableAllocations.sol: function lock() public onlyOwner onlyIfUnlocked returns (bool) {
+ProcessableAllocations.sol: function processProcessableAllocations() public onlyOwner onlyIfLocked returns (bool) {
+TokenSale.sol:    function initialize() external onlyOwner returns (bool) {
+TokenSaleMock.sol:   function changeTime(uint256 _newTime) public onlyOwner returns (bool) {
+```
+
+#### onlyOwnerOrAdmin
+
+```
+$ grep onlyOwnerOrAdmin *.sol
+OpsManaged.sol:    modifier onlyOwnerOrAdmin() {
+OpsManaged.sol:    function setAdminAddress(address _adminAddress) external onlyOwnerOrAdmin returns (bool) {
+OpsManaged.sol:    function setOpsAddress(address _opsAddress) external onlyOwnerOrAdmin returns (bool) {
+```
+
+<br />
+
+#### onlyAdmin
+
+```
+$ egrep -e "onlyAdmin[^a-zA-Z]" *.sol
+OpsManaged.sol:    modifier onlyAdmin() {
+Pausable.sol:  function pause() public onlyAdmin whenNotPaused {
+Pausable.sol:  function unpause() public onlyAdmin whenPaused {
+SimpleToken.sol:    function finalize() external onlyAdmin returns (bool success) {
+TokenSale.sol:    function changeWallet(address _wallet) external onlyAdmin returns (bool) {
+TokenSale.sol:    function setTokensPerKEther(uint256 _tokensPerKEther) external onlyAdmin onlyBeforeSale returns (bool) {
+TokenSale.sol:    function setPhase1AccountTokensMax(uint256 _tokens) external onlyAdmin onlyBeforeSale returns (bool) {
+TokenSale.sol:    function addPresale(address _account, uint256 _baseTokens, uint256 _bonusTokens) external onlyAdmin onlyBeforeSale returns (bool) {
+TokenSale.sol:    function pause() public onlyAdmin whenNotPaused {
+TokenSale.sol:    function unpause() public onlyAdmin whenPaused {
+TokenSale.sol:    function reclaimTokens() external onlyAdmin returns (bool) {
+TokenSale.sol:    function finalize() external onlyAdmin returns (bool) {
+Trustee.sol:    function reclaimTokens() external onlyAdmin returns (bool) {
+```
+
+<br />
+
+#### onlyAdminOrOps
+
+```
+$ grep onlyAdminOrOps *.sol
+OpsManaged.sol:    modifier onlyAdminOrOps() {
+Trustee.sol:    function grantAllocation(address _account, uint256 _amount, bool _revokable) public onlyAdminOrOps returns (bool) {
+```
+
+<br />
+
+#### onlyOps
+
+```
+$ grep onlyOps *.sol
+OpsManaged.sol:    modifier onlyOps() {
+TokenSale.sol:    function updateWhitelist(address _account, uint8 _phase) external onlyOps returns (bool) {
+Trustee.sol:    function processAllocation(address _account, uint256 _amount) external onlyOps returns (bool) {
+```
+
+<br />
+
+#### onlyOwnerOrRevoke
+
+```
+$ grep onlyOwnerOrRevoke *.sol
+Trustee.sol:    modifier onlyOwnerOrRevoke() {
+Trustee.sol:    function setRevokeAddress(address _revokeAddress) external onlyOwnerOrRevoke returns (bool) {
+```
+
+<br />
+
+#### onlyRevoke
+
+```
+$ grep onlyRevoke *.sol
+Trustee.sol:    modifier onlyRevoke() {
+Trustee.sol:    function revokeAllocation(address _account) external onlyRevoke returns (bool) {
+```
+
+<br />
+
+#### isOwner
+
+```
+$ egrep -e "isOwner[^a-zA-Z]" *.sol
+OpsManaged.sol:        require(isOwner(msg.sender) || isAdmin(msg.sender));
+OpsManaged.sol:        return (isOwner(_address) || isOps(_address));
+Owned.sol:        require(isOwner(msg.sender));
+Owned.sol:    function isOwner(address _address) internal view returns (bool) {
+Trustee.sol:        require(isOwner(msg.sender) || isRevoke(msg.sender));
+Trustee.sol:            require(isOwner(msg.sender) || isAdmin(msg.sender));
+```
+
+<br />
+
+#### isAdmin
+
+```
+$ grep isAdmin *.sol
+OpsManaged.sol:        require(isAdmin(msg.sender));
+OpsManaged.sol:        require(isAdmin(msg.sender) || isOps(msg.sender));
+OpsManaged.sol:        require(isOwner(msg.sender) || isAdmin(msg.sender));
+OpsManaged.sol:    function isAdmin(address _address) internal view returns (bool) {
+OpsManaged.sol:        require(!isAdmin(_opsAddress));
+Trustee.sol:        require(!isAdmin(_revokeAddress));
+Trustee.sol:            require(isOwner(msg.sender) || isAdmin(msg.sender));
+```
+
+<br />
+
+#### isOwnerOrOps
+
+```
+$ grep isOwnerOrOps *.sol
+OpsManaged.sol:    function isOwnerOrOps(address _address) internal view returns (bool) {
+SimpleToken.sol:        require(isOwnerOrOps(_sender) || _to == owner);
+```
+
+<br />
+
+#### isOps
+
+```
+$ grep isOps *.sol
+OpsManaged.sol:        require(isAdmin(msg.sender) || isOps(msg.sender));
+OpsManaged.sol:        require(isOps(msg.sender));
+OpsManaged.sol:    function isOps(address _address) internal view returns (bool) {
+OpsManaged.sol:        return (isOwner(_address) || isOps(_address));
+OpsManaged.sol:        require(!isOps(_adminAddress));
+Trustee.sol:        require(!isOps(_revokeAddress));
+Trustee.sol:        if (isOps(msg.sender)) {
+```
+
 <br />
 
 <br />

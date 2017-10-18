@@ -52,7 +52,7 @@ contract Owned {
     }
 
 
-    // BK Ok - Constant function
+    // BK Ok - View function
     function isOwner(address _address) internal view returns (bool) {
         // BK Ok
         return (_address == owner);
