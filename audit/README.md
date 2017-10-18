@@ -8,8 +8,13 @@ Status: Work in progress
 
 Bok Consulting Pty Ltd was commissioned to perform an audit on theSimple Tokens's crowdsale and token Ethereum smart contract.
 
+### First Review
 This **first review** has been conducted on Simple Tokens's source code in commits
 [ed1c05d](https://github.com/SimpleTokenFoundation/SimpleTokenSale/commit/ed1c05df4ec51d8be2bbee601032aec536f9c4b1).
+
+<br />
+
+### Second Review
 
 The **second review** has been conducted on the update to Simple Token's source code in commits
 [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e) and
@@ -239,40 +244,76 @@ Details of the testing environment can be found in [test](test).
 
 ## Code Review
 
-* [x] [code-review/Owned.md](code-review/Owned.md)
+### First Code Review
+
+* [x] [code-review-old/Owned.md](code-review-old/Owned.md)
   * [x] contract Owned
-* [x] [code-review/Pausable.md](code-review/Pausable.md)
+* [x] [code-review-old/Pausable.md](code-review-old/Pausable.md)
   * [x] contract Pausable is Ownable
-* [x] [code-review/SafeMath.md](code-review/SafeMath.md)
+* [x] [code-review-old/SafeMath.md](code-review-old/SafeMath.md)
   * [x] library SafeMath
-* [x] [code-review/ERC20Interface.md](code-review/ERC20Interface.md)
+* [x] [code-review-old/ERC20Interface.md](code-review-old/ERC20Interface.md)
   * [x] contract ERC20Interface
-* [x] [code-review/ERC20Token.md](code-review/ERC20Token.md)
+* [x] [code-review-old/ERC20Token.md](code-review-old/ERC20Token.md)
   * [x] contract ERC20Token is ERC20Interface, Ownable
     * [x] using SafeMath for uint256
-* [x] [code-review/OpsManaged.md](code-review/OpsManaged.md)
+* [x] [code-review-old/OpsManaged.md](code-review-old/OpsManaged.md)
   * [x] contract OpsManaged is Ownable
-* [ ] [code-review/Trustee.md](code-review/Trustee.md)
+* [ ] [code-review-old/Trustee.md](code-review-old/Trustee.md)
   * [ ] contract Trustee is OpsManaged
     * [ ] using SafeMath for uint256
-* [x] [code-review/SimpleTokenConfig.md](code-review/SimpleTokenConfig.md)
+* [x] [code-review-old/SimpleTokenConfig.md](code-review-old/SimpleTokenConfig.md)
   * [x] contract SimpleTokenConfig
-* [x] [code-review/TokenSaleConfig.md](code-review/TokenSaleConfig.md)
+* [x] [code-review-old/TokenSaleConfig.md](code-review-old/TokenSaleConfig.md)
   * [x] contract TokenSaleConfig is SimpleTokenConfig
-* [ ] [code-review/SimpleToken.md](code-review/SimpleToken.md)
+* [ ] [code-review-old/SimpleToken.md](code-review-old/SimpleToken.md)
   * [ ] contract SimpleToken is ERC20Token, OpsManaged, SimpleTokenConfig
-* [ ] [code-review/TokenSale.md](code-review/TokenSale.md)
+* [ ] [code-review-old/TokenSale.md](code-review-old/TokenSale.md)
   * [ ] contract TokenSale is OpsManaged, Pausable, TokenSaleConfig
     * [ ] using SafeMath for uint256
+* [ ] [code-review-old/FutureTokenSaleLockBox.md](code-review-old/FutureTokenSaleLockBox.md)
+  * [ ] contract TokenSaleInterface 
+  * [ ] contract TokenInterface 
+  * [ ] contract FutureTokenSaleLockBox is Owned 
+* [ ] [code-review-old/ProcessableAllocations.md](code-review-old/ProcessableAllocations.md)
+  * [ ] contract TrusteeInterface 
+  * [ ] contract ProcessableAllocations is Owned 
 
+<br />
+
+### Second Code Review
+
+* [ ] [code-review/ERC20Interface.md](code-review/ERC20Interface.md)
+  * [ ] contract ERC20Interface 
+* [ ] [code-review/ERC20Token.md](code-review/ERC20Token.md)
+  * [ ] contract ERC20Token is ERC20Interface, Owned 
 * [ ] [code-review/FutureTokenSaleLockBox.md](code-review/FutureTokenSaleLockBox.md)
   * [ ] contract TokenSaleInterface 
   * [ ] contract TokenInterface 
   * [ ] contract FutureTokenSaleLockBox is Owned 
-
+* [ ] [code-review/FutureTokenSaleLockBoxMock.md](code-review/FutureTokenSaleLockBoxMock.md)
+  * [ ] contract FutureTokenSaleLockBoxMock is FutureTokenSaleLockBox 
+* [ ] [code-review/OpsManaged.md](code-review/OpsManaged.md)
+  * [ ] contract OpsManaged is Owned 
+* [ ] [code-review/Owned.md](code-review/Owned.md)
+  * [ ] contract Owned 
+* [ ] [code-review/Pausable.md](code-review/Pausable.md)
+  * [ ] contract Pausable is OpsManaged 
 * [ ] [code-review/ProcessableAllocations.md](code-review/ProcessableAllocations.md)
   * [ ] contract TrusteeInterface 
   * [ ] contract ProcessableAllocations is Owned 
+* [ ] [code-review/SafeMath.md](code-review/SafeMath.md)
+* [ ] [code-review/SimpleToken.md](code-review/SimpleToken.md)
+  * [ ] contract SimpleToken is ERC20Token, OpsManaged, SimpleTokenConfig 
+* [ ] [code-review/SimpleTokenConfig.md](code-review/SimpleTokenConfig.md)
+  * [ ] contract SimpleTokenConfig 
+* [ ] [code-review/TokenSale.md](code-review/TokenSale.md)
+* [ ] [code-review/TokenSaleConfig.md](code-review/TokenSaleConfig.md)
+  * [ ] contract TokenSaleConfig is SimpleTokenConfig 
+* [ ] [code-review/TokenSaleMock.md](code-review/TokenSaleMock.md)
+  * [ ] contract TokenSaleMock is TokenSale 
+* [ ] [code-review/Trustee.md](code-review/Trustee.md)
+  * [ ] contract Trustee is OpsManaged
 
 <br />
 
