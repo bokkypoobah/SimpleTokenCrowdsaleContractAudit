@@ -1,6 +1,6 @@
 # Ownable
 
-Source file [../../contracts/OpenZepplin/Ownable.sol](../../contracts/OpenZepplin/Ownable.sol).
+Source file [../../contracts/Owned.sol](../../contracts/Owned.sol).
 
 <br />
 

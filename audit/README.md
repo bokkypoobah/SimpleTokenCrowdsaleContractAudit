@@ -8,9 +8,19 @@ Status: Work in progress
 
 Bok Consulting Pty Ltd was commissioned to perform an audit on theSimple Tokens's crowdsale and token Ethereum smart contract.
 
-This audit has been conducted on Simple Tokens's source code in commits
-[ed1c05d](https://github.com/SimpleTokenFoundation/SimpleTokenSale/commit/ed1c05df4ec51d8be2bbee601032aec536f9c4b1) and
-[08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e).
+This **first review** has been conducted on Simple Tokens's source code in commits
+[ed1c05d](https://github.com/SimpleTokenFoundation/SimpleTokenSale/commit/ed1c05df4ec51d8be2bbee601032aec536f9c4b1).
+
+The **second review** has been conducted on the update to Simple Token's source code in commits
+[08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e) and
+[1a1e863](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/1a1e863441ba0149d7585203f5dbc6e800af00cf).
+
+The key management for executing functions was updated in
+[08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e). The OpenZeppelin
+contracts were moved into the same directory as the other contracts and Ownable.sol was renamed to Owned.sol.
+
+In [1a1e863](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/1a1e863441ba0149d7585203f5dbc6e800af00cf), 
+two new contracts FutureTokenSaleLockBox.sol and ProcessableAllocations.sol were added.
 
 **TODO**: Confirm that no potential vulnerabilities have been identified in the crowdsale and token contract.
 
@@ -57,6 +67,8 @@ This audit has been conducted on Simple Tokens's source code in commits
 <hr />
 
 ## Recommendations
+
+### First Review Recommendations
 
 * **LOW IMPORTANCE** In *Ownable*, use the [`acceptOwnership(...)`](https://github.com/openanx/OpenANXToken/blob/master/contracts/Owned.sol#L51-L55)
   pattern to improve the safety of ownership transfer process
@@ -125,6 +137,11 @@ This audit has been conducted on Simple Tokens's source code in commits
   Also the number of blank lines between functions, statements, blocks, ... are a little bit variable
 
   * Reformatted in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
+
+<br />
+
+### Second Review Recommendations
+
 <br />
 
 <hr />
@@ -222,6 +239,12 @@ Details of the testing environment can be found in [test](test).
 
 ## Code Review
 
+* [x] [code-review/Owned.md](code-review/Owned.md)
+  * [x] contract Owned
+* [x] [code-review/Pausable.md](code-review/Pausable.md)
+  * [x] contract Pausable is Ownable
+* [x] [code-review/SafeMath.md](code-review/SafeMath.md)
+  * [x] library SafeMath
 * [x] [code-review/ERC20Interface.md](code-review/ERC20Interface.md)
   * [x] contract ERC20Interface
 * [x] [code-review/ERC20Token.md](code-review/ERC20Token.md)
@@ -242,24 +265,26 @@ Details of the testing environment can be found in [test](test).
   * [ ] contract TokenSale is OpsManaged, Pausable, TokenSaleConfig
     * [ ] using SafeMath for uint256
 
-<br />
+* [ ] [code-review/FutureTokenSaleLockBox.md](code-review/FutureTokenSaleLockBox.md)
+  * [ ] contract TokenSaleInterface 
+  * [ ] contract TokenInterface 
+  * [ ] contract FutureTokenSaleLockBox is Owned 
 
-### OpenZeppelin Code Review
-
-* [x] [openzeppelin-code-review/Ownable.md](openzeppelin-code-review/Ownable.md)
-  * [x] contract Ownable
-* [x] [openzeppelin-code-review/Pausable.md](openzeppelin-code-review/Pausable.md)
-  * [x] contract Pausable is Ownable
-* [x] [openzeppelin-code-review/SafeMath.md](openzeppelin-code-review/SafeMath.md)
-  * [x] library SafeMath
+* [ ] [code-review/ProcessableAllocations.md](code-review/ProcessableAllocations.md)
+  * [ ] contract TrusteeInterface 
+  * [ ] contract ProcessableAllocations is Owned 
 
 <br />
 
 ### Not Reviewed
 
-  * [ ] [code-review/TokenSaleMock.md](code-review/TokenSaleMock.md)
+* [ ] [code-review/TokenSaleMock.md](code-review/TokenSaleMock.md)
   * [ ] contract TokenSaleMock is TokenSale
 
+* [ ] [code-review/FutureTokenSaleLockBoxMock.md](code-review/FutureTokenSaleLockBoxMock.md)
+  * [ ]    @dev This extension to the FutureTokenSaleLockBox contract allows us to change the current time to enable testing time-related functions
+  * [ ] contract FutureTokenSaleLockBoxMock is FutureTokenSaleLockBox
+ 
 <br />
 
 <br />
