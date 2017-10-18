@@ -1,4 +1,4 @@
-pragma solidity ^0.4.15;
+pragma solidity ^0.4.17;
 
 // ----------------------------------------------------------------------------
 // Simple Token - Token Sale Configuration
@@ -15,9 +15,9 @@ import "./SimpleTokenConfig.sol";
 
 contract TokenSaleConfig is SimpleTokenConfig {
 
-    uint256 public constant PHASE1_START_TIME         = 1507704727; // Wed 11 Oct 2017 06:52:07 UTC
-    uint256 public constant PHASE2_START_TIME         = 1507704757; // Wed 11 Oct 2017 06:52:37 UTC
-    uint256 public constant END_TIME                  = 1507704817; // Wed 11 Oct 2017 06:53:37 UTC
+    uint256 public constant PHASE1_START_TIME         = 1508987805; // Thu 26 Oct 2017 03:16:45 UTC
+    uint256 public constant PHASE2_START_TIME         = 1508987835; // Thu 26 Oct 2017 03:17:15 UTC
+    uint256 public constant END_TIME                  = 1508987895; // Thu 26 Oct 2017 03:18:15 UTC
     uint256 public constant CONTRIBUTION_MIN          = 0.1 ether;
     uint256 public constant CONTRIBUTION_MAX          = 100000.0 ether;
 

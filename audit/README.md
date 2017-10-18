@@ -68,6 +68,7 @@ two new contracts FutureTokenSaleLockBox.sol and ProcessableAllocations.sol were
 * [Code Review](#code-review)
   * [First Code Review](#first-code-review)
   * [Second Code Review](#second-code-review)
+  * [New Contracts Code Review](#new-contracts-code-review)
   * [Not Reviewed](#not-reviewed)
   * [Permissions](#permissions)
     * [onlyOwner](#onlyowner)
@@ -93,19 +94,19 @@ two new contracts FutureTokenSaleLockBox.sol and ProcessableAllocations.sol were
 * **LOW IMPORTANCE** In *Ownable*, use the [`acceptOwnership(...)`](https://github.com/openanx/OpenANXToken/blob/master/contracts/Owned.sol#L51-L55)
   pattern to improve the safety of ownership transfer process
 
-  * Added in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e) with *Ownable* renamed
+  * [x] Added in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e) with *Ownable* renamed
     to *Owned*
 * **LOW IMPORTANCE** In *ERC20Interface*, the comment [https://github.com/ethereum/EIPs/issues/20](https://github.com/ethereum/EIPs/issues/20) should
   be updated to the final standard at [https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md)
 
-  * Updated in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
+  * [x] Updated in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
 * **LOW IMPORTANCE** In the *ERC20Token* constructor, as stated in the recently finalised [ERC20 Token Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md):
 
   > A token contract which creates new tokens SHOULD trigger a Transfer event with the _from address set to 0x0 when tokens are created.
 
   Add `Transfer(0x0, owner, _totalSupply);` to the bottom of the constructor. This will show the minting of the initial tokens in token explorers. 
 
-  * Added in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
+  * [x] Added in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
 * **LOW IMPORTANCE** In `ERC20Token.transfer(...)` and ``ERC20Token.transferFrom(...)`, as stated in the recently finalised
   [ERC20 Token Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md):
 
@@ -126,7 +127,7 @@ two new contracts FutureTokenSaleLockBox.sol and ProcessableAllocations.sol were
   The way to amend the code to adhere to the ERC20 standard is to remove the `if (...) { ... }` statements in both `transfer(...)` and
   `transferFrom(...)`
 
-  * Updated in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
+  * [x] Updated in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
 * **LOW IMPORTANCE** In `ERC20Token.approve(...)`, as stated in the recently finalised 
   [ERC20 Token Standard - approve](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md#approve):
 
@@ -134,7 +135,7 @@ two new contracts FutureTokenSaleLockBox.sol and ProcessableAllocations.sol were
 
   Consider removing the `if (...) { ... }` statement
 
-  * Removed in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
+  * [x] Removed in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
 * **VERY LOW IMPORTANCE** Reformat your code so it is consistent when combined into one file. E.g. the following code has 4, 5 and 3 tab spacings:
 
       # From ERC20Interface
@@ -156,7 +157,7 @@ two new contracts FutureTokenSaleLockBox.sol and ProcessableAllocations.sol were
 
   Also the number of blank lines between functions, statements, blocks, ... are a little bit variable
 
-  * Reformatted in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
+  * [x] Reformatted in [08c4976](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/08c4976d82cc91841df10ce805806ae72308305e)
 
 <br />
 
@@ -237,7 +238,7 @@ in [test/test1results.txt](test/test1results.txt) and the detailed output saved 
 
 * [x] Deploy the token, trustee and sale contracts
 * [x] Stitch the contracts together, move tokens to contracts
-* [x] Whitelist participant accounts
+* [x] Add presale tokens, Whitelist participant accounts
 * [x] Contribute to the crowdsale contract
 * [x] Finalise the successful crowdsale
 * [x] Transfer tokens
@@ -325,6 +326,18 @@ Only some file reviewed fully.
 * [x] [code-review/Trustee.md](code-review/Trustee.md)
   * [x] contract Trustee is OpsManaged
     * [x] using SafeMath for uint256
+
+<br />
+
+### New Contracts Code Review
+
+* [ ] [code-review/FutureTokenSaleLockBox.md](code-review/FutureTokenSaleLockBox.md)
+  * [ ] contract TokenSaleInterface 
+  * [ ] contract TokenInterface 
+  * [ ] contract FutureTokenSaleLockBox is Owned
+* [ ] [code-review/ProcessableAllocations.md](code-review/ProcessableAllocations.md)
+  * [ ] contract TrusteeInterface 
+  * [ ] contract ProcessableAllocations is Owned 
 
 <br />
 

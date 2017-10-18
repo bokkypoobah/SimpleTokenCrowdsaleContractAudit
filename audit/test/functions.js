@@ -10,29 +10,29 @@ var accountNames = {};
 addAccount(eth.accounts[0], "Account #0 - Miner");
 addAccount(eth.accounts[1], "Account #1 - Contract Owner");
 addAccount(eth.accounts[2], "Account #2 - Wallet");
-addAccount(eth.accounts[3], "Account #3 - Sale Operations");
-addAccount(eth.accounts[4], "Account #4 - Whitelisted Phase 1");
-addAccount(eth.accounts[5], "Account #5 - Whitelisted Phase 2");
-addAccount(eth.accounts[6], "Account #6");
+addAccount(eth.accounts[3], "Account #3 - Ops Account");
+addAccount(eth.accounts[4], "Account #4 - Admin Account");
+addAccount(eth.accounts[5], "Account #5 - Whitelisted Phase 1");
+addAccount(eth.accounts[6], "Account #6 - Whitelisted Phase 2");
 addAccount(eth.accounts[7], "Account #7");
 addAccount(eth.accounts[8], "Account #8");
 addAccount(eth.accounts[9], "Account #9");
 addAccount(eth.accounts[10], "Account #10 - Presale");
-addAccount(eth.accounts[11], "Account #11 - Future Tokens");
+addAccount(eth.accounts[11], "Account #11");
 
 
 var minerAccount = eth.accounts[0];
 var contractOwnerAccount = eth.accounts[1];
 var wallet = eth.accounts[2];
-var saleOperations = eth.accounts[3];
-var account4 = eth.accounts[4];
+var opsAccount = eth.accounts[3];
+var adminAccount = eth.accounts[4];
 var account5 = eth.accounts[5];
 var account6 = eth.accounts[6];
 var account7 = eth.accounts[7];
 var account8 = eth.accounts[8];
 var account9 = eth.accounts[9];
 var presale = eth.accounts[10];
-var futureTokens = eth.accounts[11];
+var account11 = eth.accounts[11];
 
 var baseBlock = eth.blockNumber;
 
@@ -119,10 +119,12 @@ function printTxData(name, txId) {
   var gasPrice = tx.gasPrice;
   var gasCostETH = tx.gasPrice.mul(txReceipt.gasUsed).div(1e18);
   var gasCostUSD = gasCostETH.mul(ethPriceUSD);
+  var block = eth.getBlock(txReceipt.blockNumber);
   console.log("RESULT: " + name + " status=" + txReceipt.status + " gas=" + tx.gas +
     " gasUsed=" + txReceipt.gasUsed + " costETH=" + gasCostETH + " costUSD=" + gasCostUSD +
     " @ ETH/USD=" + ethPriceUSD + " gasPrice=" + gasPrice + " block=" + 
-    txReceipt.blockNumber + " txIx=" + tx.transactionIndex + " txId=" + txId);
+    txReceipt.blockNumber + " txIx=" + tx.transactionIndex + " txId=" + txId +
+    " @ " + block.timestamp + " " + new Date(block.timestamp * 1000).toUTCString());
 }
 
 function assertEtherBalance(account, expectedBalance) {
@@ -205,6 +207,20 @@ function failIfGasEqualsGasUsedOrContractAddressNull(contractAddress, tx, msg) {
 
 
 //-----------------------------------------------------------------------------
+// Wait until some unixTime + additional seconds
+//-----------------------------------------------------------------------------
+function waitUntil(message, unixTime, addSeconds) {
+  var t = parseInt(unixTime) + parseInt(addSeconds) + parseInt(1);
+  var time = new Date(t * 1000);
+  console.log("RESULT: Waiting until '" + message + "' at " + unixTime + "+" + addSeconds + "s =" + time + " now=" + new Date());
+  while ((new Date()).getTime() <= time.getTime()) {
+  }
+  console.log("RESULT: Waited until '" + message + "' at at " + unixTime + "+" + addSeconds + "s =" + time + " now=" + new Date());
+  console.log("RESULT: ");
+}
+
+
+//-----------------------------------------------------------------------------
 // Token Contract
 //-----------------------------------------------------------------------------
 var tokenFromBlock = 0;
@@ -214,7 +230,8 @@ function printTokenContractDetails() {
     var contract = eth.contract(tokenContractAbi).at(tokenContractAddress);
     var decimals = contract.decimals();
     console.log("RESULT: token.owner=" + contract.owner());
-    console.log("RESULT: token.operationsAddress=" + contract.operationsAddress());
+    console.log("RESULT: token.opsAddress=" + contract.opsAddress());
+    console.log("RESULT: token.adminAddress=" + contract.adminAddress());
     console.log("RESULT: token.symbol=" + contract.symbol());
     console.log("RESULT: token.name=" + contract.name());
     console.log("RESULT: token.decimals=" + decimals);
@@ -226,19 +243,33 @@ function printTokenContractDetails() {
     var latestBlock = eth.blockNumber;
     var i;
 
-    var ownershipTransferredEvents = contract.OwnershipTransferred({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
+    var ownershipTransferInitiatedEvents = contract.OwnershipTransferInitiated({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
     i = 0;
-    ownershipTransferredEvents.watch(function (error, result) {
-      console.log("RESULT: OwnershipTransferred " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    ownershipTransferInitiatedEvents.watch(function (error, result) {
+      console.log("RESULT: OwnershipTransferInitiated " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
     });
-    ownershipTransferredEvents.stopWatching();
+    ownershipTransferInitiatedEvents.stopWatching();
 
-    var operationsAddressChangedEvents = contract.OperationsAddressChanged({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
+    var ownershipTransferCompletedEvents = contract.OwnershipTransferCompleted({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
     i = 0;
-    operationsAddressChangedEvents.watch(function (error, result) {
-      console.log("RESULT: OperationsAddressChanged " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    ownershipTransferCompletedEvents.watch(function (error, result) {
+      console.log("RESULT: OwnershipTransferCompleted " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
     });
-    operationsAddressChangedEvents.stopWatching();
+    ownershipTransferCompletedEvents.stopWatching();
+
+    var opsAddressChangedChangedEvents = contract.OpsAddressChanged({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
+    i = 0;
+    opsAddressChangedChangedEvents.watch(function (error, result) {
+      console.log("RESULT: OpsAddressChanged " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    });
+    opsAddressChangedChangedEvents.stopWatching();
+
+    var adminAddressChangedEvents = contract.AdminAddressChanged({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
+    i = 0;
+    adminAddressChangedEvents.watch(function (error, result) {
+      console.log("RESULT: AdminAddressChanged " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    });
+    adminAddressChangedEvents.stopWatching();
 
     var finalizedChangedEvents = contract.Finalized({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
     i = 0;
@@ -288,26 +319,41 @@ function printTrusteeContractDetails() {
     var tokenContract = eth.contract(tokenContractAbi).at(contract.tokenContract());
     var decimals = tokenContract.decimals();
     console.log("RESULT: trustee.owner=" + contract.owner());
-    console.log("RESULT: trustee.operationsAddress=" + contract.operationsAddress());
+    console.log("RESULT: trustee.opsAddress=" + contract.opsAddress());
+    console.log("RESULT: trustee.adminAddress=" + contract.adminAddress());
     console.log("RESULT: trustee.tokenContract=" + contract.tokenContract());
     console.log("RESULT: trustee.totalLocked=" + contract.totalLocked().shift(-decimals));
 
     var latestBlock = eth.blockNumber;
     var i;
 
-    var ownershipTransferredEvents = contract.OwnershipTransferred({}, { fromBlock: trusteeFromBlock, toBlock: latestBlock });
+    var ownershipTransferInitiatedEvents = contract.OwnershipTransferInitiated({}, { fromBlock: trusteeFromBlock, toBlock: latestBlock });
     i = 0;
-    ownershipTransferredEvents.watch(function (error, result) {
-      console.log("RESULT: OwnershipTransferred " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    ownershipTransferInitiatedEvents.watch(function (error, result) {
+      console.log("RESULT: OwnershipTransferInitiated " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
     });
-    ownershipTransferredEvents.stopWatching();
+    ownershipTransferInitiatedEvents.stopWatching();
 
-    var operationsAddressChangedEvents = contract.OperationsAddressChanged({}, { fromBlock: trusteeFromBlock, toBlock: latestBlock });
+    var ownershipTransferCompletedEvents = contract.OwnershipTransferCompleted({}, { fromBlock: trusteeFromBlock, toBlock: latestBlock });
     i = 0;
-    operationsAddressChangedEvents.watch(function (error, result) {
-      console.log("RESULT: OperationsAddressChanged " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    ownershipTransferCompletedEvents.watch(function (error, result) {
+      console.log("RESULT: OwnershipTransferCompleted " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
     });
-    operationsAddressChangedEvents.stopWatching();
+    ownershipTransferCompletedEvents.stopWatching();
+
+    var opsAddressChangedEvents = contract.OpsAddressChanged({}, { fromBlock: trusteeFromBlock, toBlock: latestBlock });
+    i = 0;
+    opsAddressChangedEvents.watch(function (error, result) {
+      console.log("RESULT: OpsAddressChanged " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    });
+    opsAddressChangedEvents.stopWatching();
+
+    var adminAddressChangedEvents = contract.AdminAddressChanged({}, { fromBlock: trusteeFromBlock, toBlock: latestBlock });
+    i = 0;
+    adminAddressChangedEvents.watch(function (error, result) {
+      console.log("RESULT: AdminAddressChanged " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    });
+    adminAddressChangedEvents.stopWatching();
 
     var allocationGrantedEvents = contract.AllocationGranted({}, { fromBlock: trusteeFromBlock, toBlock: latestBlock });
     i = 0;
@@ -362,7 +408,8 @@ function printSaleContractDetails() {
     var tokenContract = eth.contract(tokenContractAbi).at(contract.tokenContract());
     var decimals = tokenContract.decimals();
     console.log("RESULT: sale.owner=" + contract.owner());
-    console.log("RESULT: sale.operationsAddress=" + contract.operationsAddress());
+    console.log("RESULT: sale.opsAddress=" + contract.opsAddress());
+    console.log("RESULT: sale.adminAddress=" + contract.adminAddress());
 
     console.log("RESULT: sale.PHASE1_START_TIME=" + contract.PHASE1_START_TIME() + " " + new Date(contract.PHASE1_START_TIME() * 1000).toUTCString());
     console.log("RESULT: sale.PHASE2_START_TIME=" + contract.PHASE2_START_TIME() + " " + new Date(contract.PHASE2_START_TIME() * 1000).toUTCString());
@@ -392,6 +439,34 @@ function printSaleContractDetails() {
 
     var latestBlock = eth.blockNumber;
     var i;
+
+    var ownershipTransferInitiatedEvents = contract.OwnershipTransferInitiated({}, { fromBlock: saleFromBlock, toBlock: latestBlock });
+    i = 0;
+    ownershipTransferInitiatedEvents.watch(function (error, result) {
+      console.log("RESULT: OwnershipTransferInitiated " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    });
+    ownershipTransferInitiatedEvents.stopWatching();
+
+    var ownershipTransferCompletedEvents = contract.OwnershipTransferCompleted({}, { fromBlock: saleFromBlock, toBlock: latestBlock });
+    i = 0;
+    ownershipTransferCompletedEvents.watch(function (error, result) {
+      console.log("RESULT: OwnershipTransferCompleted " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    });
+    ownershipTransferCompletedEvents.stopWatching();
+
+    var opsAddressChangedEvents = contract.OpsAddressChanged({}, { fromBlock: saleFromBlock, toBlock: latestBlock });
+    i = 0;
+    opsAddressChangedEvents.watch(function (error, result) {
+      console.log("RESULT: OpsAddressChanged " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    });
+    opsAddressChangedEvents.stopWatching();
+
+    var adminAddressChangedEvents = contract.AdminAddressChanged({}, { fromBlock: saleFromBlock, toBlock: latestBlock });
+    i = 0;
+    adminAddressChangedEvents.watch(function (error, result) {
+      console.log("RESULT: AdminAddressChanged " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    });
+    adminAddressChangedEvents.stopWatching();
 
     var initializedEvents = contract.Initialized({}, { fromBlock: saleFromBlock, toBlock: latestBlock });
     i = 0;
