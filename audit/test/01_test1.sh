@@ -244,11 +244,13 @@ console.log("RESULT: " + stitchContractsMessage);
 var stitchContracts1Tx = token.setOpsAddress(saleAddress, {from: contractOwnerAccount, gas: 100000});
 var stitchContracts2Tx = token.setAdminAddress(adminAccount, {from: contractOwnerAccount, gas: 100000});
 var stitchContracts3Tx = trustee.setOpsAddress(saleAddress, {from: contractOwnerAccount, gas: 100000});
-var stitchContracts4Tx = sale.setOpsAddress(opsAccount, {from: contractOwnerAccount, gas: 100000});
-var stitchContracts5Tx = sale.setAdminAddress(adminAccount, {from: contractOwnerAccount, gas: 100000});
-var stitchContracts6Tx = token.transfer(saleAddress, tokensForSale, {from: contractOwnerAccount, gas: 100000});
-var stitchContracts7Tx = token.transfer(trusteeAddress, tokensForTrustee, {from: contractOwnerAccount, gas: 100000});
-var stitchContracts8Tx = sale.initialize({from: contractOwnerAccount, gas: 100000});
+var stitchContracts4Tx = trustee.setRevokeAddress(revokeAccount, {from: contractOwnerAccount, gas: 100000});
+var stitchContracts5Tx = trustee.setAdminAddress(adminAccount, {from: contractOwnerAccount, gas: 100000});
+var stitchContracts6Tx = sale.setOpsAddress(opsAccount, {from: contractOwnerAccount, gas: 100000});
+var stitchContracts7Tx = sale.setAdminAddress(adminAccount, {from: contractOwnerAccount, gas: 100000});
+var stitchContracts8Tx = token.transfer(saleAddress, tokensForSale, {from: contractOwnerAccount, gas: 100000});
+var stitchContracts9Tx = token.transfer(trusteeAddress, tokensForTrustee, {from: contractOwnerAccount, gas: 100000});
+var stitchContracts10Tx = sale.initialize({from: contractOwnerAccount, gas: 100000});
 while (txpool.status.pending > 0) {
 }
 var stitchContracts6Tx = sale.initialize({from: contractOwnerAccount, gas: 100000});
@@ -262,15 +264,19 @@ printTxData("stitchContracts5Tx", stitchContracts5Tx);
 printTxData("stitchContracts6Tx", stitchContracts6Tx);
 printTxData("stitchContracts7Tx", stitchContracts7Tx);
 printTxData("stitchContracts8Tx", stitchContracts8Tx);
+printTxData("stitchContracts9Tx", stitchContracts9Tx);
+printTxData("stitchContracts10Tx", stitchContracts10Tx);
 printBalances();
 failIfTxStatusError(stitchContracts1Tx, stitchContractsMessage + " - token.setOpsAddress(sale)");
 failIfTxStatusError(stitchContracts2Tx, stitchContractsMessage + " - token.setAdminAddress(adminAccount)");
 failIfTxStatusError(stitchContracts3Tx, stitchContractsMessage + " - trustee.setOpsAddress(sale)");
-failIfTxStatusError(stitchContracts4Tx, stitchContractsMessage + " - sale.setOpsAddress(opsAccount)");
-failIfTxStatusError(stitchContracts5Tx, stitchContractsMessage + " - sale.setAdminAddress(adminAccount)");
-failIfTxStatusError(stitchContracts6Tx, stitchContractsMessage + " - token.transfer(sale, " + tokensForSale.shift(-18) + ")");
-failIfTxStatusError(stitchContracts7Tx, stitchContractsMessage + " - token.transfer(trustee, " + tokensForTrustee.shift(-18) + ")");
-failIfTxStatusError(stitchContracts8Tx, stitchContractsMessage + " - sale.initialize()");
+failIfTxStatusError(stitchContracts4Tx, stitchContractsMessage + " - trustee.setRevokeAddress(revokeAccount)");
+failIfTxStatusError(stitchContracts5Tx, stitchContractsMessage + " - trustee.setAdminAddress(adminAccount)");
+failIfTxStatusError(stitchContracts6Tx, stitchContractsMessage + " - sale.setOpsAddress(opsAccount)");
+failIfTxStatusError(stitchContracts7Tx, stitchContractsMessage + " - sale.setAdminAddress(adminAccount)");
+failIfTxStatusError(stitchContracts8Tx, stitchContractsMessage + " - token.transfer(sale, " + tokensForSale.shift(-18) + ")");
+failIfTxStatusError(stitchContracts9Tx, stitchContractsMessage + " - token.transfer(trustee, " + tokensForTrustee.shift(-18) + ")");
+failIfTxStatusError(stitchContracts10Tx, stitchContractsMessage + " - sale.initialize()");
 printTokenContractDetails();
 printTrusteeContractDetails();
 printSaleContractDetails();
@@ -313,18 +319,23 @@ console.log("RESULT: ");
 var whitelistMessage = "Pre-sale Sequence #1 - Presale + Whitelist";
 // -----------------------------------------------------------------------------
 console.log("RESULT: " + whitelistMessage);
-var addPresale1Tx = sale.addPresale(presale, "100000000000000000000", "1000000000000000000", {from: adminAccount, gas: 200000});
+var addPresale1Tx = sale.addPresale(presale1, "10000000000000000000000", "100000000000000000000", {from: adminAccount, gas: 200000});
+var addPresale2Tx = sale.addPresale(presale2, "10000000000000000000000", "100000000000000000000", {from: adminAccount, gas: 200000});
 var whitelist1Tx = sale.updateWhitelist(account5, 1, {from: opsAccount, gas: 100000});
 var whitelist2Tx = sale.updateWhitelist(account6, 2, {from: opsAccount, gas: 100000});
 while (txpool.status.pending > 0) {
 }
 printTxData("addPresale1Tx", addPresale1Tx);
+printTxData("addPresale2Tx", addPresale2Tx);
 printTxData("whitelist1Tx", whitelist1Tx);
 printTxData("whitelist2Tx", whitelist2Tx);
 printBalances();
-failIfTxStatusError(addPresale1Tx, whitelistMessage + " - ac10 added presale 100 + 1 bonus");
+failIfTxStatusError(addPresale1Tx, whitelistMessage + " - ac11 added presale 10000 + 100 bonus");
+failIfTxStatusError(addPresale2Tx, whitelistMessage + " - ac12 added presale 10000 + 100 bonus");
 failIfTxStatusError(whitelist1Tx, whitelistMessage + " - ac5 phase 1");
 failIfTxStatusError(whitelist2Tx, whitelistMessage + " - ac6 phase 2");
+printTokenContractDetails();
+printTrusteeContractDetails();
 printSaleContractDetails();
 console.log("RESULT: ");
 
@@ -436,6 +447,48 @@ printTokenContractDetails();
 printTrusteeContractDetails();
 printSaleContractDetails();
 console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var processAllocationMessage = "Process Trustee Allocation";
+// -----------------------------------------------------------------------------
+console.log("RESULT: " + processAllocationMessage);
+var changeTrusteeOpsTx = trustee.setOpsAddress(opsAccount, {from: contractOwnerAccount, gas: 100000});
+while (txpool.status.pending > 0) {
+}
+var processAllocation1Tx = trustee.processAllocation(presale1,  "10000000000000000000000", {from: opsAccount, gas: 100000});
+var processAllocation2Tx = trustee.processAllocation(presale2,  "9000000000000000000000", {from: opsAccount, gas: 100000});
+while (txpool.status.pending > 0) {
+}
+printTxData("changeTrusteeOpsTx", changeTrusteeOpsTx);
+printTxData("processAllocation1Tx", processAllocation1Tx);
+printTxData("processAllocation2Tx", processAllocation2Tx);
+printBalances();
+failIfTxStatusError(changeTrusteeOpsTx, processAllocationMessage + " - Change trustee ops account to opsAccount");
+failIfTxStatusError(processAllocation1Tx, processAllocationMessage + " - processAllocation ac11 10000");
+failIfTxStatusError(processAllocation2Tx, processAllocationMessage + " - processAllocation ac12 9000");
+printTokenContractDetails();
+printTrusteeContractDetails();
+printSaleContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var reclaimTrusteeAllocationMessage = "Reclaim Trustee Allocation";
+// -----------------------------------------------------------------------------
+console.log("RESULT: " + reclaimTrusteeAllocationMessage);
+var reclaimTrusteeAllocationTx = trustee.reclaimTokens({from: adminAccount, gas: 100000});
+while (txpool.status.pending > 0) {
+}
+printTxData("reclaimTrusteeAllocationTx", reclaimTrusteeAllocationTx);
+printBalances();
+failIfTxStatusError(reclaimTrusteeAllocationTx, reclaimTrusteeAllocationMessage);
+printTokenContractDetails();
+printTrusteeContractDetails();
+printSaleContractDetails();
+console.log("RESULT: ");
+
+
 
 
 exit;

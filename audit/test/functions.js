@@ -17,8 +17,9 @@ addAccount(eth.accounts[6], "Account #6 - Whitelisted Phase 2");
 addAccount(eth.accounts[7], "Account #7");
 addAccount(eth.accounts[8], "Account #8");
 addAccount(eth.accounts[9], "Account #9");
-addAccount(eth.accounts[10], "Account #10 - Presale");
-addAccount(eth.accounts[11], "Account #11");
+addAccount(eth.accounts[10], "Account #10 - Revoke Account");
+addAccount(eth.accounts[11], "Account #11 - Presale 1");
+addAccount(eth.accounts[12], "Account #12 - Presale 2");
 
 
 var minerAccount = eth.accounts[0];
@@ -31,8 +32,9 @@ var account6 = eth.accounts[6];
 var account7 = eth.accounts[7];
 var account8 = eth.accounts[8];
 var account9 = eth.accounts[9];
-var presale = eth.accounts[10];
-var account11 = eth.accounts[11];
+var revokeAccount = eth.accounts[10];
+var presale1 = eth.accounts[11];
+var presale2 = eth.accounts[12];
 
 var baseBlock = eth.blockNumber;
 
@@ -321,6 +323,7 @@ function printTrusteeContractDetails() {
     console.log("RESULT: trustee.owner=" + contract.owner());
     console.log("RESULT: trustee.opsAddress=" + contract.opsAddress());
     console.log("RESULT: trustee.adminAddress=" + contract.adminAddress());
+    console.log("RESULT: trustee.revokeAddress=" + contract.revokeAddress());
     console.log("RESULT: trustee.tokenContract=" + contract.tokenContract());
     console.log("RESULT: trustee.totalLocked=" + contract.totalLocked().shift(-decimals));
 

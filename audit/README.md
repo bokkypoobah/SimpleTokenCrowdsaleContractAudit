@@ -1,12 +1,13 @@
 # Simple Token Crowdsale Contract Audit
 
-Status: Work in progress
+Status: The audit on the original crowdsale and token contracts is completed. The review on the more recently developed
+*FutureTokenSaleLockBox* and *ProcessableAllocations* smart contract is outstanding. 
 
 ## Summary
 
 [Simple Token](https://simpletoken.org/) intends to run a crowdsale commencing on Nov 14 2017.
 
-Bok Consulting Pty Ltd was commissioned to perform an audit on theSimple Tokens's crowdsale and token Ethereum smart contract.
+Bok Consulting Pty Ltd was commissioned to perform an audit on Simple Tokens's crowdsale and token Ethereum smart contract.
 
 ### First Review
 This **first review** has been conducted on Simple Tokens's source code in commits
@@ -27,7 +28,7 @@ contracts were moved into the same directory as the other contracts and Ownable.
 In [1a1e863](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/1a1e863441ba0149d7585203f5dbc6e800af00cf), 
 two new contracts FutureTokenSaleLockBox.sol and ProcessableAllocations.sol were added.
 
-**TODO**: Confirm that no potential vulnerabilities have been identified in the crowdsale and token contract.
+No potential vulnerabilities have been identified in the crowdsale and token contract.
 
 <br />
 
@@ -43,11 +44,28 @@ two new contracts FutureTokenSaleLockBox.sol and ProcessableAllocations.sol were
 
 **TODO**
 
+* Presale contributions will not receive their allocated tokens until the `ops` account executes `Trustee.processAllocation(...)` and this
+  may be executed after the crowdsale is over and the token contract is finalised
+* There is a minimum and maximum ether (ETH) contribution amount
+* All contributing accounts must be whitelisted by the crowdsale administrator before being able to contribute to the crowdsale
+* The last contribution that hits the hard cap is reached will receive a refund of ETH that exceeds the permitted contribution amount
+* All ETH contributions will be immediately transferred to the crowdsale wallet, and this greatly lowers the risk profile of this bespoke crowdsale
+  smart contract
+* The crowdsale can be paused by the crowdsale administrator. Additional time may be added to the end date to compensate for the paused period
+
 <br />
 
 ### Token Contract
 
-**TODO** Confirm [ERC20 Token Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md) compliance
+* The token contract is [ERC20 Token Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md) compliant with the
+  following notable features:
+  * `transfer(...)` and `transferFrom(...)` will throw an error if there is insufficient balance (including the approved balance in the case of
+    `transferFrom(...)`, instead of returning false
+  * 0 value transfers are valid
+  * There is no payload size check on the data passed to `transfer(...)` and `transferFrom(...)`. This check was previously used to mitigate against
+    the short address attack, but is no longer the recommended mitigation solution
+  * `approve(...)` does not require a non-0 allowance to be set to 0 before modifying the allowance to a new non-0 allowance
+  * Once the token contract is finalised after the crowdsale is over, token transfers cannot be paused or halted
 
 <br />
 
@@ -64,7 +82,6 @@ two new contracts FutureTokenSaleLockBox.sol and ProcessableAllocations.sol were
 * [Risks](#risks)
 * [Testing](#testing)
   * [Test 1 Max Funding](#test-1-max-funding)
-  * [Test 2](#test-2)
 * [Code Review](#code-review)
   * [First Code Review](#first-code-review)
   * [Second Code Review](#second-code-review)
@@ -170,13 +187,17 @@ two new contracts FutureTokenSaleLockBox.sol and ProcessableAllocations.sol were
   `require(allowed[_from][msg.sender] >= _value);` to the beginning of `ERC20Token.transferFrom(...)`. `require(...)` does not consume all
   the gas like the `assert(...)` in the SafeMath library
 
+* **LOW IMPORTANCE** `Trustee.processAllocation(...)` has the permissioning that `onlyOps` can execute this function, yet there is a
+  check for `require(isOwner(msg.sender) || isAdmin(msg.sender));` in this function. This check will only be applicable if `opsAddress` is
+  the same of either the `owner` or `adminAddress`. This check is only relevant when the token contract has not been finalised
+
 <br />
 
 <hr />
 
 ## Potential Vulnerabilities
 
-**TODO**: Confirm that no potential vulnerabilities have been identified in the crowdsale and token contract.
+No potential vulnerabilities have been identified in the crowdsale and token contract.
 
 <br />
 
@@ -223,7 +244,9 @@ matches the audited source code, and that the deployment parameters are correctl
 
 ## Risks
 
-**TODO**
+* The risk of ETH being hacked or stolen in this crowdsale contract is low and minimised in size, as any ETH contributed is immediately
+  transferred into more widely tested external wallets (hardware, multisig or regular). No ETH is accumulated in this crowdsale
+  contract. 
 
 <br />
 
@@ -242,20 +265,8 @@ in [test/test1results.txt](test/test1results.txt) and the detailed output saved 
 * [x] Contribute to the crowdsale contract
 * [x] Finalise the successful crowdsale
 * [x] Transfer tokens
-
-<br />
-
-### Test 2
-
-**TODO**
-
-The following functions were tested using the script [test/02_test2.sh](test/02_test2.sh) with the summary results saved
-in [test/test2results.txt](test/test2results.txt) and the detailed output saved in [test/test2output.txt](test/test2output.txt):
-
-* [ ] Deploy the crowdsale/token contract(s)
-* [ ] Contribute to the crowdsale contract
-* [ ] Finalise the unsuccessful crowdsale
-* [ ] Investors to execute refunds
+* [x] Process trustee allocation for presale accounts
+* [x] Reclaim trustee tokens
 
 <br />
 
@@ -497,4 +508,4 @@ Trustee.sol:        if (isOps(msg.sender)) {
 
 <br />
 
-(c) BokkyPooBah / Bok Consulting Pty Ltd for Simple Token - Oct 11 2017. The MIT Licence.
+(c) BokkyPooBah / Bok Consulting Pty Ltd for Simple Token - Oct 27 2017. The MIT Licence.
