@@ -346,9 +346,9 @@ Only some file reviewed fully.
   * [ ] contract TokenSaleInterface 
   * [ ] contract TokenInterface 
   * [ ] contract FutureTokenSaleLockBox is Owned
-* [ ] [code-review/ProcessableAllocations.md](code-review/ProcessableAllocations.md)
-  * [ ] contract TrusteeInterface 
-  * [ ] contract ProcessableAllocations is Owned 
+* [x] [code-review/ProcessableAllocations.md](code-review/ProcessableAllocations.md)
+  * [x] contract TrusteeInterface 
+  * [x] contract ProcessableAllocations is Owned 
 
 <br />
 
