@@ -128,7 +128,7 @@ contract ProcessableAllocations is Owned {
        @param _grantee grantee
        @param _amount amount of tokens
     */
-    // BK Ok
+    // BK Ok - Only owner can execute
 	function addProcessableAllocation(address _grantee, uint256 _amount) public onlyOwner onlyIfUnlocked returns (bool) {
 	    // BK Ok
 		require(_grantee != address(0));
@@ -156,7 +156,7 @@ contract ProcessableAllocations is Owned {
     /**
        @dev Sets status to Locked so that no new processable allocations can be added
     */
-    // BK Ok
+    // BK Ok - Only owner can execute
 	function lock() public onlyOwner onlyIfUnlocked returns (bool) {
 	    // BK Ok
 		require(grantees.length > 0);
@@ -180,7 +180,7 @@ contract ProcessableAllocations is Owned {
        @dev Submits processable allocations to Trustee for processing
        if locked (which implies that it has not previously been processed)
     */
-    // BK Ok
+    // BK Ok - Only owner can execute
 	function processProcessableAllocations() public onlyOwner onlyIfLocked returns (bool) {
 	    // BK NOTE - Can run out of gas if the array is too large
 	    // BK Ok

@@ -191,6 +191,10 @@ No potential vulnerabilities have been identified in the crowdsale and token con
   check for `require(isOwner(msg.sender) || isAdmin(msg.sender));` in this function. This check will only be applicable if `opsAddress` is
   the same of either the `owner` or `adminAddress`. This check is only relevant when the token contract has not been finalised
 
+* **LOW IMPORTANCE** `ProcessableAllocations.processProcessableAllocations()` has a **for** loop that iterates through the array of `grantees`.
+  If this array holds to many entries, the gas required can exceed the Ethereum network block gas limit. Carefully check the gas limit for
+  the intended number of grantees, and if this limit is too high, consider modifying this function to operate on subsets of the array
+
 <br />
 
 <hr />
