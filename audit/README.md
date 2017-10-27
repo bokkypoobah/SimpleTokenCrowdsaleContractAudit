@@ -1,8 +1,5 @@
 # Simple Token Crowdsale Contract Audit
 
-Status: The audit on the original crowdsale and token contracts is completed. The review on the more recently developed
-*FutureTokenSaleLockBox* and *ProcessableAllocations* smart contract is outstanding. 
-
 ## Summary
 
 [Simple Token](https://simpletoken.org/) intends to run a crowdsale commencing on Nov 14 2017.
@@ -346,10 +343,10 @@ Only some file reviewed fully.
 
 ### New Contracts Code Review
 
-* [ ] [code-review/FutureTokenSaleLockBox.md](code-review/FutureTokenSaleLockBox.md)
-  * [ ] contract TokenSaleInterface 
-  * [ ] contract TokenInterface 
-  * [ ] contract FutureTokenSaleLockBox is Owned
+* [x] [code-review/FutureTokenSaleLockBox.md](code-review/FutureTokenSaleLockBox.md)
+  * [x] contract TokenSaleInterface 
+  * [x] contract TokenInterface 
+  * [x] contract FutureTokenSaleLockBox is Owned
 * [x] [code-review/ProcessableAllocations.md](code-review/ProcessableAllocations.md)
   * [x] contract TrusteeInterface 
   * [x] contract ProcessableAllocations is Owned 
