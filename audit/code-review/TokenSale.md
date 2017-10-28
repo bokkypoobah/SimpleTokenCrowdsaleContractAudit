@@ -381,8 +381,15 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
             uint256 accountBalance = tokenContract.balanceOf(msg.sender);
 
             // Can only purchase up to a maximum per account.
+            // Calculate how much of that amount is still available.
             // BK Ok
-            tokensMax = phase1AccountTokensMax.sub(accountBalance);
+            uint256 phase1Balance = phase1AccountTokensMax.sub(accountBalance);
+
+            // BK Ok
+            if (phase1Balance < tokensMax) {
+                // BK Ok
+                tokensMax = phase1Balance;
+            }
         }
 
         // BK Ok

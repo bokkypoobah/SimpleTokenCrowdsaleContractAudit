@@ -15,9 +15,9 @@ import "./SimpleTokenConfig.sol";
 
 contract TokenSaleConfig is SimpleTokenConfig {
 
-    uint256 public constant PHASE1_START_TIME         = 1509086709; // Fri 27 Oct 2017 06:45:09 UTC
-    uint256 public constant PHASE2_START_TIME         = 1509086739; // Fri 27 Oct 2017 06:45:39 UTC
-    uint256 public constant END_TIME                  = 1509086799; // Fri 27 Oct 2017 06:46:39 UTC
+    uint256 public constant PHASE1_START_TIME         = 1509166747; // Sat 28 Oct 2017 04:59:07 UTC
+    uint256 public constant PHASE2_START_TIME         = 1509166777; // Sat 28 Oct 2017 04:59:37 UTC
+    uint256 public constant END_TIME                  = 1509166837; // Sat 28 Oct 2017 05:00:37 UTC
     uint256 public constant CONTRIBUTION_MIN          = 0.1 ether;
     uint256 public constant CONTRIBUTION_MAX          = 100000.0 ether;
 
