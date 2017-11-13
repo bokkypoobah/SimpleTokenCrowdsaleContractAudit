@@ -1,10 +1,10 @@
 pragma solidity ^0.4.17;
 
 // ----------------------------------------------------------------------------
-// Simple Token - Future Token Sale Lock Box Mock Implementation
+// Future Token Sale Lock Box Mock Implementation
 //
-// Copyright (c) 2017 Simple Token and Enuma Technologies.
-// http://www.simpletoken.com/
+// Copyright (c) 2017 OpenST Ltd.
+// https://simpletoken.org/
 //
 // The MIT Licence.
 // ----------------------------------------------------------------------------
@@ -24,7 +24,7 @@ contract FutureTokenSaleLockBoxMock is FutureTokenSaleLockBox {
        @param _tokenSale TokenSale contract
        @param _currentTime mock current time
     */
-    function FutureTokenSaleLockBoxMock(TokenInterface _simpleToken, TokenSaleInterface _tokenSale, uint256 _currentTime)
+    function FutureTokenSaleLockBoxMock(ERC20Interface _simpleToken, TokenSaleInterface _tokenSale, uint256 _currentTime)
              FutureTokenSaleLockBox(_simpleToken, _tokenSale)
              public
     {

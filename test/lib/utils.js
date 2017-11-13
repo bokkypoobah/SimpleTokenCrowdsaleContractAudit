@@ -95,6 +95,58 @@ module.exports.deployProcessableAllocations = async (artifacts, accounts) => {
    }
 }
 
+module.exports.deployPresales = async (artifacts, accounts) => {
+   var Presales     = artifacts.require("./Presales.sol")
+
+   const token     = await SimpleToken.new()
+   const trustee   = await Trustee.new(token.address, { from: accounts[0], gas: 3500000 })
+   const tokenSale = await TokenSale.new(token.address, trustee.address, accounts[3], { from: accounts[0], gas: 4500000 })
+   const presales  = await Presales.new(tokenSale.address, { from: accounts[0], gas: 3500000 })
+
+   const TOKENS_SALE   = await tokenSale.TOKENS_SALE.call()
+   const TOKENS_FUTURE = await tokenSale.TOKENS_FUTURE.call()
+
+   await token.setOpsAddress(tokenSale.address)
+   await trustee.setOpsAddress(tokenSale.address)
+
+   // Only the Admin key(s) can call certain functions
+   await tokenSale.setAdminAddress(accounts[1], { from: accounts[0] })
+
+   // TokenSale and Trustee contracts must hold tokens to add/transfer presales
+   await token.transfer(tokenSale.address, TOKENS_SALE, { from: accounts[0] })
+   await token.transfer(trustee.address, TOKENS_FUTURE, { from: accounts[0] })
+
+   return {
+      tokenSale  : tokenSale,
+      presales   : presales
+   }
+}
+
+
+module.exports.deployGrantableAllocations = async (artifacts, accounts) => {
+
+   var TokenSaleConfig            = artifacts.require("./TokenSaleConfig.sol")
+   var GrantableAllocations       = artifacts.require("./GrantableAllocations.sol")
+
+   const token   = await SimpleToken.new()
+   const tokenSaleConfig   = await TokenSaleConfig.new()
+   const trustee = await Trustee.new(token.address, { from: accounts[0], gas: 3500000 })
+   const grantableAllocations = await GrantableAllocations.new(trustee.address, { from: accounts[0], gas: 3500000 })
+
+   const TOKENS_FOUNDERS = await tokenSaleConfig.TOKENS_FOUNDERS.call()
+
+   // Only the Admin key can call certain functions
+   await trustee.setAdminAddress(accounts[1], { from: accounts[0] })
+
+   // Trustee contract must hold tokens to grant allocations
+   await token.transfer(trustee.address, TOKENS_FOUNDERS, { from: accounts[0] })
+
+   return {
+      trustee                  : trustee,
+      grantableAllocations     : grantableAllocations
+   }
+}
+
 
 module.exports.changeTime = async (sale, newTime) => {
    await sale.changeTime(newTime)
@@ -212,6 +264,21 @@ module.exports.checkProcessableAllocationAddedEventGroup = (result, _grantee, _a
    assert.equal(event.args._amount.toNumber(), _amount.toNumber())
 }
 
+module.exports.checkPresaleAddedToPresalesEvent = (event, _account, _baseTokens, _bonusTokens) => {
+   if (Number.isInteger(_baseTokens)) {
+      _baseTokens = new BigNumber(_baseTokens)
+   }
+
+   if (Number.isInteger(_bonusTokens)) {
+      _bonusTokens = new BigNumber(_bonusTokens)
+   }
+
+   assert.equal(event.event, "PresaleAdded")
+   assert.equal(event.args._account, _account)
+   assert.equal(event.args._baseTokens.toNumber(), _baseTokens.toNumber())
+   assert.equal(event.args._bonusTokens.toNumber(), _bonusTokens.toNumber())
+}
+
 
 module.exports.checkLockedEventGroup = (result) => {
    assert.equal(result.logs.length, 2)
@@ -235,6 +302,48 @@ module.exports.checkProcessableAllocationProcessedEvent = (event, _grantee, _amo
    assert.equal(event.args._processingStatus, _processingStatus)
 }
 
+module.exports.checkPresaleAddedToTokenSaleEvent = (event, _account, _baseTokens, _bonusTokens) => {
+   if (Number.isInteger(_baseTokens)) {
+      _baseTokens = new BigNumber(_baseTokens)
+   }
+
+   if (Number.isInteger(_bonusTokens)) {
+      _bonusTokens = new BigNumber(_bonusTokens)
+   }
+
+   assert.equal(event.event, "PresaleAddedToTokenSale")
+   assert.equal(event.args._account, _account)
+   assert.equal(event.args._baseTokens.toNumber(), _baseTokens.toNumber())
+   assert.equal(event.args._bonusTokens.toNumber(), _bonusTokens.toNumber())
+}
+
+
+module.exports.checkGrantableAllocationAddedEventGroup = (result, _grantee, _amount, _revokable) => {
+   assert.equal(result.logs.length, 1)
+
+   const event = result.logs[0]
+
+   if (Number.isInteger(_amount)) {
+      _amount = new BigNumber(_amount)
+   }
+
+   assert.equal(event.event, "GrantableAllocationAdded")
+   assert.equal(event.args._grantee, _grantee)
+   assert.equal(event.args._amount.toNumber(), _amount.toNumber())
+   assert.equal(event.args._revokable, _revokable)
+}
+
+
+module.exports.checkGrantableAllocationGrantedEvent = (event, _grantee, _amount, _revokable) => {
+   if (Number.isInteger(_amount)) {
+      _amount = new BigNumber(_amount)
+   }
+
+   assert.equal(event.event, "GrantableAllocationGranted")
+   assert.equal(event.args._grantee, _grantee)
+   assert.equal(event.args._amount.toNumber(), _amount.toNumber())
+   assert.equal(event.args._revokable, _revokable)
+}
 
 module.exports.checkApprovalEventGroup = (result, _owner, _spender, _value) => {
    assert.equal(result.logs.length, 1)
@@ -349,12 +458,37 @@ module.exports.checkTokensReclaimedEventGroup = (result, _amount) => {
 }
 
 
+module.exports.checkUnsoldTokensBurntEventGroup = (result, _amount) => {
+   assert.equal(result.logs.length, 1)
+
+   const event = result.logs[0]
+
+   if (Number.isInteger(_amount)) {
+      _amount = new BigNumber(_amount)
+   }
+
+   assert.equal(event.event, "UnsoldTokensBurnt")
+   assert.equal(event.args._amount.toNumber(), _amount.toNumber())
+}
+
+
 module.exports.checkFinalizedEventGroup = (result) => {
    assert.equal(result.logs.length, 1)
 
    const event = result.logs[0]
 
    assert.equal(event.event, "Finalized")
+}
+
+
+module.exports.checkBurntEventGroup = (result, _from, _value) => {
+   assert.equal(result.logs.length, 1)
+
+   const event = result.logs[0]
+
+   assert.equal(event.event, "Burnt")
+   assert.equal(event._from, _from)
+   assert.equal(event._value, _value)
 }
 
 

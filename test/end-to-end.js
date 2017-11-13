@@ -30,11 +30,11 @@ contract('All Contracts', function(accounts) {
    const TOKENS_SALE               = new BigNumber('240000000').mul(DECIMALSFACTOR)
    const TOKENS_FOUNDERS           = new BigNumber('80000000').mul(DECIMALSFACTOR)
    const TOKENS_ADVISORS           = new BigNumber('80000000').mul(DECIMALSFACTOR)
-   const TOKENS_EARLY_INVESTORS    = new BigNumber('22441966').mul(DECIMALSFACTOR)
-   const TOKENS_ACCELERATOR_MAX    = new BigNumber('257558034').mul(DECIMALSFACTOR)
-   const TOKENS_FUTURE             = new BigNumber('120000000').mul(DECIMALSFACTOR)
+   const TOKENS_EARLY_BACKERS      = new BigNumber('44884831').mul(DECIMALSFACTOR)
+   const TOKENS_ACCELERATOR        = new BigNumber('217600000').mul(DECIMALSFACTOR)
+   const TOKENS_FUTURE             = new BigNumber('137515169').mul(DECIMALSFACTOR)
 
-   const TOKENS_PER_KETHER         = new BigNumber('1800000')
+   const TOKENS_PER_KETHER         = new BigNumber('3600000')
 
 
    const deployKey        = accounts[0]
@@ -269,7 +269,7 @@ contract('All Contracts', function(accounts) {
          assert.equal(saleTokenBalance, 0)
 
          const ownerBalanceBefore = await token.balanceOf(saleOwner)
-         const o = await sale.reclaimTokens({ from: admin })
+         const o = await sale.reclaimTokens(ownerBalanceBefore, { from: admin })
          logReceipt(o.receipt, "TokenSale.reclaimTokens")
 
          const ownerBalanceAfter = await token.balanceOf(saleOwner)

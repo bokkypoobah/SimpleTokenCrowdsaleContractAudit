@@ -24,8 +24,8 @@ var TokenSale   = artifacts.require("./TokenSale.sol")
 // TOKENS_SALE
 // TOKENS_FOUNDERS
 // TOKENS_ADVISORS
-// TOKENS_EARLY_INVESTORS
-// TOKENS_ACCELERATOR_MAX
+// TOKENS_EARLY_BACKERS
+// TOKENS_ACCELERATOR
 // TOKENS_FUTURE
 // TOKENS_PER_KETHER
 // finalized
@@ -52,21 +52,21 @@ contract('TokenSale', function(accounts) {
 
    const PHASE1_START_TIME         = 1510664400 // 2017-11-14, 13:00:00 UTC
    const PHASE2_START_TIME         = 1510750800 // 2017-11-15, 13:00:00 UTC
-   const END_TIME                  = 1511269199 // 2017-11-21, 12:59:59 UTC
+   const END_TIME                  = 1512133199; // 2017-12-01, 12:59:59 UTC
    const CONTRIBUTION_MIN          = web3.toWei(0.1, "ether")
    const CONTRIBUTION_MAX          = web3.toWei("10000", "ether")
 
-   const PHASE1_ACCOUNT_TOKENS_MAX = new BigNumber('18000').mul(DECIMALSFACTOR)
+   const PHASE1_ACCOUNT_TOKENS_MAX = new BigNumber('36000').mul(DECIMALSFACTOR)
 
    const TOKENS_MAX                = new BigNumber('800000000').mul(DECIMALSFACTOR)
    const TOKENS_SALE               = new BigNumber('240000000').mul(DECIMALSFACTOR)
    const TOKENS_FOUNDERS           = new BigNumber('80000000').mul(DECIMALSFACTOR)
    const TOKENS_ADVISORS           = new BigNumber('80000000').mul(DECIMALSFACTOR)
-   const TOKENS_EARLY_INVESTORS    = new BigNumber('22441966').mul(DECIMALSFACTOR)
-   const TOKENS_ACCELERATOR_MAX    = new BigNumber('257558034').mul(DECIMALSFACTOR)
-   const TOKENS_FUTURE             = new BigNumber('120000000').mul(DECIMALSFACTOR)
+   const TOKENS_EARLY_BACKERS      = new BigNumber('44884831').mul(DECIMALSFACTOR)
+   const TOKENS_ACCELERATOR        = new BigNumber('217600000').mul(DECIMALSFACTOR)
+   const TOKENS_FUTURE             = new BigNumber('137515169').mul(DECIMALSFACTOR)
 
-   const TOKENS_PER_KETHER         = new BigNumber('1800000')
+   const TOKENS_PER_KETHER         = new BigNumber('3600000')
 
 
    describe('Basic properties', async () => {
@@ -135,12 +135,12 @@ contract('TokenSale', function(accounts) {
          assert.equal((await sale.TOKENS_ADVISORS.call()).toNumber(), TOKENS_ADVISORS.toNumber())
       })
 
-      it("TOKENS_EARLY_INVESTORS", async () => {
-         assert.equal((await sale.TOKENS_EARLY_INVESTORS.call()).toNumber(), TOKENS_EARLY_INVESTORS.toNumber())
+      it("TOKENS_EARLY_BACKERS", async () => {
+         assert.equal((await sale.TOKENS_EARLY_BACKERS.call()).toNumber(), TOKENS_EARLY_BACKERS.toNumber())
       })
 
-      it("TOKENS_ACCELERATOR_MAX", async () => {
-         assert.equal((await sale.TOKENS_ACCELERATOR_MAX.call()).toNumber(), TOKENS_ACCELERATOR_MAX.toNumber())
+      it("TOKENS_ACCELERATOR", async () => {
+         assert.equal((await sale.TOKENS_ACCELERATOR.call()).toNumber(), TOKENS_ACCELERATOR.toNumber())
       })
 
       it("TOKENS_FUTURE", async () => {
