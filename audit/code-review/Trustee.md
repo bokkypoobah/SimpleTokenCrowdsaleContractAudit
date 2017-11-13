@@ -11,10 +11,10 @@ Source file [../../contracts/Trustee.sol](../../contracts/Trustee.sol).
 pragma solidity ^0.4.17;
 
 // ----------------------------------------------------------------------------
-// Simple Token - Token Trustee Implementation
+// Token Trustee Implementation
 //
-// Copyright (c) 2017 Simple Token and Enuma Technologies.
-// http://www.simpletoken.com/
+// Copyright (c) 2017 OpenST Ltd.
+// https://simpletoken.org/
 //
 // The MIT Licence.
 // ----------------------------------------------------------------------------
@@ -150,7 +150,7 @@ contract Trustee is OpsManaged {
         require(_account != address(this));
         require(_amount > 0);
 
-        // Can't create an allocation if there is already one for this acount.
+        // Can't create an allocation if there is already one for this account.
         // BK Ok
         require(allocations[_account].amountGranted == 0);
 
@@ -211,8 +211,8 @@ contract Trustee is OpsManaged {
     }
 
 
-    // Push model which allows the owner to transfer tokens to the beneficiary.
-    // The exact amount to transfer is calculated by owner based on agreements with
+    // Push model which allows ops to transfer tokens to the beneficiary.
+    // The exact amount to transfer is calculated based on agreements with
     // the beneficiaries. Here we only restrict that the total amount transfered cannot
     // exceed what has been granted.
     // BK Ok - Only ops can execute
@@ -220,15 +220,6 @@ contract Trustee is OpsManaged {
         // BK Next 2 Ok
         require(_account != address(0));
         require(_amount > 0);
-
-        // BK NOTE - The require(...) statement within is always false, so can only process allocations after finalisation
-        // BK Ok
-        if (!tokenContract.finalized()) {
-            // We don't allow ops to process allocations before the token contract has been finalized.
-            // BK NOTE - Should never get here as ops <> owner && ops <> admin
-            // BK Ok
-            require(isOwner(msg.sender) || isAdmin(msg.sender));
-        }
 
         // BK Ok
         Allocation storage allocation = allocations[_account];
@@ -278,8 +269,12 @@ contract Trustee is OpsManaged {
         // BK Ok
         uint256 amountReclaimed = ownBalance.sub(totalLocked);
 
+        // BK Next 2 Ok
+        address tokenOwner = tokenContract.owner();
+        require(tokenOwner != address(0));
+
         // BK Ok
-        require(tokenContract.transfer(owner, amountReclaimed));
+        require(tokenContract.transfer(tokenOwner, amountReclaimed));
 
         // BK Ok - Log event
         TokensReclaimed(amountReclaimed);

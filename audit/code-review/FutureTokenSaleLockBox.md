@@ -11,15 +11,16 @@ Source file [../../contracts/FutureTokenSaleLockBox.sol](../../contracts/FutureT
 pragma solidity ^0.4.17;
 
 // ----------------------------------------------------------------------------
-// Simple Token - Future Token Sale Lock Box
+// Future Token Sale Lock Box
 //
-// Copyright (c) 2017 Simple Token.
-// http://www.simpletoken.com/
+// Copyright (c) 2017 OpenST Ltd.
+// https://simpletoken.org/
 //
 // The MIT Licence.
 // ----------------------------------------------------------------------------
 
-// BK Next 2 Ok
+// BK Next 3 Ok
+import "./ERC20Interface.sol";
 import "./SafeMath.sol";
 import "./Owned.sol";
 
@@ -34,16 +35,6 @@ contract TokenSaleInterface {
 }
 
 /**
-   @title TokenInterface
-   @dev Provides interface for calling SimpleToken.transfer
-*/
-// BK Ok
-contract TokenInterface {
-    // BK Ok
-    function transfer(address _to, uint256 _value) public returns (bool);
-}
-
-/**
    @title FutureTokenSaleLockBox
    @notice Holds tokens reserved for future token sales. Tokens cannot be transferred for at least six months.
 */
@@ -54,13 +45,13 @@ contract FutureTokenSaleLockBox is Owned {
 
     // To enable transfers of tokens held by this contract
     // BK Ok
-    TokenInterface public simpleToken;
+    ERC20Interface public simpleToken;
 
-    // To determine earliest unlock date (six months) after which tokens held by this contract can be transferred
+    // To determine earliest unlock date after which tokens held by this contract can be transferred
     // BK Ok
     TokenSaleInterface public tokenSale;
 
-    // The unlock date is initially six months after tokenSale.endTime, but may be extended
+    // The unlock date is initially 26 weeks after tokenSale.endTime, but may be extended
     // BK Ok
     uint256 public unlockDate;
 
@@ -74,7 +65,7 @@ contract FutureTokenSaleLockBox is Owned {
        @param _tokenSale TokenSale contract
     */
     // BK Ok - Constructor
-    function FutureTokenSaleLockBox(TokenInterface _simpleToken, TokenSaleInterface _tokenSale)
+    function FutureTokenSaleLockBox(ERC20Interface _simpleToken, TokenSaleInterface _tokenSale)
              Owned()
              public
     {
@@ -102,7 +93,7 @@ contract FutureTokenSaleLockBox is Owned {
     // BK Ok
     modifier onlyAfterUnlockDate() {
         // BK Ok
-        require(hasUnlockDatePassed() == true);
+        require(hasUnlockDatePassed());
         // BK Ok
         _;
     }

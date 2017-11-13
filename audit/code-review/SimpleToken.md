@@ -13,8 +13,8 @@ pragma solidity ^0.4.17;
 // ----------------------------------------------------------------------------
 // Simple Token Contract
 //
-// Copyright (c) 2017 Simple Token and Enuma Technologies.
-// http://www.simpletoken.com/
+// Copyright (c) 2017 OpenST Ltd.
+// https://simpletoken.org/
 //
 // The MIT Licence.
 // ----------------------------------------------------------------------------
@@ -52,7 +52,8 @@ contract SimpleToken is ERC20Token, OpsManaged, SimpleTokenConfig {
 
 
     // Events
-    // BK Ok - Event
+    // BK Next 2 Ok - Events
+    event Burnt(address indexed _from, uint256 _amount);
     event Finalized();
 
 
@@ -103,6 +104,25 @@ contract SimpleToken is ERC20Token, OpsManaged, SimpleTokenConfig {
         // cases, for the Trustee to transfer unlocked tokens back to the owner (reclaimTokens).
         // BK Ok
         require(isOwnerOrOps(_sender) || _to == owner);
+    }
+
+    // Implement a burn function to permit msg.sender to reduce its balance
+    // which also reduces tokenTotalSupply
+    // BK Ok
+    function burn(uint256 _value) public returns (bool success) {
+        // BK Ok
+        require(_value <= balances[msg.sender]);
+
+        // BK Ok
+        balances[msg.sender] = balances[msg.sender].sub(_value);
+        // BK Ok
+        tokenTotalSupply = tokenTotalSupply.sub(_value);
+
+        // BK Ok - Log event
+        Burnt(msg.sender, _value);
+
+        // BK OK
+        return true;
     }
 
 

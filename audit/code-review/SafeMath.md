@@ -11,10 +11,10 @@ Source file [../../contracts/SafeMath.sol](../../contracts/SafeMath.sol).
 pragma solidity ^0.4.17;
 
 // ----------------------------------------------------------------------------
-// Simple Token - SafeMath Library Implementation
+// SafeMath Library Implementation
 //
-// Copyright (c) 2017 Simple Token and Enuma Technologies.
-// http://www.simpletoken.com/
+// Copyright (c) 2017 OpenST Ltd.
+// https://simpletoken.org/
 //
 // The MIT Licence.
 //

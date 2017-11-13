@@ -423,10 +423,11 @@ function printSaleContractDetails() {
     console.log("RESULT: sale.TOKENS_SALE=" + contract.TOKENS_SALE().shift(-decimals));
     console.log("RESULT: sale.TOKENS_FOUNDERS=" + contract.TOKENS_FOUNDERS().shift(-decimals));
     console.log("RESULT: sale.TOKENS_ADVISORS=" + contract.TOKENS_ADVISORS().shift(-decimals));
-    console.log("RESULT: sale.TOKENS_EARLY_INVESTORS=" + contract.TOKENS_EARLY_INVESTORS().shift(-decimals));
-    console.log("RESULT: sale.TOKENS_ACCELERATOR_MAX=" + contract.TOKENS_ACCELERATOR_MAX().shift(-decimals));
+    console.log("RESULT: sale.TOKENS_EARLY_BACKERS=" + contract.TOKENS_EARLY_BACKERS().shift(-decimals));
+    console.log("RESULT: sale.TOKENS_ACCELERATOR=" + contract.TOKENS_ACCELERATOR().shift(-decimals));
     console.log("RESULT: sale.TOKENS_FUTURE=" + contract.TOKENS_FUTURE().shift(-decimals));
     console.log("RESULT: sale.TOKENS_PER_KETHER=" + contract.TOKENS_PER_KETHER());
+    console.log("RESULT: sale.PURCHASE_DIVIDER=" + contract.PURCHASE_DIVIDER());
 
     console.log("RESULT: sale.finalized=" + contract.finalized());
     console.log("RESULT: sale.endTime=" + contract.endTime() + " " + new Date(contract.endTime() * 1000).toUTCString());

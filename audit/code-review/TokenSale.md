@@ -11,10 +11,10 @@ Source file [../../contracts/TokenSale.sol](../../contracts/TokenSale.sol).
 pragma solidity ^0.4.17;
 
 // ----------------------------------------------------------------------------
-// Simple Token - Token Sale Implementation
+// Token Sale Implementation
 //
-// Copyright (c) 2017 Simple Token and Enuma Technologies.
-// http://www.simpletoken.com/
+// Copyright (c) 2017 OpenST Ltd.
+// https://simpletoken.org/
 //
 // The MIT Licence.
 // ----------------------------------------------------------------------------
@@ -142,11 +142,12 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
     event Initialized();
     event PresaleAdded(address indexed _account, uint256 _baseTokens, uint256 _bonusTokens);
     event WhitelistUpdated(address indexed _account, uint8 _phase);
-    event TokensPurchased(address indexed _beneficiary, uint256 _cost, uint256 _tokens);
+    event TokensPurchased(address indexed _beneficiary, uint256 _cost, uint256 _tokens, uint256 _totalSold);
     event TokensPerKEtherUpdated(uint256 _amount);
     event Phase1AccountTokensMaxUpdated(uint256 _tokens);
     event WalletChanged(address _newWallet);
     event TokensReclaimed(uint256 _amount);
+    event UnsoldTokensBurnt(uint256 _amount);
     event Finalized();
 
 
@@ -168,9 +169,9 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
 
         // Basic check that the constants add up to TOKENS_MAX
         // BK Ok
-        uint256 partialAllocations = TOKENS_FOUNDERS.add(TOKENS_ADVISORS).add(TOKENS_EARLY_INVESTORS);
+        uint256 partialAllocations = TOKENS_FOUNDERS.add(TOKENS_ADVISORS).add(TOKENS_EARLY_BACKERS);
         // BK Ok
-        require(partialAllocations.add(TOKENS_SALE).add(TOKENS_ACCELERATOR_MAX).add(TOKENS_FUTURE) == TOKENS_MAX);
+        require(partialAllocations.add(TOKENS_SALE).add(TOKENS_ACCELERATOR).add(TOKENS_FUTURE) == TOKENS_MAX);
 
         // BK Next 6 Ok
         wallet                 = _wallet;
@@ -186,7 +187,7 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
     }
 
 
-    // Initialize is called to link the sale token with the token contract.
+    // Initialize is called to check some configuration parameters.
     // It expects that a certain amount of tokens have already been assigned to the sale contract address.
     // BK Ok - Only owner can execute
     function initialize() external onlyOwner returns (bool) {
@@ -265,17 +266,36 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
         _;
     }
 
+    // BK Ok
+    modifier onlyAfterSale() {
+        // require finalized is stronger than hasSaleEnded
+        // BK Ok
+        require(finalized);
+        // BK Ok
+        _;
+    }
+
 
     // BK Ok - View only
     function hasSaleEnded() private view returns (bool) {
+        // if sold out or finalized, sale has ended
         // BK Ok
-        if (totalTokensSold >= TOKENS_SALE || currentTime() >= endTime || finalized) {
+        if (totalTokensSold >= TOKENS_SALE || finalized) {
             // BK Ok
             return true;
-        }
-
+        // else if sale is not paused (pausedTime = 0) 
+        // and endtime has past, then sale has ended
         // BK Ok
-        return false;
+        } else if (pausedTime == 0 && currentTime() >= endTime) {
+            // BK Ok
+            return true;
+        // otherwise it is not past and not paused; or paused
+        // and as such not ended
+        // BK Ok
+        } else {
+            // BK Ok
+            return false;
+        }
     }
 
 
@@ -296,7 +316,7 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
         // BK Ok
         require(_phase <= 2);
         // BK Ok
-        require(hasSaleEnded() == false);
+        require(!hasSaleEnded());
 
         // BK Ok
         whitelist[_account] = _phase;
@@ -396,7 +416,7 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
         require(tokensMax > 0);
 
         // BK Next 2 Ok
-        uint256 tokensBought = msg.value.mul(tokensPerKEther).div(10**(18 - uint256(TOKEN_DECIMALS) + 3));
+        uint256 tokensBought = msg.value.mul(tokensPerKEther).div(PURCHASE_DIVIDER);
         require(tokensBought > 0);
 
         // BK Next 2 Ok
@@ -411,7 +431,7 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
 
             // Calculate actual cost for partial amount of tokens.
             // BK Ok
-            cost = tokensBought.mul(10**(18 - uint256(TOKEN_DECIMALS) + 3)).div(tokensPerKEther);
+            cost = tokensBought.mul(PURCHASE_DIVIDER).div(tokensPerKEther);
 
             // Calculate refund for contributor.
             // BK Ok
@@ -437,7 +457,7 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
         wallet.transfer(msg.value.sub(refund));
 
         // BK Ok - Log event
-        TokensPurchased(msg.sender, cost, tokensBought);
+        TokensPurchased(msg.sender, cost, tokensBought, totalTokensSold);
 
         // If all tokens available for sale have been sold out, finalize the sale automatically.
         // BK Ok
@@ -559,18 +579,44 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
     }
 
 
-    // Allows the admin to reclaim all tokens assigned to the sale contract.
-    // This should only be used in case of emergency.
+    // Allows the admin to move bonus tokens still available in the sale contract
+    // out before burning all remaining unsold tokens in burnUnsoldTokens().
+    // Used to distribute bonuses to token sale participants when the sale has ended
+    // and all bonuses are known.
     // BK Ok - Only admin can execute
-    function reclaimTokens() external onlyAdmin returns (bool) {
+    function reclaimTokens(uint256 _amount) external onlyAfterSale onlyAdmin returns (bool) {
+        // BK Ok
+        uint256 ownBalance = tokenContract.balanceOf(address(this));
+        // BK Ok
+        require(_amount <= ownBalance);
+        
+        // BK Ok
+        address tokenOwner = tokenContract.owner();
+        // BK Ok
+        require(tokenOwner != address(0));
+
+        // BK Ok
+        require(tokenContract.transfer(tokenOwner, _amount));
+
+        // BK Ok
+        TokensReclaimed(_amount);
+
+        // BK Ok
+        return true;
+    }
+
+
+    // Allows the admin to burn all unsold tokens in the sale contract.
+    // BK Ok - Only admin can execute
+    function burnUnsoldTokens() external onlyAfterSale onlyAdmin returns (bool) {
         // BK Ok
         uint256 ownBalance = tokenContract.balanceOf(address(this));
 
         // BK Ok
-        require(tokenContract.transfer(owner, ownBalance));
+        require(tokenContract.burn(ownBalance));
 
         // BK Ok - Log event
-        TokensReclaimed(ownBalance);
+        UnsoldTokensBurnt(ownBalance);
 
         // BK Ok
         return true;
@@ -578,8 +624,8 @@ contract TokenSale is OpsManaged, Pausable, TokenSaleConfig { // Pausable is als
 
 
     // Allows the admin to finalize the sale and complete allocations.
-    // The owner will also need to finalize the token contract so that
-    // token transfers are enabled.
+    // The SimpleToken.admin also needs to finalize the token contract
+    // so that token transfers are enabled.
     // BK Ok - Only admin can execute
     function finalize() external onlyAdmin returns (bool) {
         // BK Ok

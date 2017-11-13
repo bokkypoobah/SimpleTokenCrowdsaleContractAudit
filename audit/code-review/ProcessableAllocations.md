@@ -11,10 +11,10 @@ Source file [../../contracts/ProcessableAllocations.sol](../../contracts/Process
 pragma solidity ^0.4.17;
 
 // ----------------------------------------------------------------------------
-// Simple Token - Processable Allocations for Trustee
+// Processable Allocations for Trustee
 //
-// Copyright (c) 2017 Simple Token.
-// http://www.simpletoken.com/
+// Copyright (c) 2017 OpenST Ltd.
+// https://simpletoken.org/
 //
 // The MIT Licence.
 // ----------------------------------------------------------------------------
@@ -56,6 +56,11 @@ contract ProcessableAllocations is Owned {
 	// Trustee contract
 	// BK Ok
 	TrusteeInterface trusteeContract;
+
+	// Maximum accounts to avoid hitting the block gas limit in
+	// ProcessableAllocations.processProcessableAllocations
+	// BK Ok
+	uint8 public constant MAX_GRANTEES = 35;
 
 	// enum processableAllocations status
 	//   Unlocked  - unlocked and unprocessed
@@ -134,6 +139,8 @@ contract ProcessableAllocations is Owned {
 		require(_grantee != address(0));
 		// BK Ok
 		require(_amount > 0);
+		// BK Ok
+        require(grantees.length < MAX_GRANTEES);
 
         // BK Ok
 		ProcessableAllocation storage allocation = processableAllocations[_grantee];
@@ -151,6 +158,24 @@ contract ProcessableAllocations is Owned {
 
         // BK Ok
 		return true;
+	}
+
+    /**
+       @dev Returns addresses of grantees
+    */
+    // BK Ok - View function
+	function getGrantees() public view returns (address[]) {
+	    // BK Ok
+		return grantees;
+	}
+
+    /**
+       @dev Returns number of grantees
+    */
+    // BK Ok - View function
+	function getGranteesSize() public view returns (uint256) {
+	    // BK Ok
+		return grantees.length;
 	}
 
     /**
@@ -194,7 +219,7 @@ contract ProcessableAllocations is Owned {
 			// BK Ok
 			bool ok = trusteeContract.processAllocation(grantees[i], allocation.amount);
 			// BK Ok
-			allocation.processingStatus = (ok == true) ? int8(1) : -1;
+			allocation.processingStatus = (ok) ? int8(1) : -1;
 			// BK Ok
 			if (!ok) status = Status.Failed;
 

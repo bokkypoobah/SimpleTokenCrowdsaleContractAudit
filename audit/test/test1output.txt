@@ -12,20 +12,18 @@ DEPLOYMENTDATA  = 'deploymentData.txt'
 INCLUDEJS       = './include.js'
 TEST1OUTPUT     = 'test1output.txt'
 TEST1RESULTS    = 'test1results.txt'
-CURRENTTIME     = '1509166537' 'Sat 28 Oct 2017 04:55:37 UTC'
-STARTTIME       = '1509166747' 'Sat 28 Oct 2017 04:59:07 UTC'
-PHASE2TIME      = '1509166777' 'Sat 28 Oct 2017 04:59:37 UTC'
-ENDTIME         = '1509166837' 'Sat 28 Oct 2017 05:00:37 UTC'
+CURRENTTIME     = '1510564648' 'Mon 13 Nov 2017 09:17:28 UTC'
+STARTTIME       = '1510564858' 'Mon 13 Nov 2017 09:20:58 UTC'
+PHASE2TIME      = '1510564888' 'Mon 13 Nov 2017 09:21:28 UTC'
+ENDTIME         = '1510564948' 'Mon 13 Nov 2017 09:22:28 UTC'
 --- Differences diff -r ../../contracts . ---
 diff -r ../../contracts/TokenSaleConfig.sol ./TokenSaleConfig.sol
-18,20c18,20
+18,19c18,19
 <     uint256 public constant PHASE1_START_TIME         = 1510664400; // 2017-11-14, 13:00:00 UTC
 <     uint256 public constant PHASE2_START_TIME         = 1510750800; // 2017-11-15, 13:00:00 UTC
-<     uint256 public constant END_TIME                  = 1511269199; // 2017-11-21, 12:59:59 UTC
 ---
->     uint256 public constant PHASE1_START_TIME         = 1509166747; // Sat 28 Oct 2017 04:59:07 UTC
->     uint256 public constant PHASE2_START_TIME         = 1509166777; // Sat 28 Oct 2017 04:59:37 UTC
->     uint256 public constant END_TIME                  = 1509166837; // Sat 28 Oct 2017 05:00:37 UTC
+>     uint256 public constant PHASE1_START_TIME         = 1510564858; // Mon 13 Nov 2017 09:20:58 UTC
+>     uint256 public constant PHASE2_START_TIME         = 1510564888; // Mon 13 Nov 2017 09:21:28 UTC
 22c22
 <     uint256 public constant CONTRIBUTION_MAX          = 10000.0 ether;
 ---
@@ -78,11 +76,11 @@ undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.000000000000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433        0.000000000000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       23.094671216000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.091375668000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Wallet
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Ops Account
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Admin Account
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.001652220000000000           0.000000000000000000 Account #3 - Ops Account
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.001643328000000000           0.000000000000000000 Account #4 - Admin Account
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Whitelisted Phase 1
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6 - Whitelisted Phase 2
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
@@ -181,7 +179,7 @@ undefined
 ......... 
 ...... 
 ... 
-DATA: tokenAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+DATA: tokenAddress=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 undefined
 > 
 > 
@@ -202,7 +200,7 @@ undefined
 ......... 
 ...... 
 ... 
-DATA: trusteeAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+DATA: trusteeAddress=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 undefined
 > 
 > 
@@ -210,23 +208,23 @@ undefined
 undefined
 > 
 > 
-DATA: saleAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
-RESULT: tokenAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688 status=0x1 gas=6000000 gasUsed=1119444 costETH=0.020149992 costUSD=6.062447493072 @ ETH/USD=300.866 gasPrice=18000000000 block=2 txIx=0 txId=0xe152975b411ea8df2cd8d82297c30c975f7d7a5bd03d6e1a781b55d2a1075f70 @ 1509166575 Sat, 28 Oct 2017 04:56:15 UTC
+DATA: saleAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
+RESULT: tokenAddress=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b status=0x1 gas=6000000 gasUsed=1180861 costETH=0.021255498 costUSD=6.395056661268 @ ETH/USD=300.866 gasPrice=18000000000 block=8 txIx=0 txId=0xa4e25494fe6b665d9780dabc751844dbc90a9b2f6462ea75f665633448c28d2b @ 1510564662 Mon, 13 Nov 2017 09:17:42 UTC
 undefined
 > 
-RESULT: trusteeAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d status=0x1 gas=6000000 gasUsed=1125924 costETH=0.020266632 costUSD=6.097540503312 @ ETH/USD=300.866 gasPrice=18000000000 block=4 txIx=0 txId=0xf5feae6daf9c66af277d65f7dda2f8e1e64b61ce3d3a362dca9fcfbd6565280a @ 1509166588 Sat, 28 Oct 2017 04:56:28 UTC
+RESULT: trusteeAddress=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210 status=0x1 gas=6000000 gasUsed=1119818 costETH=0.020156724 costUSD=6.064472922984 @ ETH/USD=300.866 gasPrice=18000000000 block=10 txIx=0 txId=0x9ae60abc7c6ab10adfa831c5f59d902176bfcfa41152f802bde55eb2d1968023 @ 1510564667 Mon, 13 Nov 2017 09:17:47 UTC
 undefined
 > 
-RESULT: saleAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff status=0x1 gas=6000000 gasUsed=2145413 costETH=0.038617434 costUSD=11.618672897844 @ ETH/USD=300.866 gasPrice=18000000000 block=6 txIx=0 txId=0x5b639947391624ab984f3a269e8c3a1d2259a4c39036d10b65fac669c4b15b04 @ 1509166602 Sat, 28 Oct 2017 04:56:42 UTC
+RESULT: saleAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc status=0x1 gas=6000000 gasUsed=2306073 costETH=0.041509314 costUSD=12.488741265924 @ ETH/USD=300.866 gasPrice=18000000000 block=12 txIx=0 txId=0x2f20828e27c19b43f62345271f0f71435b74ad0051b5e32cb3702d1edfea5f24 @ 1510564671 Mon, 13 Nov 2017 09:17:51 UTC
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       23.079034058000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.079034058000000000   800000000.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       38.177592752000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.174297204000000000   800000000.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Wallet
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Ops Account
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Admin Account
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.001652220000000000           0.000000000000000000 Account #3 - Ops Account
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.001643328000000000           0.000000000000000000 Account #4 - Admin Account
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Whitelisted Phase 1
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6 - Whitelisted Phase 2
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
@@ -235,9 +233,9 @@ RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.00000000000000000
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Revoke Account
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11 - Presale 1
 RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.000000000000000000           0.000000000000000000 Account #12 - Presale 2
-RESULT: 13 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
-RESULT: 14 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 Trustee
-RESULT: 15 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 Sale
+RESULT: 13 0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+RESULT: 14 0x545b861c70089afcbee7c3e8ff00e1ab9e5be210        0.000000000000000000           0.000000000000000000 Trustee
+RESULT: 15 0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc        0.000000000000000000           0.000000000000000000 Sale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                             800000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -253,7 +251,7 @@ RESULT: PASS Deploy Trustee Contract
 RESULT: PASS Deploy Sale Contract
 1
 > 
-RESULT: tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: tokenContractAddress=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: token.opsAddress=0x0000000000000000000000000000000000000000
 RESULT: token.adminAddress=0x0000000000000000000000000000000000000000
@@ -264,43 +262,44 @@ RESULT: token.totalSupply=800000000
 RESULT: token.DECIMALSFACTOR=1000000000000000000
 RESULT: token.TOKENS_MAX=800000000
 RESULT: token.finalized=false
-RESULT: Transfer 0 #2: _from=0x0000000000000000000000000000000000000000 _to=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _value=800000000
+RESULT: Transfer 0 #8: _from=0x0000000000000000000000000000000000000000 _to=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _value=800000000
 undefined
 > 
-RESULT: trusteeContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: trusteeContractAddress=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: trustee.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: trustee.opsAddress=0x0000000000000000000000000000000000000000
 RESULT: trustee.adminAddress=0x0000000000000000000000000000000000000000
 RESULT: trustee.revokeAddress=0x0000000000000000000000000000000000000000
-RESULT: trustee.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: trustee.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: trustee.totalLocked=0
 undefined
 > 
-RESULT: saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: saleContractAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: sale.opsAddress=0x0000000000000000000000000000000000000000
 RESULT: sale.adminAddress=0x0000000000000000000000000000000000000000
-RESULT: sale.PHASE1_START_TIME=1509166747 Sat, 28 Oct 2017 04:59:07 UTC
-RESULT: sale.PHASE2_START_TIME=1509166777 Sat, 28 Oct 2017 04:59:37 UTC
-RESULT: sale.END_TIME=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.PHASE1_START_TIME=1510564858 Mon, 13 Nov 2017 09:20:58 UTC
+RESULT: sale.PHASE2_START_TIME=1510564888 Mon, 13 Nov 2017 09:21:28 UTC
+RESULT: sale.END_TIME=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.CONTRIBUTION_MIN=0.1
 RESULT: sale.CONTRIBUTION_MAX=100000
-RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=36000
 RESULT: sale.TOKENS_SALE=240000000
 RESULT: sale.TOKENS_FOUNDERS=80000000
 RESULT: sale.TOKENS_ADVISORS=80000000
-RESULT: sale.TOKENS_EARLY_INVESTORS=22441966
-RESULT: sale.TOKENS_ACCELERATOR_MAX=257558034
-RESULT: sale.TOKENS_FUTURE=120000000
-RESULT: sale.TOKENS_PER_KETHER=1800000
+RESULT: sale.TOKENS_EARLY_BACKERS=44884831
+RESULT: sale.TOKENS_ACCELERATOR=217600000
+RESULT: sale.TOKENS_FUTURE=137515169
+RESULT: sale.TOKENS_PER_KETHER=3600000
+RESULT: sale.PURCHASE_DIVIDER=1000
 RESULT: sale.finalized=false
-RESULT: sale.endTime=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.endTime=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
-RESULT: sale.tokensPerKEther=1800000
-RESULT: sale.phase1AccountTokensMax=18000
+RESULT: sale.tokensPerKEther=3600000
+RESULT: sale.phase1AccountTokensMax=36000
 RESULT: sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
-RESULT: sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
-RESULT: sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: sale.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
+RESULT: sale.trusteeContract=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: sale.totalTokensSold=0
 RESULT: sale.totalPresaleBase=0
 RESULT: sale.totalPresaleBonus=0
@@ -394,7 +393,7 @@ undefined
 > 
 undefined
 > 
-RESULT: tokensForTrustee=4.4e+26
+RESULT: tokensForTrustee=4.22484831e+26
 undefined
 > 
 > 
@@ -429,43 +428,43 @@ undefined
 ... 
 undefined
 > 
-RESULT: stitchContracts1Tx status=0x1 gas=100000 gasUsed=44961 costETH=0.000809298 costUSD=0.243490252068 @ ETH/USD=300.866 gasPrice=18000000000 block=9 txIx=0 txId=0xa637b8e83cf86b2a58df16ac8e856b161f40f5382273a33583c6400e551ed1bd @ 1509166614 Sat, 28 Oct 2017 04:56:54 UTC
+RESULT: stitchContracts1Tx status=0x1 gas=100000 gasUsed=44986 costETH=0.000809748 costUSD=0.243625641768 @ ETH/USD=300.866 gasPrice=18000000000 block=15 txIx=0 txId=0x1adef26bd2d2978b77a65ca91a882213d89085e753b58b9ccea93054265703b7 @ 1510564676 Mon, 13 Nov 2017 09:17:56 UTC
 undefined
 > 
-RESULT: stitchContracts2Tx status=0x1 gas=100000 gasUsed=44972 costETH=0.000809496 costUSD=0.243549823536 @ ETH/USD=300.866 gasPrice=18000000000 block=9 txIx=1 txId=0x706ae87c769ce7ac3eb5c1a42217486fdbe98170901866bb94015569da8d963c @ 1509166614 Sat, 28 Oct 2017 04:56:54 UTC
+RESULT: stitchContracts2Tx status=0x1 gas=100000 gasUsed=44975 costETH=0.00080955 costUSD=0.2435660703 @ ETH/USD=300.866 gasPrice=18000000000 block=15 txIx=1 txId=0x67da6155d15d87d33aeec0f5abcfda52ce903e067f24d458d8525e1a12145f16 @ 1510564676 Mon, 13 Nov 2017 09:17:56 UTC
 undefined
 > 
-RESULT: stitchContracts3Tx status=0x1 gas=100000 gasUsed=44896 costETH=0.000808128 costUSD=0.243138238848 @ ETH/USD=300.866 gasPrice=18000000000 block=9 txIx=2 txId=0xcde11b2204c3efcf05c2a823a20e67bfb4074b2a791310562d172a042d72dddf @ 1509166614 Sat, 28 Oct 2017 04:56:54 UTC
+RESULT: stitchContracts3Tx status=0x1 gas=100000 gasUsed=44899 costETH=0.000808182 costUSD=0.243154485612 @ ETH/USD=300.866 gasPrice=18000000000 block=15 txIx=2 txId=0x1590dd155f578f956422c05dc6dd1a3ef3c57a51a2c41d28ad78bd55fa42f072 @ 1510564676 Mon, 13 Nov 2017 09:17:56 UTC
 undefined
 > 
-RESULT: stitchContracts4Tx status=0x1 gas=100000 gasUsed=45002 costETH=0.000810036 costUSD=0.243712291176 @ ETH/USD=300.866 gasPrice=18000000000 block=9 txIx=3 txId=0x10d71b2e427df8b86f101c651f030d7f88387ed786632444d4d86ee0324ff576 @ 1509166614 Sat, 28 Oct 2017 04:56:54 UTC
+RESULT: stitchContracts4Tx status=0x1 gas=100000 gasUsed=45005 costETH=0.00081009 costUSD=0.24372853794 @ ETH/USD=300.866 gasPrice=18000000000 block=16 txIx=0 txId=0x5b06305aa24a014d88bb2ff2b340dcf9c318150ae1d8166562c3fbbc4fa18049 @ 1510564677 Mon, 13 Nov 2017 09:17:57 UTC
 undefined
 > 
-RESULT: stitchContracts5Tx status=0x1 gas=100000 gasUsed=44863 costETH=0.000807534 costUSD=0.242959524444 @ ETH/USD=300.866 gasPrice=18000000000 block=9 txIx=4 txId=0x6d1d1963f4b70d87b0e4c786f058828874f56c298ab0f4a1c74cc11e68c81bc0 @ 1509166614 Sat, 28 Oct 2017 04:56:54 UTC
+RESULT: stitchContracts5Tx status=0x1 gas=100000 gasUsed=44866 costETH=0.000807588 costUSD=0.242975771208 @ ETH/USD=300.866 gasPrice=18000000000 block=16 txIx=1 txId=0xa5682c28b6f61aab945bfde5ee58a26b18ec8a42ff8ab20078e56523ab5dc3b0 @ 1510564677 Mon, 13 Nov 2017 09:17:57 UTC
 undefined
 > 
-RESULT: stitchContracts6Tx status=0x1 gas=100000 gasUsed=25274 costETH=0.000454932 costUSD=0.136873571112 @ ETH/USD=300.866 gasPrice=18000000000 block=11 txIx=0 txId=0x576092afe93393eee74d4249fd3124f7fe8d203a1a86d369e320e6f87a21a135 @ 1509166626 Sat, 28 Oct 2017 04:57:06 UTC
+RESULT: stitchContracts6Tx status=0x1 gas=100000 gasUsed=25349 costETH=0.000456282 costUSD=0.137279740212 @ ETH/USD=300.866 gasPrice=18000000000 block=18 txIx=0 txId=0xb76c17bec31c5da3489db7b3c74386fff92643d9693474f6b40d77080b352891 @ 1510564682 Mon, 13 Nov 2017 09:18:02 UTC
 undefined
 > 
-RESULT: stitchContracts7Tx status=0x1 gas=100000 gasUsed=44995 costETH=0.00080991 costUSD=0.24367438206 @ ETH/USD=300.866 gasPrice=18000000000 block=9 txIx=6 txId=0xefc0259f5576b9c44f598c24623ee9764d34ce755af94c8ccab3dfa18c5da834 @ 1509166614 Sat, 28 Oct 2017 04:56:54 UTC
+RESULT: stitchContracts7Tx status=0x1 gas=100000 gasUsed=45042 costETH=0.000810756 costUSD=0.243928914696 @ ETH/USD=300.866 gasPrice=18000000000 block=16 txIx=3 txId=0x4cf65f4550dce6c9dcc7f37ba31c151762f9a1faa4b19508e929ddec124b78f3 @ 1510564677 Mon, 13 Nov 2017 09:17:57 UTC
 undefined
 > 
-RESULT: stitchContracts8Tx status=0x1 gas=100000 gasUsed=51833 costETH=0.000932994 costUSD=0.280706172804 @ ETH/USD=300.866 gasPrice=18000000000 block=9 txIx=7 txId=0xee4eb529727ea1ac4e8043c4b837f6ccc30bf13feef0de46c513d2b321c3f1c9 @ 1509166614 Sat, 28 Oct 2017 04:56:54 UTC
+RESULT: stitchContracts8Tx status=0x1 gas=100000 gasUsed=51858 costETH=0.000933444 costUSD=0.280841562504 @ ETH/USD=300.866 gasPrice=18000000000 block=16 txIx=4 txId=0x00c010b015ac2d0cb193609b0df1e6cb796987ee356955283380245cbb395cb2 @ 1510564677 Mon, 13 Nov 2017 09:17:57 UTC
 undefined
 > 
-RESULT: stitchContracts9Tx status=0x1 gas=100000 gasUsed=51897 costETH=0.000934146 costUSD=0.281052770436 @ ETH/USD=300.866 gasPrice=18000000000 block=9 txIx=8 txId=0x9450914333172274e805d5524181154bcc19044a37ad345c868f55be7b96224b @ 1509166614 Sat, 28 Oct 2017 04:56:54 UTC
+RESULT: stitchContracts9Tx status=0x1 gas=100000 gasUsed=51922 costETH=0.000934596 costUSD=0.281188160136 @ ETH/USD=300.866 gasPrice=18000000000 block=16 txIx=5 txId=0xe1261717bb34c782cd77bd1c04964f9c3e5e65d6844a7cba5ef869a89041c3aa @ 1510564677 Mon, 13 Nov 2017 09:17:57 UTC
 undefined
 > 
-RESULT: stitchContracts10Tx status=0x1 gas=100000 gasUsed=25274 costETH=0.000454932 costUSD=0.136873571112 @ ETH/USD=300.866 gasPrice=18000000000 block=9 txIx=9 txId=0xacfd83a21ccf3ac113bdcba776b54d100774662ab69a504cf3b35cb49b011031 @ 1509166614 Sat, 28 Oct 2017 04:56:54 UTC
+RESULT: stitchContracts10Tx status=0x1 gas=100000 gasUsed=25349 costETH=0.000456282 costUSD=0.137279740212 @ ETH/USD=300.866 gasPrice=18000000000 block=16 txIx=6 txId=0x267d566508b31282b0ec1b594ac7b61033674878dafb4f1d31c6bef575e71da0 @ 1510564677 Mon, 13 Nov 2017 09:17:57 UTC
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       35.087480720000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087480720000000000   120000000.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       56.186044580000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.182749032000000000   137515169.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Wallet
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Ops Account
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4 - Admin Account
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.001652220000000000           0.000000000000000000 Account #3 - Ops Account
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.001643328000000000           0.000000000000000000 Account #4 - Admin Account
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Whitelisted Phase 1
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6 - Whitelisted Phase 2
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
@@ -474,9 +473,9 @@ RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.00000000000000000
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Revoke Account
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11 - Presale 1
 RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.000000000000000000           0.000000000000000000 Account #12 - Presale 2
-RESULT: 13 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
-RESULT: 14 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440000000.000000000000000000 Trustee
-RESULT: 15 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000   240000000.000000000000000000 Sale
+RESULT: 13 0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+RESULT: 14 0x545b861c70089afcbee7c3e8ff00e1ab9e5be210        0.000000000000000000   422484831.000000000000000000 Trustee
+RESULT: 15 0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc        0.000000000000000000   240000000.000000000000000000 Sale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                             800000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -507,15 +506,15 @@ RESULT: PASS Stitch Contracts Together - sale.setAdminAddress(adminAccount)
 RESULT: PASS Stitch Contracts Together - token.transfer(sale, 240000000)
 1
 > 
-RESULT: PASS Stitch Contracts Together - token.transfer(trustee, 440000000)
+RESULT: PASS Stitch Contracts Together - token.transfer(trustee, 422484831)
 1
 > 
 RESULT: PASS Stitch Contracts Together - sale.initialize()
 1
 > 
-RESULT: tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: tokenContractAddress=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: token.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: token.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: token.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: token.symbol=ST
 RESULT: token.name=Simple Token
@@ -524,55 +523,56 @@ RESULT: token.totalSupply=800000000
 RESULT: token.DECIMALSFACTOR=1000000000000000000
 RESULT: token.TOKENS_MAX=800000000
 RESULT: token.finalized=false
-RESULT: OpsAddressChanged 0 #9 {"_newAddress":"0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff"}
-RESULT: AdminAddressChanged 0 #9 {"_newAddress":"0xa44a08d3f6933c69212114bb66e2df1813651844"}
-RESULT: Transfer 0 #9: _from=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _to=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _value=240000000
-RESULT: Transfer 1 #9: _from=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _to=0x0e946b999033257976aa5cbe0e3530618ca1582d _value=440000000
+RESULT: OpsAddressChanged 0 #15 {"_newAddress":"0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc"}
+RESULT: AdminAddressChanged 0 #15 {"_newAddress":"0xa44a08d3f6933c69212114bb66e2df1813651844"}
+RESULT: Transfer 0 #16: _from=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _to=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc _value=240000000
+RESULT: Transfer 1 #16: _from=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _to=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210 _value=422484831
 undefined
 > 
-RESULT: trusteeContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: trusteeContractAddress=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: trustee.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: trustee.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: trustee.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: trustee.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: trustee.revokeAddress=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756
-RESULT: trustee.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: trustee.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: trustee.totalLocked=0
-RESULT: OpsAddressChanged 0 #9 {"_newAddress":"0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff"}
-RESULT: AdminAddressChanged 0 #9 {"_newAddress":"0xa44a08d3f6933c69212114bb66e2df1813651844"}
+RESULT: OpsAddressChanged 0 #15 {"_newAddress":"0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc"}
+RESULT: AdminAddressChanged 0 #16 {"_newAddress":"0xa44a08d3f6933c69212114bb66e2df1813651844"}
 undefined
 > 
-RESULT: saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: saleContractAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: sale.opsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
 RESULT: sale.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
-RESULT: sale.PHASE1_START_TIME=1509166747 Sat, 28 Oct 2017 04:59:07 UTC
-RESULT: sale.PHASE2_START_TIME=1509166777 Sat, 28 Oct 2017 04:59:37 UTC
-RESULT: sale.END_TIME=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.PHASE1_START_TIME=1510564858 Mon, 13 Nov 2017 09:20:58 UTC
+RESULT: sale.PHASE2_START_TIME=1510564888 Mon, 13 Nov 2017 09:21:28 UTC
+RESULT: sale.END_TIME=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.CONTRIBUTION_MIN=0.1
 RESULT: sale.CONTRIBUTION_MAX=100000
-RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=36000
 RESULT: sale.TOKENS_SALE=240000000
 RESULT: sale.TOKENS_FOUNDERS=80000000
 RESULT: sale.TOKENS_ADVISORS=80000000
-RESULT: sale.TOKENS_EARLY_INVESTORS=22441966
-RESULT: sale.TOKENS_ACCELERATOR_MAX=257558034
-RESULT: sale.TOKENS_FUTURE=120000000
-RESULT: sale.TOKENS_PER_KETHER=1800000
+RESULT: sale.TOKENS_EARLY_BACKERS=44884831
+RESULT: sale.TOKENS_ACCELERATOR=217600000
+RESULT: sale.TOKENS_FUTURE=137515169
+RESULT: sale.TOKENS_PER_KETHER=3600000
+RESULT: sale.PURCHASE_DIVIDER=1000
 RESULT: sale.finalized=false
-RESULT: sale.endTime=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.endTime=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
-RESULT: sale.tokensPerKEther=1800000
-RESULT: sale.phase1AccountTokensMax=18000
+RESULT: sale.tokensPerKEther=3600000
+RESULT: sale.phase1AccountTokensMax=36000
 RESULT: sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
-RESULT: sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
-RESULT: sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: sale.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
+RESULT: sale.trusteeContract=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: sale.totalTokensSold=0
 RESULT: sale.totalPresaleBase=0
 RESULT: sale.totalPresaleBonus=0
-RESULT: OpsAddressChanged 0 #9 {"_newAddress":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0"}
-RESULT: AdminAddressChanged 0 #9 {"_newAddress":"0xa44a08d3f6933c69212114bb66e2df1813651844"}
-RESULT: Initialized 0 #9 {}
-RESULT: Initialized 1 #11 {}
+RESULT: OpsAddressChanged 0 #16 {"_newAddress":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0"}
+RESULT: AdminAddressChanged 0 #16 {"_newAddress":"0xa44a08d3f6933c69212114bb66e2df1813651844"}
+RESULT: Initialized 0 #16 {}
+RESULT: Initialized 1 #18 {}
 undefined
 > 
 RESULT: 
@@ -622,19 +622,19 @@ undefined
 ... 
 undefined
 > 
-RESULT: presale1Tx status=0x1 gas=100000 gasUsed=28599 costETH=0.000514782 costUSD=0.154880401212 @ ETH/USD=300.866 gasPrice=18000000000 block=15 txIx=0 txId=0x3c486ab9bda753a591ec9368cbacebbcae94fd69df4c4f11d876dfc0133bdeb9 @ 1509166635 Sat, 28 Oct 2017 04:57:15 UTC
+RESULT: presale1Tx status=0x1 gas=100000 gasUsed=28678 costETH=0.000516204 costUSD=0.155308232664 @ ETH/USD=300.866 gasPrice=18000000000 block=22 txIx=0 txId=0x5d87ec2a8e7aa796b44f4d9703a5d345f30af7de902d3b749bd19875b5663780 @ 1510564688 Mon, 13 Nov 2017 09:18:08 UTC
 undefined
 > 
-RESULT: presale2Tx status=0x1 gas=100000 gasUsed=29381 costETH=0.000528858 costUSD=0.159115391028 @ ETH/USD=300.866 gasPrice=18000000000 block=15 txIx=1 txId=0x046607aa6550b23f20ecf62790db9b65fae67aa81af582d78af7c1d505933192 @ 1509166635 Sat, 28 Oct 2017 04:57:15 UTC
+RESULT: presale2Tx status=0x1 gas=100000 gasUsed=29438 costETH=0.000529884 costUSD=0.159424079544 @ ETH/USD=300.866 gasPrice=18000000000 block=22 txIx=1 txId=0xb65973b904f6c50f13212cec521b2c8f117781e549fb954e0698a57db2d85099 @ 1510564688 Mon, 13 Nov 2017 09:18:08 UTC
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       47.088524360000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087480720000000000   120000000.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       68.187090668000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.182749032000000000   137515169.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Wallet
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3 - Ops Account
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.001043640000000000           0.000000000000000000 Account #4 - Admin Account
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.001652220000000000           0.000000000000000000 Account #3 - Ops Account
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.002689416000000000           0.000000000000000000 Account #4 - Admin Account
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Whitelisted Phase 1
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6 - Whitelisted Phase 2
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
@@ -643,9 +643,9 @@ RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.00000000000000000
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Revoke Account
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11 - Presale 1
 RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.000000000000000000           0.000000000000000000 Account #12 - Presale 2
-RESULT: 13 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
-RESULT: 14 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440000000.000000000000000000 Trustee
-RESULT: 15 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000   240000000.000000000000000000 Sale
+RESULT: 13 0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+RESULT: 14 0x545b861c70089afcbee7c3e8ff00e1ab9e5be210        0.000000000000000000   422484831.000000000000000000 Trustee
+RESULT: 15 0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc        0.000000000000000000   240000000.000000000000000000 Sale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                             800000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -658,9 +658,9 @@ RESULT: PASS Pre-sale Sequence #1 - sale.setTokensPerKEther(2000000)
 RESULT: PASS Pre-sale Sequence #1 - sale.phase1AccountTokensMax(20000)
 1
 > 
-RESULT: tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: tokenContractAddress=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: token.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: token.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: token.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: token.symbol=ST
 RESULT: token.name=Simple Token
@@ -671,45 +671,46 @@ RESULT: token.TOKENS_MAX=800000000
 RESULT: token.finalized=false
 undefined
 > 
-RESULT: trusteeContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: trusteeContractAddress=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: trustee.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: trustee.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: trustee.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: trustee.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: trustee.revokeAddress=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756
-RESULT: trustee.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: trustee.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: trustee.totalLocked=0
 undefined
 > 
-RESULT: saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: saleContractAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: sale.opsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
 RESULT: sale.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
-RESULT: sale.PHASE1_START_TIME=1509166747 Sat, 28 Oct 2017 04:59:07 UTC
-RESULT: sale.PHASE2_START_TIME=1509166777 Sat, 28 Oct 2017 04:59:37 UTC
-RESULT: sale.END_TIME=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.PHASE1_START_TIME=1510564858 Mon, 13 Nov 2017 09:20:58 UTC
+RESULT: sale.PHASE2_START_TIME=1510564888 Mon, 13 Nov 2017 09:21:28 UTC
+RESULT: sale.END_TIME=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.CONTRIBUTION_MIN=0.1
 RESULT: sale.CONTRIBUTION_MAX=100000
-RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=36000
 RESULT: sale.TOKENS_SALE=240000000
 RESULT: sale.TOKENS_FOUNDERS=80000000
 RESULT: sale.TOKENS_ADVISORS=80000000
-RESULT: sale.TOKENS_EARLY_INVESTORS=22441966
-RESULT: sale.TOKENS_ACCELERATOR_MAX=257558034
-RESULT: sale.TOKENS_FUTURE=120000000
-RESULT: sale.TOKENS_PER_KETHER=1800000
+RESULT: sale.TOKENS_EARLY_BACKERS=44884831
+RESULT: sale.TOKENS_ACCELERATOR=217600000
+RESULT: sale.TOKENS_FUTURE=137515169
+RESULT: sale.TOKENS_PER_KETHER=3600000
+RESULT: sale.PURCHASE_DIVIDER=1000
 RESULT: sale.finalized=false
-RESULT: sale.endTime=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.endTime=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
 RESULT: sale.tokensPerKEther=2000000
 RESULT: sale.phase1AccountTokensMax=20000
 RESULT: sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
-RESULT: sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
-RESULT: sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: sale.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
+RESULT: sale.trusteeContract=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: sale.totalTokensSold=0
 RESULT: sale.totalPresaleBase=0
 RESULT: sale.totalPresaleBonus=0
-RESULT: TokensPerKEtherUpdated 0 #15 {"_amount":"2000000"}
-RESULT: Phase1AccountTokensMaxUpdated 0 #15 {"_tokens":"2e+22"}
+RESULT: TokensPerKEtherUpdated 0 #22 {"_amount":"2000000"}
+RESULT: Phase1AccountTokensMaxUpdated 0 #22 {"_tokens":"2e+22"}
 undefined
 > 
 RESULT: 
@@ -737,25 +738,25 @@ undefined
 ... 
 undefined
 > 
-RESULT: addPresale1Tx status=0x1 gas=200000 gasUsed=159840 costETH=0.00287712 costUSD=0.86562758592 @ ETH/USD=300.866 gasPrice=18000000000 block=18 txIx=2 txId=0x8a4501cc6c1ac86f62f80c45379e3de5edf2a3f521a11b79e4a0d50fb6824bcf @ 1509166649 Sat, 28 Oct 2017 04:57:29 UTC
+RESULT: addPresale1Tx status=0x1 gas=200000 gasUsed=160022 costETH=0.002880396 costUSD=0.866613222936 @ ETH/USD=300.866 gasPrice=18000000000 block=24 txIx=0 txId=0x0aa97451528b6c3143dabad89250097cec2eb34dd69c55b5f1c55839c780fe4b @ 1510564702 Mon, 13 Nov 2017 09:18:22 UTC
 undefined
 > 
-RESULT: addPresale2Tx status=0x1 gas=200000 gasUsed=99840 costETH=0.00179712 costUSD=0.54069230592 @ ETH/USD=300.866 gasPrice=18000000000 block=18 txIx=3 txId=0x0ea1ffce945e60df4bd26d2dab92fd6aa761c1aeb19e8153a16a9933c2a2fd4e @ 1509166649 Sat, 28 Oct 2017 04:57:29 UTC
+RESULT: addPresale2Tx status=0x1 gas=200000 gasUsed=100022 costETH=0.001800396 costUSD=0.541677942936 @ ETH/USD=300.866 gasPrice=18000000000 block=24 txIx=1 txId=0x80e348c78bb279abb42e5987bfd27651bf3cc8a1abed2d802257c2b6ab2f0cec @ 1510564702 Mon, 13 Nov 2017 09:18:22 UTC
 undefined
 > 
-RESULT: whitelist1Tx status=0x1 gas=100000 gasUsed=45838 costETH=0.000825084 costUSD=0.248239722744 @ ETH/USD=300.866 gasPrice=18000000000 block=18 txIx=0 txId=0x9678b6086881b64d90f9eb9b8fb8c545d0924c477c6fa275beaa50f209a83e42 @ 1509166649 Sat, 28 Oct 2017 04:57:29 UTC
+RESULT: whitelist1Tx status=0x1 gas=100000 gasUsed=45895 costETH=0.00082611 costUSD=0.24854841126 @ ETH/USD=300.866 gasPrice=18000000000 block=24 txIx=2 txId=0x2c54b906bd924a477eb304e4de976c0e7b6b1f5a03dcc7a642a25ec4feda29f0 @ 1510564702 Mon, 13 Nov 2017 09:18:22 UTC
 undefined
 > 
-RESULT: whitelist2Tx status=0x1 gas=100000 gasUsed=45838 costETH=0.000825084 costUSD=0.248239722744 @ ETH/USD=300.866 gasPrice=18000000000 block=18 txIx=1 txId=0x20ff2c8c99d9263c3181c163f7ce5fa8e1bfe40e6bfd3e8e5ebfa517bed89faa @ 1509166649 Sat, 28 Oct 2017 04:57:29 UTC
+RESULT: whitelist2Tx status=0x1 gas=100000 gasUsed=45895 costETH=0.00082611 costUSD=0.24854841126 @ ETH/USD=300.866 gasPrice=18000000000 block=24 txIx=3 txId=0x61061d6af0fbc32be4863fc0c32eda6b4775e5e8f45b827d8622840a3ef487d5 @ 1510564702 Mon, 13 Nov 2017 09:18:22 UTC
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       56.094848768000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087480720000000000   120000000.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       74.193423680000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.182749032000000000   137515169.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Wallet
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.001650168000000000           0.000000000000000000 Account #3 - Ops Account
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.005717880000000000           0.000000000000000000 Account #4 - Admin Account
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.003304440000000000           0.000000000000000000 Account #3 - Ops Account
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.007370208000000000           0.000000000000000000 Account #4 - Admin Account
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5 - Whitelisted Phase 1
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6 - Whitelisted Phase 2
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
@@ -764,9 +765,9 @@ RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.00000000000000000
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Revoke Account
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11 - Presale 1
 RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.000000000000000000           0.000000000000000000 Account #12 - Presale 2
-RESULT: 13 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
-RESULT: 14 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440020000.000000000000000000 Trustee
-RESULT: 15 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000   239980000.000000000000000000 Sale
+RESULT: 13 0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+RESULT: 14 0x545b861c70089afcbee7c3e8ff00e1ab9e5be210        0.000000000000000000   422504831.000000000000000000 Trustee
+RESULT: 15 0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc        0.000000000000000000   239980000.000000000000000000 Sale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                             800000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -785,9 +786,9 @@ RESULT: PASS Pre-sale Sequence #1 - Presale + Whitelist - ac5 phase 1
 RESULT: PASS Pre-sale Sequence #1 - Presale + Whitelist - ac6 phase 2
 1
 > 
-RESULT: tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: tokenContractAddress=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: token.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: token.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: token.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: token.symbol=ST
 RESULT: token.name=Simple Token
@@ -796,53 +797,54 @@ RESULT: token.totalSupply=800000000
 RESULT: token.DECIMALSFACTOR=1000000000000000000
 RESULT: token.TOKENS_MAX=800000000
 RESULT: token.finalized=false
-RESULT: Transfer 0 #18: _from=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _to=0x0e946b999033257976aa5cbe0e3530618ca1582d _value=10000
-RESULT: Transfer 1 #18: _from=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _to=0x0e946b999033257976aa5cbe0e3530618ca1582d _value=10000
+RESULT: Transfer 0 #24: _from=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc _to=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210 _value=10000
+RESULT: Transfer 1 #24: _from=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc _to=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210 _value=10000
 undefined
 > 
-RESULT: trusteeContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: trusteeContractAddress=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: trustee.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: trustee.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: trustee.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: trustee.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: trustee.revokeAddress=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756
-RESULT: trustee.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: trustee.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: trustee.totalLocked=20200
-RESULT: AllocationGranted 0 #18 {"_account":"0xabba43e7594e3b76afb157989e93c6621497fd4b","_amount":"1.01e+22","_from":"0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff","_revokable":false}
-RESULT: AllocationGranted 1 #18 {"_account":"0xacca534c9f62ab495bd986e002ddf0f054caae4f","_amount":"1.01e+22","_from":"0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff","_revokable":false}
+RESULT: AllocationGranted 0 #24 {"_account":"0xabba43e7594e3b76afb157989e93c6621497fd4b","_amount":"1.01e+22","_from":"0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc","_revokable":false}
+RESULT: AllocationGranted 1 #24 {"_account":"0xacca534c9f62ab495bd986e002ddf0f054caae4f","_amount":"1.01e+22","_from":"0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc","_revokable":false}
 undefined
 > 
-RESULT: saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: saleContractAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: sale.opsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
 RESULT: sale.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
-RESULT: sale.PHASE1_START_TIME=1509166747 Sat, 28 Oct 2017 04:59:07 UTC
-RESULT: sale.PHASE2_START_TIME=1509166777 Sat, 28 Oct 2017 04:59:37 UTC
-RESULT: sale.END_TIME=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.PHASE1_START_TIME=1510564858 Mon, 13 Nov 2017 09:20:58 UTC
+RESULT: sale.PHASE2_START_TIME=1510564888 Mon, 13 Nov 2017 09:21:28 UTC
+RESULT: sale.END_TIME=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.CONTRIBUTION_MIN=0.1
 RESULT: sale.CONTRIBUTION_MAX=100000
-RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=36000
 RESULT: sale.TOKENS_SALE=240000000
 RESULT: sale.TOKENS_FOUNDERS=80000000
 RESULT: sale.TOKENS_ADVISORS=80000000
-RESULT: sale.TOKENS_EARLY_INVESTORS=22441966
-RESULT: sale.TOKENS_ACCELERATOR_MAX=257558034
-RESULT: sale.TOKENS_FUTURE=120000000
-RESULT: sale.TOKENS_PER_KETHER=1800000
+RESULT: sale.TOKENS_EARLY_BACKERS=44884831
+RESULT: sale.TOKENS_ACCELERATOR=217600000
+RESULT: sale.TOKENS_FUTURE=137515169
+RESULT: sale.TOKENS_PER_KETHER=3600000
+RESULT: sale.PURCHASE_DIVIDER=1000
 RESULT: sale.finalized=false
-RESULT: sale.endTime=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.endTime=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
 RESULT: sale.tokensPerKEther=2000000
 RESULT: sale.phase1AccountTokensMax=20000
 RESULT: sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
-RESULT: sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
-RESULT: sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: sale.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
+RESULT: sale.trusteeContract=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: sale.totalTokensSold=20000
 RESULT: sale.totalPresaleBase=20000
 RESULT: sale.totalPresaleBonus=200
-RESULT: PresaleAdded 0 #18 {"_account":"0xabba43e7594e3b76afb157989e93c6621497fd4b","_baseTokens":"1e+22","_bonusTokens":"100000000000000000000"}
-RESULT: PresaleAdded 1 #18 {"_account":"0xacca534c9f62ab495bd986e002ddf0f054caae4f","_baseTokens":"1e+22","_bonusTokens":"100000000000000000000"}
-RESULT: WhitelistUpdated 0 #18 {"_account":"0xa55a151eb00fded1634d27d1127b4be4627079ea","_phase":"1"}
-RESULT: WhitelistUpdated 1 #18 {"_account":"0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","_phase":"2"}
+RESULT: PresaleAdded 0 #24 {"_account":"0xabba43e7594e3b76afb157989e93c6621497fd4b","_baseTokens":"1e+22","_bonusTokens":"100000000000000000000"}
+RESULT: PresaleAdded 1 #24 {"_account":"0xacca534c9f62ab495bd986e002ddf0f054caae4f","_baseTokens":"1e+22","_bonusTokens":"100000000000000000000"}
+RESULT: WhitelistUpdated 0 #24 {"_account":"0xa55a151eb00fded1634d27d1127b4be4627079ea","_phase":"1"}
+RESULT: WhitelistUpdated 1 #24 {"_account":"0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","_phase":"2"}
 undefined
 > 
 RESULT: 
@@ -856,8 +858,8 @@ undefined
 > 
 undefined
 > 
-RESULT: Waiting until 'PHASE1_START_TIME()' at 1509166747+0s =Sat, 28 Oct 2017 15:59:08 AEDT now=Sat, 28 Oct 2017 15:57:38 AEDT
-RESULT: Waited until 'PHASE1_START_TIME()' at at 1509166747+0s =Sat, 28 Oct 2017 15:59:08 AEDT now=Sat, 28 Oct 2017 15:59:08 AEDT
+RESULT: Waiting until 'PHASE1_START_TIME()' at 1510564858+0s =Mon, 13 Nov 2017 20:20:59 AEDT now=Mon, 13 Nov 2017 20:18:25 AEDT
+RESULT: Waited until 'PHASE1_START_TIME()' at at 1510564858+0s =Mon, 13 Nov 2017 20:20:59 AEDT now=Mon, 13 Nov 2017 20:20:59 AEDT
 RESULT: 
 undefined
 > 
@@ -879,30 +881,30 @@ undefined
 ... 
 undefined
 > 
-RESULT: sendContribution1_1Tx status=0x1 gas=400000 gasUsed=67438 costETH=0.001213884 costUSD=0.365216423544 @ ETH/USD=300.866 gasPrice=18000000000 block=43 txIx=0 txId=0xc33d21eb66cbd5d88ea673c57849bafe75663ea825732ed18ac930b90c38dd96 @ 1509166753 Sat, 28 Oct 2017 04:59:13 UTC
+RESULT: sendContribution1_1Tx status=0x1 gas=400000 gasUsed=67978 costETH=0.001223604 costUSD=0.368140841064 @ ETH/USD=300.866 gasPrice=18000000000 block=82 txIx=0 txId=0x0290b97ff23ab30e8b40291b5fc85f5d76333f7b6c4972af1407165b6de577f9 @ 1510564861 Mon, 13 Nov 2017 09:21:01 UTC
 undefined
 > 
-RESULT: sendContribution1_2Tx status=0x0 gas=400000 gasUsed=22689 costETH=0.000408402 costUSD=0.122874276132 @ ETH/USD=300.866 gasPrice=18000000000 block=43 txIx=1 txId=0x34896365f2d07d34f3370c07a7cdcbafd35edfc2e5aaff2852b8c01b7269c71e @ 1509166753 Sat, 28 Oct 2017 04:59:13 UTC
+RESULT: sendContribution1_2Tx status=0x0 gas=400000 gasUsed=22844 costETH=0.000411192 costUSD=0.123713692272 @ ETH/USD=300.866 gasPrice=18000000000 block=82 txIx=1 txId=0x09857735963c41443bbc3558b7e1cc782c8b5ccb79e09cf739c04ad0ea644fb5 @ 1510564861 Mon, 13 Nov 2017 09:21:01 UTC
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      131.096471054000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087480720000000000   120000000.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      248.195058476000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.182749032000000000   137515169.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        1.000000000000000000           0.000000000000000000 Account #2 - Wallet
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.001650168000000000           0.000000000000000000 Account #3 - Ops Account
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.005717880000000000           0.000000000000000000 Account #4 - Admin Account
-RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -1.001213884000000000        2000.000000000000000000 Account #5 - Whitelisted Phase 1
-RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9       -0.000408402000000000           0.000000000000000000 Account #6 - Whitelisted Phase 2
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.003304440000000000           0.000000000000000000 Account #3 - Ops Account
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.007370208000000000           0.000000000000000000 Account #4 - Admin Account
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -1.001223604000000000        2000.000000000000000000 Account #5 - Whitelisted Phase 1
+RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9       -0.000411192000000000           0.000000000000000000 Account #6 - Whitelisted Phase 2
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Revoke Account
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11 - Presale 1
 RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.000000000000000000           0.000000000000000000 Account #12 - Presale 2
-RESULT: 13 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
-RESULT: 14 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440020000.000000000000000000 Trustee
-RESULT: 15 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000   239978000.000000000000000000 Sale
+RESULT: 13 0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+RESULT: 14 0x545b861c70089afcbee7c3e8ff00e1ab9e5be210        0.000000000000000000   422504831.000000000000000000 Trustee
+RESULT: 15 0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc        0.000000000000000000   239978000.000000000000000000 Sale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                             800000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -915,9 +917,9 @@ RESULT: PASS Send Contribution Phase 1 - ac5 1 ETH
 RESULT: PASS Send Contribution Phase 1 - ac6 1 ETH - Expecting Failure
 1
 > 
-RESULT: tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: tokenContractAddress=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: token.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: token.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: token.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: token.symbol=ST
 RESULT: token.name=Simple Token
@@ -926,38 +928,39 @@ RESULT: token.totalSupply=800000000
 RESULT: token.DECIMALSFACTOR=1000000000000000000
 RESULT: token.TOKENS_MAX=800000000
 RESULT: token.finalized=false
-RESULT: Transfer 0 #43: _from=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _to=0xa55a151eb00fded1634d27d1127b4be4627079ea _value=2000
+RESULT: Transfer 0 #82: _from=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc _to=0xa55a151eb00fded1634d27d1127b4be4627079ea _value=2000
 undefined
 > 
-RESULT: saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: saleContractAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: sale.opsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
 RESULT: sale.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
-RESULT: sale.PHASE1_START_TIME=1509166747 Sat, 28 Oct 2017 04:59:07 UTC
-RESULT: sale.PHASE2_START_TIME=1509166777 Sat, 28 Oct 2017 04:59:37 UTC
-RESULT: sale.END_TIME=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.PHASE1_START_TIME=1510564858 Mon, 13 Nov 2017 09:20:58 UTC
+RESULT: sale.PHASE2_START_TIME=1510564888 Mon, 13 Nov 2017 09:21:28 UTC
+RESULT: sale.END_TIME=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.CONTRIBUTION_MIN=0.1
 RESULT: sale.CONTRIBUTION_MAX=100000
-RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=36000
 RESULT: sale.TOKENS_SALE=240000000
 RESULT: sale.TOKENS_FOUNDERS=80000000
 RESULT: sale.TOKENS_ADVISORS=80000000
-RESULT: sale.TOKENS_EARLY_INVESTORS=22441966
-RESULT: sale.TOKENS_ACCELERATOR_MAX=257558034
-RESULT: sale.TOKENS_FUTURE=120000000
-RESULT: sale.TOKENS_PER_KETHER=1800000
+RESULT: sale.TOKENS_EARLY_BACKERS=44884831
+RESULT: sale.TOKENS_ACCELERATOR=217600000
+RESULT: sale.TOKENS_FUTURE=137515169
+RESULT: sale.TOKENS_PER_KETHER=3600000
+RESULT: sale.PURCHASE_DIVIDER=1000
 RESULT: sale.finalized=false
-RESULT: sale.endTime=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.endTime=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
 RESULT: sale.tokensPerKEther=2000000
 RESULT: sale.phase1AccountTokensMax=20000
 RESULT: sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
-RESULT: sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
-RESULT: sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: sale.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
+RESULT: sale.trusteeContract=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: sale.totalTokensSold=22000
 RESULT: sale.totalPresaleBase=20000
 RESULT: sale.totalPresaleBonus=200
-RESULT: TokensPurchased 0 #43 {"_beneficiary":"0xa55a151eb00fded1634d27d1127b4be4627079ea","_cost":"1000000000000000000","_tokens":"2e+21"}
+RESULT: TokensPurchased 0 #82 {"_beneficiary":"0xa55a151eb00fded1634d27d1127b4be4627079ea","_cost":"1000000000000000000","_tokens":"2e+21","_totalSold":"2.2e+22"}
 undefined
 > 
 RESULT: 
@@ -971,8 +974,8 @@ undefined
 > 
 undefined
 > 
-RESULT: Waiting until 'PHASE2_START_TIME()' at 1509166777+0s =Sat, 28 Oct 2017 15:59:38 AEDT now=Sat, 28 Oct 2017 15:59:18 AEDT
-RESULT: Waited until 'PHASE2_START_TIME()' at at 1509166777+0s =Sat, 28 Oct 2017 15:59:38 AEDT now=Sat, 28 Oct 2017 15:59:38 AEDT
+RESULT: Waiting until 'PHASE2_START_TIME()' at 1510564888+0s =Mon, 13 Nov 2017 20:21:29 AEDT now=Mon, 13 Nov 2017 20:21:04 AEDT
+RESULT: Waited until 'PHASE2_START_TIME()' at at 1510564888+0s =Mon, 13 Nov 2017 20:21:29 AEDT now=Mon, 13 Nov 2017 20:21:29 AEDT
 RESULT: 
 undefined
 > 
@@ -994,30 +997,30 @@ undefined
 ... 
 undefined
 > 
-RESULT: sendContribution2_1Tx status=0x1 gas=400000 gasUsed=51250 costETH=0.0009225 costUSD=0.277548885 @ ETH/USD=300.866 gasPrice=18000000000 block=53 txIx=0 txId=0xbc0102ce643b287db0abb328b2d9683de512f9816bfefb8eae4dd60684f6c779 @ 1509166779 Sat, 28 Oct 2017 04:59:39 UTC
+RESULT: sendContribution2_1Tx status=0x1 gas=400000 gasUsed=51765 costETH=0.00093177 costUSD=0.28033791282 @ ETH/USD=300.866 gasPrice=18000000000 block=93 txIx=1 txId=0x2373822ccdb710ca715adcfb5a5bfef900b614b012bc42af891d4a0d1aecc856 @ 1510564890 Mon, 13 Nov 2017 09:21:30 UTC
 undefined
 > 
-RESULT: sendContribution2_2Tx status=0x1 gas=400000 gasUsed=66250 costETH=0.0011925 costUSD=0.358782705 @ ETH/USD=300.866 gasPrice=18000000000 block=53 txIx=1 txId=0x2d2760b0f5aee58017b4aa091985e392a6864170bad043dcb242937eccc22d69 @ 1509166779 Sat, 28 Oct 2017 04:59:39 UTC
+RESULT: sendContribution2_2Tx status=0x1 gas=400000 gasUsed=66765 costETH=0.00120177 costUSD=0.36157173282 @ ETH/USD=300.866 gasPrice=18000000000 block=93 txIx=0 txId=0xbace5d9e938968d00021cb3376189267c02925088afa3fbed97b6b7868151149 @ 1510564890 Mon, 13 Nov 2017 09:21:30 UTC
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      161.098586054000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087480720000000000   120000000.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      281.197192016000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.182749032000000000   137515169.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976       21.000000000000000000           0.000000000000000000 Account #2 - Wallet
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.001650168000000000           0.000000000000000000 Account #3 - Ops Account
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.005717880000000000           0.000000000000000000 Account #4 - Admin Account
-RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea      -11.002136384000000000       22000.000000000000000000 Account #5 - Whitelisted Phase 1
-RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9      -10.001600902000000000       20000.000000000000000000 Account #6 - Whitelisted Phase 2
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.003304440000000000           0.000000000000000000 Account #3 - Ops Account
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.007370208000000000           0.000000000000000000 Account #4 - Admin Account
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea      -11.002155374000000000       22000.000000000000000000 Account #5 - Whitelisted Phase 1
+RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9      -10.001612962000000000       20000.000000000000000000 Account #6 - Whitelisted Phase 2
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Revoke Account
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11 - Presale 1
 RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.000000000000000000           0.000000000000000000 Account #12 - Presale 2
-RESULT: 13 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
-RESULT: 14 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440020000.000000000000000000 Trustee
-RESULT: 15 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000   239938000.000000000000000000 Sale
+RESULT: 13 0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+RESULT: 14 0x545b861c70089afcbee7c3e8ff00e1ab9e5be210        0.000000000000000000   422504831.000000000000000000 Trustee
+RESULT: 15 0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc        0.000000000000000000   239938000.000000000000000000 Sale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                             800000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -1030,9 +1033,9 @@ RESULT: PASS Send Contribution Phase 2 - ac5 10 ETH
 RESULT: PASS Send Contribution Phase 2 - ac6 10 ETH
 1
 > 
-RESULT: tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: tokenContractAddress=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: token.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: token.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: token.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: token.symbol=ST
 RESULT: token.name=Simple Token
@@ -1041,40 +1044,41 @@ RESULT: token.totalSupply=800000000
 RESULT: token.DECIMALSFACTOR=1000000000000000000
 RESULT: token.TOKENS_MAX=800000000
 RESULT: token.finalized=false
-RESULT: Transfer 0 #53: _from=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _to=0xa55a151eb00fded1634d27d1127b4be4627079ea _value=20000
-RESULT: Transfer 1 #53: _from=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 _value=20000
+RESULT: Transfer 0 #93: _from=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc _to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 _value=20000
+RESULT: Transfer 1 #93: _from=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc _to=0xa55a151eb00fded1634d27d1127b4be4627079ea _value=20000
 undefined
 > 
-RESULT: saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: saleContractAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: sale.opsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
 RESULT: sale.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
-RESULT: sale.PHASE1_START_TIME=1509166747 Sat, 28 Oct 2017 04:59:07 UTC
-RESULT: sale.PHASE2_START_TIME=1509166777 Sat, 28 Oct 2017 04:59:37 UTC
-RESULT: sale.END_TIME=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.PHASE1_START_TIME=1510564858 Mon, 13 Nov 2017 09:20:58 UTC
+RESULT: sale.PHASE2_START_TIME=1510564888 Mon, 13 Nov 2017 09:21:28 UTC
+RESULT: sale.END_TIME=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.CONTRIBUTION_MIN=0.1
 RESULT: sale.CONTRIBUTION_MAX=100000
-RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=36000
 RESULT: sale.TOKENS_SALE=240000000
 RESULT: sale.TOKENS_FOUNDERS=80000000
 RESULT: sale.TOKENS_ADVISORS=80000000
-RESULT: sale.TOKENS_EARLY_INVESTORS=22441966
-RESULT: sale.TOKENS_ACCELERATOR_MAX=257558034
-RESULT: sale.TOKENS_FUTURE=120000000
-RESULT: sale.TOKENS_PER_KETHER=1800000
+RESULT: sale.TOKENS_EARLY_BACKERS=44884831
+RESULT: sale.TOKENS_ACCELERATOR=217600000
+RESULT: sale.TOKENS_FUTURE=137515169
+RESULT: sale.TOKENS_PER_KETHER=3600000
+RESULT: sale.PURCHASE_DIVIDER=1000
 RESULT: sale.finalized=false
-RESULT: sale.endTime=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.endTime=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
 RESULT: sale.tokensPerKEther=2000000
 RESULT: sale.phase1AccountTokensMax=20000
 RESULT: sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
-RESULT: sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
-RESULT: sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: sale.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
+RESULT: sale.trusteeContract=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: sale.totalTokensSold=62000
 RESULT: sale.totalPresaleBase=20000
 RESULT: sale.totalPresaleBonus=200
-RESULT: TokensPurchased 0 #53 {"_beneficiary":"0xa55a151eb00fded1634d27d1127b4be4627079ea","_cost":"10000000000000000000","_tokens":"2e+22"}
-RESULT: TokensPurchased 1 #53 {"_beneficiary":"0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","_cost":"10000000000000000000","_tokens":"2e+22"}
+RESULT: TokensPurchased 0 #93 {"_beneficiary":"0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","_cost":"10000000000000000000","_tokens":"2e+22","_totalSold":"4.2e+22"}
+RESULT: TokensPurchased 1 #93 {"_beneficiary":"0xa55a151eb00fded1634d27d1127b4be4627079ea","_cost":"10000000000000000000","_tokens":"2e+22","_totalSold":"6.2e+22"}
 undefined
 > 
 RESULT: 
@@ -1098,30 +1102,30 @@ undefined
 ... 
 undefined
 > 
-RESULT: sendContribution3_1Tx status=0x1 gas=400000 gasUsed=51250 costETH=0.0009225 costUSD=0.277548885 @ ETH/USD=300.866 gasPrice=18000000000 block=58 txIx=0 txId=0xf67b7eb501ae3c91c1abf1bd93d1311e32f138f9ed5f10353d1d070e42f36b61 @ 1509166786 Sat, 28 Oct 2017 04:59:46 UTC
+RESULT: sendContribution3_1Tx status=0x1 gas=400000 gasUsed=51765 costETH=0.00093177 costUSD=0.28033791282 @ ETH/USD=300.866 gasPrice=18000000000 block=95 txIx=0 txId=0xc50edb16ed88ba82ca6d0c35e53f1e84ca6057817dfee2ba59d2c74cb0f9ba56 @ 1510564897 Mon, 13 Nov 2017 09:21:37 UTC
 undefined
 > 
-RESULT: sendContribution3_2Tx status=0x1 gas=400000 gasUsed=49517 costETH=0.000891306 costUSD=0.268163670996 @ ETH/USD=300.866 gasPrice=18000000000 block=58 txIx=1 txId=0x90802535af473d0ef38a46cb742fd53bb3077804ed4d57aa3a66e64a4941bda3 @ 1509166786 Sat, 28 Oct 2017 04:59:46 UTC
+RESULT: sendContribution3_2Tx status=0x1 gas=400000 gasUsed=50032 costETH=0.000900576 costUSD=0.270952698816 @ ETH/USD=300.866 gasPrice=18000000000 block=95 txIx=1 txId=0x80ae3c73f25094531f4a7ee28c85861ed846db4c6cb74414789304eca01b0fb9 @ 1510564897 Mon, 13 Nov 2017 09:21:37 UTC
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      176.100399860000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087480720000000000   120000000.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      287.199024362000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.182749032000000000   137515169.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976   119990.000000000000000000           0.000000000000000000 Account #2 - Wallet
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.001650168000000000           0.000000000000000000 Account #3 - Ops Account
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.005717880000000000           0.000000000000000000 Account #4 - Admin Account
-RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea  -100011.003058884000000000   200022000.000000000000000000 Account #5 - Whitelisted Phase 1
-RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9   -19979.002492208000000000    39958000.000000000000000000 Account #6 - Whitelisted Phase 2
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.003304440000000000           0.000000000000000000 Account #3 - Ops Account
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.007370208000000000           0.000000000000000000 Account #4 - Admin Account
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea  -100011.003087144000000000   200022000.000000000000000000 Account #5 - Whitelisted Phase 1
+RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9   -19979.002513538000000000    39958000.000000000000000000 Account #6 - Whitelisted Phase 2
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Revoke Account
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11 - Presale 1
 RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.000000000000000000           0.000000000000000000 Account #12 - Presale 2
-RESULT: 13 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
-RESULT: 14 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440020000.000000000000000000 Trustee
-RESULT: 15 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 Sale
+RESULT: 13 0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+RESULT: 14 0x545b861c70089afcbee7c3e8ff00e1ab9e5be210        0.000000000000000000   422504831.000000000000000000 Trustee
+RESULT: 15 0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc        0.000000000000000000           0.000000000000000000 Sale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                             800000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -1134,9 +1138,9 @@ RESULT: PASS Max Out Contribution Phase 2 - ac5 100,000 ETH - Expecting 1 partia
 RESULT: PASS Max Out Contribution Phase 2 - ac6 100,000 ETH - Expecting 1 partial
 1
 > 
-RESULT: tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: tokenContractAddress=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: token.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: token.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: token.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: token.symbol=ST
 RESULT: token.name=Simple Token
@@ -1145,41 +1149,42 @@ RESULT: token.totalSupply=800000000
 RESULT: token.DECIMALSFACTOR=1000000000000000000
 RESULT: token.TOKENS_MAX=800000000
 RESULT: token.finalized=false
-RESULT: Transfer 0 #58: _from=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _to=0xa55a151eb00fded1634d27d1127b4be4627079ea _value=200000000
-RESULT: Transfer 1 #58: _from=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff _to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 _value=39938000
+RESULT: Transfer 0 #95: _from=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc _to=0xa55a151eb00fded1634d27d1127b4be4627079ea _value=200000000
+RESULT: Transfer 1 #95: _from=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc _to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 _value=39938000
 undefined
 > 
-RESULT: saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: saleContractAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: sale.opsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
 RESULT: sale.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
-RESULT: sale.PHASE1_START_TIME=1509166747 Sat, 28 Oct 2017 04:59:07 UTC
-RESULT: sale.PHASE2_START_TIME=1509166777 Sat, 28 Oct 2017 04:59:37 UTC
-RESULT: sale.END_TIME=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.PHASE1_START_TIME=1510564858 Mon, 13 Nov 2017 09:20:58 UTC
+RESULT: sale.PHASE2_START_TIME=1510564888 Mon, 13 Nov 2017 09:21:28 UTC
+RESULT: sale.END_TIME=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.CONTRIBUTION_MIN=0.1
 RESULT: sale.CONTRIBUTION_MAX=100000
-RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=36000
 RESULT: sale.TOKENS_SALE=240000000
 RESULT: sale.TOKENS_FOUNDERS=80000000
 RESULT: sale.TOKENS_ADVISORS=80000000
-RESULT: sale.TOKENS_EARLY_INVESTORS=22441966
-RESULT: sale.TOKENS_ACCELERATOR_MAX=257558034
-RESULT: sale.TOKENS_FUTURE=120000000
-RESULT: sale.TOKENS_PER_KETHER=1800000
+RESULT: sale.TOKENS_EARLY_BACKERS=44884831
+RESULT: sale.TOKENS_ACCELERATOR=217600000
+RESULT: sale.TOKENS_FUTURE=137515169
+RESULT: sale.TOKENS_PER_KETHER=3600000
+RESULT: sale.PURCHASE_DIVIDER=1000
 RESULT: sale.finalized=true
-RESULT: sale.endTime=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.endTime=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
 RESULT: sale.tokensPerKEther=2000000
 RESULT: sale.phase1AccountTokensMax=20000
 RESULT: sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
-RESULT: sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
-RESULT: sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: sale.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
+RESULT: sale.trusteeContract=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: sale.totalTokensSold=240000000
 RESULT: sale.totalPresaleBase=20000
 RESULT: sale.totalPresaleBonus=200
-RESULT: TokensPurchased 0 #58 {"_beneficiary":"0xa55a151eb00fded1634d27d1127b4be4627079ea","_cost":"1e+23","_tokens":"2e+26"}
-RESULT: TokensPurchased 1 #58 {"_beneficiary":"0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","_cost":"1.9969e+22","_tokens":"3.9938e+25"}
-RESULT: Finalized 0 #58 {}
+RESULT: TokensPurchased 0 #95 {"_beneficiary":"0xa55a151eb00fded1634d27d1127b4be4627079ea","_cost":"1e+23","_tokens":"2e+26","_totalSold":"2.00062e+26"}
+RESULT: TokensPurchased 1 #95 {"_beneficiary":"0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","_cost":"1.9969e+22","_tokens":"3.9938e+25","_totalSold":"2.4e+26"}
+RESULT: Finalized 0 #95 {}
 undefined
 > 
 RESULT: 
@@ -1203,30 +1208,30 @@ undefined
 ... 
 undefined
 > 
-RESULT: finalise1Tx status=0x0 gas=100000 gasUsed=22158 costETH=0.000398844 costUSD=0.119998598904 @ ETH/USD=300.866 gasPrice=18000000000 block=60 txIx=0 txId=0xd99b16170c17a18e1e01f6005c151d90418a4a5465b4aa886743ac4c5203fb43 @ 1509166791 Sat, 28 Oct 2017 04:59:51 UTC
+RESULT: finalise1Tx status=0x0 gas=100000 gasUsed=22139 costETH=0.000398502 costUSD=0.119895702732 @ ETH/USD=300.866 gasPrice=18000000000 block=97 txIx=0 txId=0x9778980211a2b8955cb074cf17c9cfb74bbd7695cc22e0d086cb29ce11c1b58f @ 1510564905 Mon, 13 Nov 2017 09:21:45 UTC
 undefined
 > 
-RESULT: finalise2Tx status=0x1 gas=100000 gasUsed=27894 costETH=0.000502092 costUSD=0.151062411672 @ ETH/USD=300.866 gasPrice=18000000000 block=61 txIx=0 txId=0x3378ad8c9ab18bae5f7ca89cfa6f1879382d64048ae1f655dc2e6ad5e105fffc @ 1509166793 Sat, 28 Oct 2017 04:59:53 UTC
+RESULT: finalise2Tx status=0x1 gas=100000 gasUsed=27919 costETH=0.000502542 costUSD=0.151197801372 @ ETH/USD=300.866 gasPrice=18000000000 block=97 txIx=1 txId=0x94cd35847b45f9c50c6abf09cb0dfd4ff000453cb9b2dbedf4463f3b310ac12a @ 1510564905 Mon, 13 Nov 2017 09:21:45 UTC
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      185.101300796000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087480720000000000   120000000.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      293.199925406000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.182749032000000000   137515169.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976   119990.000000000000000000           0.000000000000000000 Account #2 - Wallet
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.001650168000000000           0.000000000000000000 Account #3 - Ops Account
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.006618816000000000           0.000000000000000000 Account #4 - Admin Account
-RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea  -100011.003058884000000000   200022000.000000000000000000 Account #5 - Whitelisted Phase 1
-RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9   -19979.002492208000000000    39958000.000000000000000000 Account #6 - Whitelisted Phase 2
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.003304440000000000           0.000000000000000000 Account #3 - Ops Account
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.008271252000000000           0.000000000000000000 Account #4 - Admin Account
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea  -100011.003087144000000000   200022000.000000000000000000 Account #5 - Whitelisted Phase 1
+RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9   -19979.002513538000000000    39958000.000000000000000000 Account #6 - Whitelisted Phase 2
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Revoke Account
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11 - Presale 1
 RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.000000000000000000           0.000000000000000000 Account #12 - Presale 2
-RESULT: 13 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
-RESULT: 14 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440020000.000000000000000000 Trustee
-RESULT: 15 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 Sale
+RESULT: 13 0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+RESULT: 14 0x545b861c70089afcbee7c3e8ff00e1ab9e5be210        0.000000000000000000   422504831.000000000000000000 Trustee
+RESULT: 15 0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc        0.000000000000000000           0.000000000000000000 Sale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                             800000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -1239,9 +1244,9 @@ RESULT: PASS Finalise - sale - expecting revert as the sale was automatically fi
 RESULT: PASS Finalise - token
 1
 > 
-RESULT: tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: tokenContractAddress=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: token.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: token.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: token.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: token.symbol=ST
 RESULT: token.name=Simple Token
@@ -1250,43 +1255,44 @@ RESULT: token.totalSupply=800000000
 RESULT: token.DECIMALSFACTOR=1000000000000000000
 RESULT: token.TOKENS_MAX=800000000
 RESULT: token.finalized=true
-RESULT: Finalized 0 #61 {}
+RESULT: Finalized 0 #97 {}
 undefined
 > 
-RESULT: trusteeContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: trusteeContractAddress=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: trustee.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: trustee.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: trustee.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: trustee.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: trustee.revokeAddress=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756
-RESULT: trustee.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: trustee.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: trustee.totalLocked=20200
 undefined
 > 
-RESULT: saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: saleContractAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: sale.opsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
 RESULT: sale.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
-RESULT: sale.PHASE1_START_TIME=1509166747 Sat, 28 Oct 2017 04:59:07 UTC
-RESULT: sale.PHASE2_START_TIME=1509166777 Sat, 28 Oct 2017 04:59:37 UTC
-RESULT: sale.END_TIME=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.PHASE1_START_TIME=1510564858 Mon, 13 Nov 2017 09:20:58 UTC
+RESULT: sale.PHASE2_START_TIME=1510564888 Mon, 13 Nov 2017 09:21:28 UTC
+RESULT: sale.END_TIME=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.CONTRIBUTION_MIN=0.1
 RESULT: sale.CONTRIBUTION_MAX=100000
-RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=36000
 RESULT: sale.TOKENS_SALE=240000000
 RESULT: sale.TOKENS_FOUNDERS=80000000
 RESULT: sale.TOKENS_ADVISORS=80000000
-RESULT: sale.TOKENS_EARLY_INVESTORS=22441966
-RESULT: sale.TOKENS_ACCELERATOR_MAX=257558034
-RESULT: sale.TOKENS_FUTURE=120000000
-RESULT: sale.TOKENS_PER_KETHER=1800000
+RESULT: sale.TOKENS_EARLY_BACKERS=44884831
+RESULT: sale.TOKENS_ACCELERATOR=217600000
+RESULT: sale.TOKENS_FUTURE=137515169
+RESULT: sale.TOKENS_PER_KETHER=3600000
+RESULT: sale.PURCHASE_DIVIDER=1000
 RESULT: sale.finalized=true
-RESULT: sale.endTime=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.endTime=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
 RESULT: sale.tokensPerKEther=2000000
 RESULT: sale.phase1AccountTokensMax=20000
 RESULT: sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
-RESULT: sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
-RESULT: sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: sale.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
+RESULT: sale.trusteeContract=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: sale.totalTokensSold=240000000
 RESULT: sale.totalPresaleBase=20000
 RESULT: sale.totalPresaleBonus=200
@@ -1318,33 +1324,33 @@ undefined
 ... 
 undefined
 > 
-RESULT: moveToken1_1Tx status=0x1 gas=100000 gasUsed=51489 costETH=0.000926802 costUSD=0.278843210532 @ ETH/USD=300.866 gasPrice=18000000000 block=65 txIx=0 txId=0xb9a524d3627ec780193198d7453dbffae908874ae93e2c0f43a06c42cc5ee855 @ 1509166799 Sat, 28 Oct 2017 04:59:59 UTC
+RESULT: moveToken1_1Tx status=0x1 gas=100000 gasUsed=51514 costETH=0.000927252 costUSD=0.278978600232 @ ETH/USD=300.866 gasPrice=18000000000 block=100 txIx=0 txId=0xa4d120c30d5ad0330b312f0f64e086d5a3e52d2dc2e10eb6a7384586b04c1c20 @ 1510564911 Mon, 13 Nov 2017 09:21:51 UTC
 undefined
 > 
-RESULT: moveToken1_2Tx status=0x1 gas=100000 gasUsed=45464 costETH=0.000818352 costUSD=0.246214292832 @ ETH/USD=300.866 gasPrice=18000000000 block=66 txIx=0 txId=0x9f6dad060ac264ff03e725f6c667c575d058f4128ecb32f9daa5706de0d50e6f @ 1509166800 Sat, 28 Oct 2017 05:00:00 UTC
+RESULT: moveToken1_2Tx status=0x1 gas=100000 gasUsed=45467 costETH=0.000818406 costUSD=0.246230539596 @ ETH/USD=300.866 gasPrice=18000000000 block=100 txIx=1 txId=0x1616ea80b4fa7263f4cdca16163a1e1cde6c084de80adb9681041cfed4fc236f @ 1510564911 Mon, 13 Nov 2017 09:21:51 UTC
 undefined
 > 
-RESULT: moveToken1_3Tx status=0x1 gas=100000 gasUsed=43037 costETH=0.000774666 costUSD=0.233070660756 @ ETH/USD=300.866 gasPrice=18000000000 block=68 txIx=0 txId=0xc56951e7d46320fad7d3000c1c7d91d9287c570d71254829024ece6a58d4d12c @ 1509166802 Sat, 28 Oct 2017 05:00:02 UTC
+RESULT: moveToken1_3Tx status=0x1 gas=100000 gasUsed=43040 costETH=0.00077472 costUSD=0.23308690752 @ ETH/USD=300.866 gasPrice=18000000000 block=102 txIx=0 txId=0x2266b69f32e11e0b1f85c02caa116381a36289e814da18a20548d316b791e06d @ 1510564916 Mon, 13 Nov 2017 09:21:56 UTC
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      206.103820616000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.087480720000000000   120000000.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      308.202445784000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.182749032000000000   137515169.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976   119990.000000000000000000           0.000000000000000000 Account #2 - Wallet
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.001650168000000000           0.000000000000000000 Account #3 - Ops Account
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.006618816000000000           0.000000000000000000 Account #4 - Admin Account
-RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea  -100011.003985686000000000   200021999.900000000000000000 Account #5 - Whitelisted Phase 1
-RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9   -19979.003310560000000000    39957997.000000000000000000 Account #6 - Whitelisted Phase 2
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.003304440000000000           0.000000000000000000 Account #3 - Ops Account
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.008271252000000000           0.000000000000000000 Account #4 - Admin Account
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea  -100011.004014396000000000   200021999.900000000000000000 Account #5 - Whitelisted Phase 1
+RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9   -19979.003331944000000000    39957997.000000000000000000 Account #6 - Whitelisted Phase 2
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.100000000000000000 Account #7
-RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2       -0.000774666000000000           0.000000000000000000 Account #8
+RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2       -0.000774720000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           3.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Revoke Account
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11 - Presale 1
 RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.000000000000000000           0.000000000000000000 Account #12 - Presale 2
-RESULT: 13 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
-RESULT: 14 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440020000.000000000000000000 Trustee
-RESULT: 15 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 Sale
+RESULT: 13 0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+RESULT: 14 0x545b861c70089afcbee7c3e8ff00e1ab9e5be210        0.000000000000000000   422504831.000000000000000000 Trustee
+RESULT: 15 0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc        0.000000000000000000           0.000000000000000000 Sale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                             800000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -1360,9 +1366,9 @@ RESULT: PASS Move Tokens - approve 3 ST ac6 -> ac8
 RESULT: PASS Move Tokens - transferFrom 3 ST ac6 -> ac9 by ac8
 1
 > 
-RESULT: tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: tokenContractAddress=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: token.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: token.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: token.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: token.symbol=ST
 RESULT: token.name=Simple Token
@@ -1371,45 +1377,46 @@ RESULT: token.totalSupply=800000000
 RESULT: token.DECIMALSFACTOR=1000000000000000000
 RESULT: token.TOKENS_MAX=800000000
 RESULT: token.finalized=true
-RESULT: Approval 0 #66 _owner=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 _spender=0xa88a05d2b88283ce84c8325760b72a64591279a2 _value=3
-RESULT: Transfer 0 #65: _from=0xa55a151eb00fded1634d27d1127b4be4627079ea _to=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec _value=0.1
-RESULT: Transfer 1 #68: _from=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 _to=0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 _value=3
+RESULT: Approval 0 #100 _owner=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 _spender=0xa88a05d2b88283ce84c8325760b72a64591279a2 _value=3
+RESULT: Transfer 0 #100: _from=0xa55a151eb00fded1634d27d1127b4be4627079ea _to=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec _value=0.1
+RESULT: Transfer 1 #102: _from=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 _to=0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 _value=3
 undefined
 > 
-RESULT: trusteeContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: trusteeContractAddress=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: trustee.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: trustee.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: trustee.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: trustee.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: trustee.revokeAddress=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756
-RESULT: trustee.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: trustee.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: trustee.totalLocked=20200
 undefined
 > 
-RESULT: saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: saleContractAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: sale.opsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
 RESULT: sale.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
-RESULT: sale.PHASE1_START_TIME=1509166747 Sat, 28 Oct 2017 04:59:07 UTC
-RESULT: sale.PHASE2_START_TIME=1509166777 Sat, 28 Oct 2017 04:59:37 UTC
-RESULT: sale.END_TIME=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.PHASE1_START_TIME=1510564858 Mon, 13 Nov 2017 09:20:58 UTC
+RESULT: sale.PHASE2_START_TIME=1510564888 Mon, 13 Nov 2017 09:21:28 UTC
+RESULT: sale.END_TIME=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.CONTRIBUTION_MIN=0.1
 RESULT: sale.CONTRIBUTION_MAX=100000
-RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=36000
 RESULT: sale.TOKENS_SALE=240000000
 RESULT: sale.TOKENS_FOUNDERS=80000000
 RESULT: sale.TOKENS_ADVISORS=80000000
-RESULT: sale.TOKENS_EARLY_INVESTORS=22441966
-RESULT: sale.TOKENS_ACCELERATOR_MAX=257558034
-RESULT: sale.TOKENS_FUTURE=120000000
-RESULT: sale.TOKENS_PER_KETHER=1800000
+RESULT: sale.TOKENS_EARLY_BACKERS=44884831
+RESULT: sale.TOKENS_ACCELERATOR=217600000
+RESULT: sale.TOKENS_FUTURE=137515169
+RESULT: sale.TOKENS_PER_KETHER=3600000
+RESULT: sale.PURCHASE_DIVIDER=1000
 RESULT: sale.finalized=true
-RESULT: sale.endTime=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.endTime=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
 RESULT: sale.tokensPerKEther=2000000
 RESULT: sale.phase1AccountTokensMax=20000
 RESULT: sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
-RESULT: sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
-RESULT: sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: sale.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
+RESULT: sale.trusteeContract=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: sale.totalTokensSold=240000000
 RESULT: sale.totalPresaleBase=20000
 RESULT: sale.totalPresaleBonus=200
@@ -1441,33 +1448,33 @@ undefined
 ... 
 undefined
 > 
-RESULT: changeTrusteeOpsTx status=0x1 gas=100000 gasUsed=30001 costETH=0.000540018 costUSD=0.162473055588 @ ETH/USD=300.866 gasPrice=18000000000 block=71 txIx=0 txId=0xd92394a6d2c2f364f3ef08a85f4512cc073f812a2e0b94c1b05309f596ff0083 @ 1509166815 Sat, 28 Oct 2017 05:00:15 UTC
+RESULT: changeTrusteeOpsTx status=0x1 gas=100000 gasUsed=30004 costETH=0.000540072 costUSD=0.162489302352 @ ETH/USD=300.866 gasPrice=18000000000 block=106 txIx=0 txId=0xec05b148be548c60f8f09bcc79e8a7782d0bc051d0cf5798344ef07d7715ee71 @ 1510564924 Mon, 13 Nov 2017 09:22:04 UTC
 undefined
 > 
-RESULT: processAllocation1Tx status=0x1 gas=100000 gasUsed=81371 costETH=0.001464678 costUSD=0.440671811148 @ ETH/USD=300.866 gasPrice=18000000000 block=73 txIx=0 txId=0x60ec4ecc1d9cc83e84dbad68acbf256115e21c3e9e1f51a2b178b9e694f0f5e9 @ 1509166820 Sat, 28 Oct 2017 05:00:20 UTC
+RESULT: processAllocation1Tx status=0x1 gas=100000 gasUsed=80389 costETH=0.001447002 costUSD=0.435353703732 @ ETH/USD=300.866 gasPrice=18000000000 block=108 txIx=0 txId=0x8822ae2d44e7f356b0ba4f2a6e91842045c90b6b597c5f461407aeecde46b436 @ 1510564927 Mon, 13 Nov 2017 09:22:07 UTC
 undefined
 > 
-RESULT: processAllocation2Tx status=0x1 gas=100000 gasUsed=81371 costETH=0.001464678 costUSD=0.440671811148 @ ETH/USD=300.866 gasPrice=18000000000 block=73 txIx=1 txId=0x0a0013b2ae674f271c277b3b380cb2ce90f3564bb3595f37af1d2c08571334b2 @ 1509166820 Sat, 28 Oct 2017 05:00:20 UTC
+RESULT: processAllocation2Tx status=0x1 gas=100000 gasUsed=80389 costETH=0.001447002 costUSD=0.435353703732 @ ETH/USD=300.866 gasPrice=18000000000 block=108 txIx=1 txId=0x0ced29a09b3429391f12d6559daed23d509b05a6cb9425c4e3f7d3155ac99b0f @ 1510564927 Mon, 13 Nov 2017 09:22:07 UTC
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      221.107289990000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.088020738000000000   120000000.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      326.205879860000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.183289104000000000   137515169.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976   119990.000000000000000000           0.000000000000000000 Account #2 - Wallet
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.004579524000000000           0.000000000000000000 Account #3 - Ops Account
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.006618816000000000           0.000000000000000000 Account #4 - Admin Account
-RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea  -100011.003985686000000000   200021999.900000000000000000 Account #5 - Whitelisted Phase 1
-RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9   -19979.003310560000000000    39957997.000000000000000000 Account #6 - Whitelisted Phase 2
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.006198444000000000           0.000000000000000000 Account #3 - Ops Account
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.008271252000000000           0.000000000000000000 Account #4 - Admin Account
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea  -100011.004014396000000000   200021999.900000000000000000 Account #5 - Whitelisted Phase 1
+RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9   -19979.003331944000000000    39957997.000000000000000000 Account #6 - Whitelisted Phase 2
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.100000000000000000 Account #7
-RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2       -0.000774666000000000           0.000000000000000000 Account #8
+RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2       -0.000774720000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           3.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Revoke Account
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000       10000.000000000000000000 Account #11 - Presale 1
 RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.000000000000000000        9000.000000000000000000 Account #12 - Presale 2
-RESULT: 13 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
-RESULT: 14 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000   440001000.000000000000000000 Trustee
-RESULT: 15 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 Sale
+RESULT: 13 0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+RESULT: 14 0x545b861c70089afcbee7c3e8ff00e1ab9e5be210        0.000000000000000000   422485831.000000000000000000 Trustee
+RESULT: 15 0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc        0.000000000000000000           0.000000000000000000 Sale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                             800000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -1483,9 +1490,9 @@ RESULT: PASS Process Trustee Allocation - processAllocation ac11 10000
 RESULT: PASS Process Trustee Allocation - processAllocation ac12 9000
 1
 > 
-RESULT: tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: tokenContractAddress=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: token.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: token.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: token.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: token.symbol=ST
 RESULT: token.name=Simple Token
@@ -1494,47 +1501,48 @@ RESULT: token.totalSupply=800000000
 RESULT: token.DECIMALSFACTOR=1000000000000000000
 RESULT: token.TOKENS_MAX=800000000
 RESULT: token.finalized=true
-RESULT: Transfer 0 #73: _from=0x0e946b999033257976aa5cbe0e3530618ca1582d _to=0xabba43e7594e3b76afb157989e93c6621497fd4b _value=10000
-RESULT: Transfer 1 #73: _from=0x0e946b999033257976aa5cbe0e3530618ca1582d _to=0xacca534c9f62ab495bd986e002ddf0f054caae4f _value=9000
+RESULT: Transfer 0 #108: _from=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210 _to=0xabba43e7594e3b76afb157989e93c6621497fd4b _value=10000
+RESULT: Transfer 1 #108: _from=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210 _to=0xacca534c9f62ab495bd986e002ddf0f054caae4f _value=9000
 undefined
 > 
-RESULT: trusteeContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: trusteeContractAddress=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: trustee.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: trustee.opsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
 RESULT: trustee.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: trustee.revokeAddress=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756
-RESULT: trustee.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: trustee.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: trustee.totalLocked=1200
-RESULT: OpsAddressChanged 0 #71 {"_newAddress":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0"}
-RESULT: AllocationProcessed 0 #73 {"_account":"0xabba43e7594e3b76afb157989e93c6621497fd4b","_amount":"1e+22","_from":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0"}
-RESULT: AllocationProcessed 1 #73 {"_account":"0xacca534c9f62ab495bd986e002ddf0f054caae4f","_amount":"9e+21","_from":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0"}
+RESULT: OpsAddressChanged 0 #106 {"_newAddress":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0"}
+RESULT: AllocationProcessed 0 #108 {"_account":"0xabba43e7594e3b76afb157989e93c6621497fd4b","_amount":"1e+22","_from":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0"}
+RESULT: AllocationProcessed 1 #108 {"_account":"0xacca534c9f62ab495bd986e002ddf0f054caae4f","_amount":"9e+21","_from":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0"}
 undefined
 > 
-RESULT: saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: saleContractAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: sale.opsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
 RESULT: sale.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
-RESULT: sale.PHASE1_START_TIME=1509166747 Sat, 28 Oct 2017 04:59:07 UTC
-RESULT: sale.PHASE2_START_TIME=1509166777 Sat, 28 Oct 2017 04:59:37 UTC
-RESULT: sale.END_TIME=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.PHASE1_START_TIME=1510564858 Mon, 13 Nov 2017 09:20:58 UTC
+RESULT: sale.PHASE2_START_TIME=1510564888 Mon, 13 Nov 2017 09:21:28 UTC
+RESULT: sale.END_TIME=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.CONTRIBUTION_MIN=0.1
 RESULT: sale.CONTRIBUTION_MAX=100000
-RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=36000
 RESULT: sale.TOKENS_SALE=240000000
 RESULT: sale.TOKENS_FOUNDERS=80000000
 RESULT: sale.TOKENS_ADVISORS=80000000
-RESULT: sale.TOKENS_EARLY_INVESTORS=22441966
-RESULT: sale.TOKENS_ACCELERATOR_MAX=257558034
-RESULT: sale.TOKENS_FUTURE=120000000
-RESULT: sale.TOKENS_PER_KETHER=1800000
+RESULT: sale.TOKENS_EARLY_BACKERS=44884831
+RESULT: sale.TOKENS_ACCELERATOR=217600000
+RESULT: sale.TOKENS_FUTURE=137515169
+RESULT: sale.TOKENS_PER_KETHER=3600000
+RESULT: sale.PURCHASE_DIVIDER=1000
 RESULT: sale.finalized=true
-RESULT: sale.endTime=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.endTime=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
 RESULT: sale.tokensPerKEther=2000000
 RESULT: sale.phase1AccountTokensMax=20000
 RESULT: sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
-RESULT: sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
-RESULT: sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: sale.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
+RESULT: sale.trusteeContract=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: sale.totalTokensSold=240000000
 RESULT: sale.totalPresaleBase=20000
 RESULT: sale.totalPresaleBonus=200
@@ -1559,27 +1567,27 @@ undefined
 ... 
 undefined
 > 
-RESULT: reclaimTrusteeAllocationTx status=0x1 gas=100000 gasUsed=37844 costETH=0.000681192 costUSD=0.204947512272 @ ETH/USD=300.866 gasPrice=18000000000 block=75 txIx=0 txId=0x87530d0b734eee71e408596d6674f5d9578f4ba96352d38e80941440e21969fb @ 1509166829 Sat, 28 Oct 2017 05:00:29 UTC
+RESULT: reclaimTrusteeAllocationTx status=0x1 gas=100000 gasUsed=38823 costETH=0.000698814 costUSD=0.210249372924 @ ETH/USD=300.866 gasPrice=18000000000 block=110 txIx=0 txId=0xf53616dcca7de1e8d18b820c89668d48905e55588f1adb9845f8789eb376bac1 @ 1510564932 Mon, 13 Nov 2017 09:22:12 UTC
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      227.107971182000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.088020738000000000   559999800.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      332.206578674000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.183289104000000000   559999800.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976   119990.000000000000000000           0.000000000000000000 Account #2 - Wallet
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.004579524000000000           0.000000000000000000 Account #3 - Ops Account
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.007300008000000000           0.000000000000000000 Account #4 - Admin Account
-RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea  -100011.003985686000000000   200021999.900000000000000000 Account #5 - Whitelisted Phase 1
-RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9   -19979.003310560000000000    39957997.000000000000000000 Account #6 - Whitelisted Phase 2
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.006198444000000000           0.000000000000000000 Account #3 - Ops Account
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.008970066000000000           0.000000000000000000 Account #4 - Admin Account
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea  -100011.004014396000000000   200021999.900000000000000000 Account #5 - Whitelisted Phase 1
+RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9   -19979.003331944000000000    39957997.000000000000000000 Account #6 - Whitelisted Phase 2
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.100000000000000000 Account #7
-RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2       -0.000774666000000000           0.000000000000000000 Account #8
+RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2       -0.000774720000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           3.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10 - Revoke Account
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000       10000.000000000000000000 Account #11 - Presale 1
 RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.000000000000000000        9000.000000000000000000 Account #12 - Presale 2
-RESULT: 13 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
-RESULT: 14 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000        1200.000000000000000000 Trustee
-RESULT: 15 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 Sale
+RESULT: 13 0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b        0.000000000000000000           0.000000000000000000 Token 'ST' 'Simple Token'
+RESULT: 14 0x545b861c70089afcbee7c3e8ff00e1ab9e5be210        0.000000000000000000        1200.000000000000000000 Trustee
+RESULT: 15 0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc        0.000000000000000000           0.000000000000000000 Sale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                             800000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -1589,9 +1597,9 @@ undefined
 RESULT: PASS Reclaim Trustee Allocation
 1
 > 
-RESULT: tokenContractAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: tokenContractAddress=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-RESULT: token.opsAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: token.opsAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: token.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: token.symbol=ST
 RESULT: token.name=Simple Token
@@ -1600,44 +1608,45 @@ RESULT: token.totalSupply=800000000
 RESULT: token.DECIMALSFACTOR=1000000000000000000
 RESULT: token.TOKENS_MAX=800000000
 RESULT: token.finalized=true
-RESULT: Transfer 0 #75: _from=0x0e946b999033257976aa5cbe0e3530618ca1582d _to=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _value=439999800
+RESULT: Transfer 0 #110: _from=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210 _to=0xa11aae29840fbb5c86e6fd4cf809eba183aef433 _value=422484631
 undefined
 > 
-RESULT: trusteeContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: trusteeContractAddress=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: trustee.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: trustee.opsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
 RESULT: trustee.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
 RESULT: trustee.revokeAddress=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756
-RESULT: trustee.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: trustee.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
 RESULT: trustee.totalLocked=1200
-RESULT: TokensReclaimed 0 #75 {"_amount":"4.399998e+26"}
+RESULT: TokensReclaimed 0 #110 {"_amount":"4.22484631e+26"}
 undefined
 > 
-RESULT: saleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: saleContractAddress=0xb3c7d39fdd2e7dcd02b660b1a317ae06c7c915cc
 RESULT: sale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: sale.opsAddress=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
 RESULT: sale.adminAddress=0xa44a08d3f6933c69212114bb66e2df1813651844
-RESULT: sale.PHASE1_START_TIME=1509166747 Sat, 28 Oct 2017 04:59:07 UTC
-RESULT: sale.PHASE2_START_TIME=1509166777 Sat, 28 Oct 2017 04:59:37 UTC
-RESULT: sale.END_TIME=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.PHASE1_START_TIME=1510564858 Mon, 13 Nov 2017 09:20:58 UTC
+RESULT: sale.PHASE2_START_TIME=1510564888 Mon, 13 Nov 2017 09:21:28 UTC
+RESULT: sale.END_TIME=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.CONTRIBUTION_MIN=0.1
 RESULT: sale.CONTRIBUTION_MAX=100000
-RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=18000
+RESULT: sale.PHASE1_ACCOUNT_TOKENS_MAX=36000
 RESULT: sale.TOKENS_SALE=240000000
 RESULT: sale.TOKENS_FOUNDERS=80000000
 RESULT: sale.TOKENS_ADVISORS=80000000
-RESULT: sale.TOKENS_EARLY_INVESTORS=22441966
-RESULT: sale.TOKENS_ACCELERATOR_MAX=257558034
-RESULT: sale.TOKENS_FUTURE=120000000
-RESULT: sale.TOKENS_PER_KETHER=1800000
+RESULT: sale.TOKENS_EARLY_BACKERS=44884831
+RESULT: sale.TOKENS_ACCELERATOR=217600000
+RESULT: sale.TOKENS_FUTURE=137515169
+RESULT: sale.TOKENS_PER_KETHER=3600000
+RESULT: sale.PURCHASE_DIVIDER=1000
 RESULT: sale.finalized=true
-RESULT: sale.endTime=1509166837 Sat, 28 Oct 2017 05:00:37 UTC
+RESULT: sale.endTime=1512133199 Fri, 01 Dec 2017 12:59:59 UTC
 RESULT: sale.pausedTime=0 Thu, 01 Jan 1970 00:00:00 UTC
 RESULT: sale.tokensPerKEther=2000000
 RESULT: sale.phase1AccountTokensMax=20000
 RESULT: sale.wallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
-RESULT: sale.tokenContract=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
-RESULT: sale.trusteeContract=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: sale.tokenContract=0x354059c8c025b0bb359d8a9a6afaf1e550b2ea4b
+RESULT: sale.trusteeContract=0x545b861c70089afcbee7c3e8ff00e1ab9e5be210
 RESULT: sale.totalTokensSold=240000000
 RESULT: sale.totalPresaleBase=20000
 RESULT: sale.totalPresaleBonus=200

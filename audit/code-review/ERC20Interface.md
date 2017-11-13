@@ -11,10 +11,10 @@ Source file [../../contracts/ERC20Interface.sol](../../contracts/ERC20Interface.
 pragma solidity ^0.4.17;
 
 // ----------------------------------------------------------------------------
-// Simple Token Standard ERC20 Interface
+// Standard ERC20 Interface
 //
-// Copyright (c) 2017 Simple Token and Enuma Technologies.
-// http://www.simpletoken.com/
+// Copyright (c) 2017 OpenST Ltd.
+// https://simpletoken.org/
 //
 // The MIT Licence.
 // ----------------------------------------------------------------------------

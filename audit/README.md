@@ -6,6 +6,8 @@
 
 Bok Consulting Pty Ltd was commissioned to perform an audit on Simple Tokens's crowdsale and token Ethereum smart contract.
 
+<br />
+
 ### First Review
 This **first review** has been conducted on Simple Tokens's source code in commits
 [ed1c05d](https://github.com/SimpleTokenFoundation/SimpleTokenSale/commit/ed1c05df4ec51d8be2bbee601032aec536f9c4b1).
@@ -24,6 +26,15 @@ contracts were moved into the same directory as the other contracts and Ownable.
 
 In [1a1e863](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/1a1e863441ba0149d7585203f5dbc6e800af00cf), 
 two new contracts FutureTokenSaleLockBox.sol and ProcessableAllocations.sol were added.
+
+<br />
+
+### Third Review
+
+There are a lot of changes to the source code in commit
+[2c64a22](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/2c64a22008c3b7bf67204d50bf9b8b045fffc99d).
+
+<br />
 
 No potential vulnerabilities have been identified in the crowdsale and token contract.
 
@@ -80,7 +91,8 @@ No potential vulnerabilities have been identified in the crowdsale and token con
 * [Code Review](#code-review)
   * [First Code Review](#first-code-review)
   * [Second Code Review](#second-code-review)
-  * [New Contracts Code Review](#new-contracts-code-review)
+  * [Second Code Review - New Contracts](#second-code-review---new-contracts)
+  * [Third Code Review](#third-code-review)
   * [Not Reviewed](#not-reviewed)
   * [Permissions](#permissions)
     * [onlyOwner](#onlyowner)
@@ -186,9 +198,13 @@ No potential vulnerabilities have been identified in the crowdsale and token con
   check for `require(isOwner(msg.sender) || isAdmin(msg.sender));` in this function. This check will only be applicable if `opsAddress` is
   the same of either the `owner` or `adminAddress`. This check is only relevant when the token contract has not been finalised
 
+  * [x] Check added in [2c64a22](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/2c64a22008c3b7bf67204d50bf9b8b045fffc99d)
+
 * **LOW IMPORTANCE** `ProcessableAllocations.processProcessableAllocations()` has a **for** loop that iterates through the array of `grantees`.
   If this array holds too many entries, the gas required can exceed the Ethereum network block gas limit. Carefully check the gas limit for
   the intended number of grantees, and if this limit is too high, consider modifying this function to operate on subsets of the array
+
+  * [x] Check added in [2c64a22](https://github.com/OpenSTFoundation/SimpleTokenSale/commit/2c64a22008c3b7bf67204d50bf9b8b045fffc99d)
 
 <br />
 
@@ -339,7 +355,7 @@ Only some file reviewed fully.
 
 <br />
 
-### New Contracts Code Review
+### Second Code Review - New Contracts
 
 * [x] [code-review/FutureTokenSaleLockBox.md](code-review/FutureTokenSaleLockBox.md)
   * [x] contract TokenSaleInterface 
@@ -348,6 +364,48 @@ Only some file reviewed fully.
 * [x] [code-review/ProcessableAllocations.md](code-review/ProcessableAllocations.md)
   * [x] contract TrusteeInterface 
   * [x] contract ProcessableAllocations is Owned 
+
+<br />
+
+### Third Code Review
+
+* [x] [code-review/Owned.md](code-review/Owned.md)
+  * [x] contract Owned 
+* [x] [code-review/SafeMath.md](code-review/SafeMath.md)
+  * [x] library SafeMath
+* [x] [code-review/ERC20Interface.md](code-review/ERC20Interface.md)
+  * [x] contract ERC20Interface 
+* [x] [code-review/ERC20Token.md](code-review/ERC20Token.md)
+  * [x] contract ERC20Token is ERC20Interface, Owned
+    * [x] using SafeMath for uint256 
+* [x] [code-review/OpsManaged.md](code-review/OpsManaged.md)
+  * [x] contract OpsManaged is Owned 
+* [x] [code-review/Pausable.md](code-review/Pausable.md)
+  * [x] contract Pausable is OpsManaged 
+* [x] [code-review/SimpleTokenConfig.md](code-review/SimpleTokenConfig.md)
+  * [x] contract SimpleTokenConfig 
+* [x] [code-review/TokenSaleConfig.md](code-review/TokenSaleConfig.md)
+  * [x] contract TokenSaleConfig is SimpleTokenConfig 
+* [x] [code-review/SimpleToken.md](code-review/SimpleToken.md)
+  * [x] contract SimpleToken is ERC20Token, OpsManaged, SimpleTokenConfig 
+* [x] [code-review/TokenSale.md](code-review/TokenSale.md)
+  * [x] contract TokenSale is OpsManaged, Pausable, TokenSaleConfig
+    * [x] using SafeMath for uint256
+* [x] [code-review/Trustee.md](code-review/Trustee.md)
+  * [x] contract Trustee is OpsManaged
+    * [x] using SafeMath for uint256
+* [x] [code-review/FutureTokenSaleLockBox.md](code-review/FutureTokenSaleLockBox.md)
+  * [x] contract TokenSaleInterface 
+  * [x] contract FutureTokenSaleLockBox is Owned
+* [x] [code-review/ProcessableAllocations.md](code-review/ProcessableAllocations.md)
+  * [x] contract TrusteeInterface 
+  * [x] contract ProcessableAllocations is Owned 
+* [x] [code-review/grantableAllocations.md](code-review/grantableAllocations.md)
+  * [x] contract TrusteeInterface
+  * [x] contract GrantableAllocations is Owned
+* [x] [code-review/Presales.md](code-review/Presales.md)
+  * [x] contract TokenSaleInterface
+  * [x] contract Presales is Owned
 
 <br />
 
@@ -507,4 +565,4 @@ Trustee.sol:        if (isOps(msg.sender)) {
 
 <br />
 
-(c) BokkyPooBah / Bok Consulting Pty Ltd for Simple Token - Oct 27 2017. The MIT Licence.
+(c) BokkyPooBah / Bok Consulting Pty Ltd for Simple Token - Nov 14 2017. The MIT Licence.

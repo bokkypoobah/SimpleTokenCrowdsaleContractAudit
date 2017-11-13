@@ -11,10 +11,10 @@ Source file [../../contracts/ERC20Token.sol](../../contracts/ERC20Token.sol).
 pragma solidity ^0.4.17;
 
 // ----------------------------------------------------------------------------
-// Simple Token - Standard ERC20 Token Implementation
+// Standard ERC20 Token Implementation
 //
-// Copyright (c) 2017 Simple Token and Enuma Technologies.
-// http://www.simpletoken.com/
+// Copyright (c) 2017 OpenST Ltd.
+// https://simpletoken.org/
 //
 // The MIT Licence.
 // ----------------------------------------------------------------------------
@@ -38,7 +38,7 @@ contract ERC20Token is ERC20Interface, Owned {
     string  private tokenName;
     string  private tokenSymbol;
     uint8   private tokenDecimals;
-    uint256 private tokenTotalSupply;
+    uint256 internal tokenTotalSupply;
 
     mapping(address => uint256) balances;
     mapping(address => mapping (address => uint256)) allowed;
