@@ -42,7 +42,9 @@ No potential vulnerabilities have been identified in the crowdsale and token con
 
 ### Crowdsale Mainnet Addresses
 
-`TBA`
+* SimpleTokenSale - [0x58b7056deb51ed292614f0da1e94e7e9c589828d](https://etherscan.io/address/0x58b7056deb51ed292614f0da1e94e7e9c589828d)
+* SimpleToken - [0x2c4e8f2d746113d0696ce89b35f0d8bf88e0aeca](https://etherscan.io/token/0x2c4e8f2d746113d0696ce89b35f0d8bf88e0aeca)
+* SimpleTokenWallet  - [0x2ef2782905830533d218b7ff4d15b8c0981ce84b](https://etherscan.io/address/0x2ef2782905830533d218b7ff4d15b8c0981ce84b#internaltx)
 
 <br />
 
